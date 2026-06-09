@@ -1,0 +1,40 @@
+name: Site health
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    # Mondays 09:00 UTC
+    - cron: "0 9 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  health:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Internal integrity (sitemap, redirects, placeholders)
+        run: python scripts/check_internal.py
+
+      - name: Outbound link health (official VPN URLs)
+        run: python scripts/check_links.py
+
+      - name: Upload reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-health-reports
+          path: reports/
+          retention-days: 30

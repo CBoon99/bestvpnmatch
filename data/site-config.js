@@ -33,6 +33,11 @@ const VPN_HOME_LINKS = {
   astrill: "https://www.astrill.com"
 };
 
+/** Skipped by scripts/check_links.py — document reason; remove VPN from data when ready */
+const LINK_CHECK_EXEMPT = {
+  atlasvpn: "Atlas VPN discontinued (2024); domain offline — pending removal from comparison"
+};
+
 /** [savingsPct, regularMonthlyPrice] — verify on provider sites; last checked SITE_CONFIG.dataLastVerified */
 const VPN_SAVINGS = {
   nordvpn: [63, 11.99],
