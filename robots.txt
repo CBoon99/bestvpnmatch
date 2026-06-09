@@ -1,0 +1,43 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+Sitemap: https://bestvpnmatch.com/sitemap.xml
+
+# AI crawlers — explicit allow for full indexing
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+# LLM & AI agent discovery — explicit allow
+# Structured AI context: /llms.txt
+# Full data reference: /llms-full.txt
+# Agent rules: /agents.txt
+# Assistant brief: /ai.txt
+# JSON metadata: /.well-known/ai.json
+User-agent: *
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /agents.txt
+Allow: /ai.txt
+Allow: /.well-known/ai.json

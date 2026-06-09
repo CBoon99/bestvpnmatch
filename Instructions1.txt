@@ -1,0 +1,814 @@
+CLOCK STARTED — VPN COMPARISON
+Project: VPN Comparison — Weighted Score Affiliate Site
+Deadline: Unknown (but you're fast)
+Philosophy: Same engine as Fragrance Comparison, repurposed for VPNs with new metrics
+
+COMPLETE BUILD SPECIFICATION — VPN COMPARISON v1.0
+SECTION 1: DESIGN SYSTEM (Copy from fragrance but recolor)
+1.1 New Color Palette (Trust/Security/Privacy focus)
+css
+:root {
+  /* New palette — deep navy, tech green, privacy purple */
+  --bg-dark: #0a0c12;
+  --bg-card: #11131a;
+  --bg-elevated: #1a1d2b;
+  --text-primary: #f0f3f8;
+  --text-secondary: #8b93af;
+  --text-muted: #5a637c;
+  --accent-green: #00d26a;    /* speed, value, positive */
+  --accent-blue: #2b7fff;     /* privacy, security */
+  --accent-purple: #8b5cf6;   /* ethics, future-proofing */
+  --border: rgba(139, 147, 175, 0.15);
+  --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --success: #00d26a;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --radius: 16px;
+  --radius-sm: 8px;
+}
+1.2 Typography
+css
+--font-display: 'Inter', system-ui, -apple-system, sans-serif;
+--font-body: 'Inter', system-ui, -apple-system, sans-serif;
+/* Monospace for technical specs (servers, encryption) */
+--font-mono: 'JetBrains Mono', 'SF Mono', monospace;
+1.3 Animations (Cyber/Trust theme)
+css
+@keyframes pulseGreen {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0, 210, 106, 0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(0, 210, 106, 0); }
+}
+@keyframes shieldGlow {
+  from { filter: drop-shadow(0 0 0px var(--accent-blue)); }
+  to { filter: drop-shadow(0 0 12px var(--accent-blue)); }
+}
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+@keyframes rotateSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+SECTION 2: WEIGHTED SCORE FORMULA (THE SECRET SAUCE)
+2.1 Weights Table
+Category	Weight	Data Source	Why
+Speed (avg. % of advertised)	20%	Speed tests (local + international)	#1 reason people hate VPNs
+Privacy (logging policy)	25%	Audit reports, jurisdiction, transparency	Core VPN promise
+Security (encryption + protocols)	15%	AES-256, WireGuard, OpenVPN, RAM servers	Protection from threats
+Streaming (unblocks Netflix, BBC, etc.)	10%	Tested platforms	Top use case
+Value (price + features + devices)	10%	Cost per month, free trial, refund	Affiliate conversion driver
+Ethics & Ownership	10%	KAPE framework, transparency reports, founder history	Trust signal
+Apps & Multi-platform	5%	iOS, Android, Windows, Mac, Linux, routers	Coverage
+Simultaneous connections	5%	Device limit	Family/team usability
+2.2 Weighted Score Calculation
+javascript
+function calculateVPNScore(v) {
+  const weights = {
+    speed: 0.20,      // 0-100
+    privacy: 0.25,    // 0-100 (audit + no-logs + jurisdiction)
+    security: 0.15,   // 0-100
+    streaming: 0.10,  // 0-100 (how many platforms)
+    value: 0.10,      // 0-100
+    ethics: 0.10,     // 0-100 (transparency + ownership)
+    apps: 0.05,       // 0-100 (how many platforms)
+    connections: 0.05 // 0-100 (unlimited = 100, 10 = 80, 5 = 60)
+  };
+  
+  return Math.round(
+    v.speedScore * weights.speed +
+    v.privacyScore * weights.privacy +
+    v.securityScore * weights.security +
+    v.streamingScore * weights.streaming +
+    v.valueScore * weights.value +
+    v.ethicsScore * weights.ethics +
+    v.appsScore * weights.apps +
+    v.connectionsScore * weights.connections
+  );
+}
+2.3 Privacy Score Calculator
+javascript
+function calculatePrivacyScore(vpn) {
+  let score = 0;
+  
+  // No-logs audit (max 40 points)
+  if (vpn.auditType === 'independent') score += 40;
+  else if (vpn.auditType === 'self-published') score += 20;
+  else if (vpn.auditType === 'none') score += 0;
+  
+  // Jurisdiction (max 30 points)
+  const safeJurisdictions = ['Panama', 'Switzerland', 'Iceland', 'Malaysia', 'British Virgin Islands', 'Gibraltar'];
+  const mediumJurisdictions = ['Canada', 'Germany', 'Netherlands', 'Spain'];
+  if (safeJurisdictions.includes(vpn.jurisdiction)) score += 30;
+  else if (mediumJurisdictions.includes(vpn.jurisdiction)) score += 15;
+  else score += 5;
+  
+  // Warrant canary (10 points)
+  if (vpn.warrantCanary) score += 10;
+  
+  // RAM-only servers (10 points)
+  if (vpn.ramServers) score += 10;
+  
+  // Anonymous payment options (10 points)
+  if (vpn.acceptsCrypto) score += 5;
+  if (vpn.acceptsCash) score += 5;
+  
+  return score;
+}
+2.4 Ethics & Ownership Score
+javascript
+function calculateEthicsScore(vpn) {
+  let score = 0;
+  
+  // KAPE framework (Transparency)
+  // K = Known ownership (10 pts)
+  if (vpn.parentCompany !== 'Unknown') score += 10;
+  else score += 0;
+  
+  // A = Audits published (20 pts)
+  if (vpn.auditType === 'independent') score += 20;
+  else if (vpn.auditType === 'self-published') score += 10;
+  
+  // P = Past incidents (20 pts for none, -20 for breach)
+  if (vpn.pastBreaches === 'none') score += 20;
+  else if (vpn.pastBreaches === 'resolved') score += 5;
+  else if (vpn.pastBreaches === 'unresolved') score += -20;
+  
+  // E = Ethical leadership (20 pts)
+  if (vpn.founderBackground === 'transparent') score += 20;
+  else if (vpn.founderBackground === 'unknown') score += 5;
+  
+  // Bonus: Open source (20 pts)
+  if (vpn.openSource) score += 20;
+  
+  // Bonus: Non-profit or privacy foundation (10 pts)
+  if (vpn.nonProfit) score += 10;
+  
+  return Math.min(100, score);
+}
+2.5 Speed Score (vs advertised)
+javascript
+// Speed is measured as % of advertised bandwidth
+// Example: Advertised 100 Mbps, real 85 Mbps = 85% = 85 points
+function calculateSpeedScore(vpn) {
+  // Real-world speed as % of advertised
+  const percentOfAdvertised = (vpn.realSpeedMbps / vpn.advertisedSpeedMbps) * 100;
+  return Math.min(100, percentOfAdvertised);
+}
+SECTION 3: DATA MODEL (20+ VPNs)
+3.1 VPN Data Structure
+javascript
+const VPNS = [
+  {
+    id: "nordvpn",
+    name: "NordVPN",
+    logoIcon: "🛡️",
+    tagline: "The all-around security suite",
+    
+    // Speed metrics
+    advertisedSpeedMbps: 1000,
+    realSpeedMbps: 892,
+    speedScore: 89,
+    speedTestDate: "2026-01-15",
+    
+    // Privacy metrics
+    jurisdiction: "Panama",
+    noLogPolicy: true,
+    auditType: "independent", // independent, self-published, none
+    auditFirm: "Deloitte",
+    auditYear: 2024,
+    warrantCanary: true,
+    ramServers: true,
+    acceptsCrypto: true,
+    acceptsCash: false,
+    privacyScore: 94,
+    
+    // Security metrics
+    encryption: "AES-256-GCM",
+    protocols: ["NordLynx (WireGuard)", "OpenVPN", "IKEv2/IPsec"],
+    killSwitch: true,
+    dnsLeakProtection: true,
+    ipv6LeakProtection: true,
+    webRTCLeakProtection: true,
+    malwareBlocking: true,
+    adBlocking: true,
+    trackerBlocking: true,
+    doubleVpn: true,
+    torOverVpn: true,
+    obfuscatedServers: true,
+    securityScore: 92,
+    
+    // Streaming metrics
+    streamingPlatforms: ["Netflix", "Hulu", "Disney+", "BBC iPlayer", "Amazon Prime", "HBO Max"],
+    streamingScore: 95,
+    
+    // Apps & platforms
+    platforms: ["Windows", "macOS", "Linux", "iOS", "Android", "Android TV", "Fire TV", "Router"],
+    appsScore: 100,
+    
+    // Connections
+    simultaneousConnections: 10,
+    connectionsScore: 75, // 10 devices = 75/100 (unlimited = 100)
+    
+    // Value metrics
+    monthlyPrice: 3.39,
+    yearlyPrice: 59.88,
+    twoYearPrice: 83.76,
+    freeTrial: false,
+    moneyBackGuarantee: "30 days",
+    bestPlan: "2-year",
+    valueScore: 88,
+    
+    // Ethics metrics
+    parentCompany: "Nord Security",
+    founderBackground: "transparent",
+    pastBreaches: "none",
+    openSource: false,
+    nonProfit: false,
+    transparencyReport: "Quarterly",
+    ethicsScore: 85,
+    
+    // Overall
+    weightedScore: 0, // calculated
+    ranking: 0,
+    bestFor: "Overall security & streaming",
+    affiliateLink: "https://nordvpn.com/affiliate-link",
+    retailer: "NordVPN Direct",
+    tags: ["privacy", "streaming", "windows", "mac", "linux", "ios", "android", "router", "netflix", "bbc"],
+    pros: ["Massive server network", "Excellent security features", "Great for streaming", "24/7 live chat"],
+    cons: ["Desktop app can be slow", "Pricier than some alternatives"],
+    freePlan: false,
+    verifiedWorking: true
+  },
+  
+  {
+    id: "expressvpn",
+    name: "ExpressVPN",
+    logoIcon: "⚡",
+    tagline: "Speed and simplicity",
+    
+    advertisedSpeedMbps: 1000,
+    realSpeedMbps: 932,
+    speedScore: 93,
+    jurisdiction: "British Virgin Islands",
+    auditType: "independent",
+    auditFirm: "KPMG",
+    privacyScore: 96,
+    encryption: "AES-256",
+    protocols: ["Lightway", "OpenVPN", "IKEv2"],
+    securityScore: 90,
+    streamingScore: 98,
+    platforms: ["Windows", "macOS", "Linux", "iOS", "Android", "Router", "Apple TV"],
+    appsScore: 95,
+    simultaneousConnections: 8,
+    connectionsScore: 70,
+    monthlyPrice: 6.67,
+    yearlyPrice: 99.95,
+    bestPlan: "1-year",
+    valueScore: 82,
+    ethicsScore: 88,
+    weightedScore: 0,
+    tags: ["speed", "streaming", "beginner-friendly", "netflix", "bbc", "hulu"],
+    pros: ["Lightning fast", "Works in China", "Simple apps", "TrustedServer tech"],
+    cons: ["Expensive", "Only 8 connections", "No ad blocker"],
+    affiliateLink: "https://expressvpn.com/affiliate",
+    freePlan: false
+  },
+  
+  {
+    id: "surfshark",
+    name: "Surfshark",
+    logoIcon: "🦈",
+    tagline: "Unlimited devices, premium features",
+    
+    advertisedSpeedMbps: 1000,
+    realSpeedMbps: 876,
+    speedScore: 88,
+    jurisdiction: "Netherlands",
+    auditType: "independent",
+    auditFirm: "Deloitte",
+    privacyScore: 89,
+    securityScore: 88,
+    streamingScore: 92,
+    platforms: ["Windows", "macOS", "Linux", "iOS", "Android", "Fire TV", "Apple TV", "Router"],
+    appsScore: 100,
+    simultaneousConnections: "unlimited",
+    connectionsScore: 100,
+    monthlyPrice: 2.19,
+    yearlyPrice: 47.88,
+    twoYearPrice: 59.76,
+    bestPlan: "2-year",
+    valueScore: 94,
+    ethicsScore: 82,
+    weightedScore: 0,
+    tags: ["unlimited-devices", "budget", "privacy", "streaming", "netflix"],
+    pros: ["Unlimited simultaneous connections", "Very affordable", "CleanWeb ad blocker", "MultiHop connections"],
+    cons: ["Based in Netherlands (9 Eyes)", "Slower than ExpressVPN", "Smaller server network"],
+    affiliateLink: "https://surfshark.com/affiliate",
+    freePlan: false
+  },
+  
+  {
+    id: "protonvpn",
+    name: "Proton VPN",
+    logoIcon: "🧅",
+    tagline: "Privacy by default, from the makers of ProtonMail",
+    
+    advertisedSpeedMbps: 500,
+    realSpeedMbps: 412,
+    speedScore: 82,
+    jurisdiction: "Switzerland",
+    auditType: "independent",
+    auditFirm: "Securitum",
+    privacyScore: 98,
+    securityScore: 91,
+    streamingScore: 75,
+    platforms: ["Windows", "macOS", "Linux", "iOS", "Android", "Android TV", "Router"],
+    appsScore: 95,
+    simultaneousConnections: 10,
+    connectionsScore: 75,
+    monthlyPrice: 4.99,
+    yearlyPrice: 59.88,
+    twoYearPrice: 107.76,
+    bestPlan: "2-year",
+    valueScore: 85,
+    ethicsScore: 95,
+    weightedScore: 0,
+    tags: ["privacy", "switzerland", "open-source", "free-tier", "audited"],
+    pros: ["Based in Switzerland (strong privacy laws)", "Free tier available", "Secure Core servers", "Open source apps"],
+    cons: ["Free version is slow", "Smaller server network", "Streaming support limited"],
+    affiliateLink: "https://protonvpn.com/affiliate",
+    freePlan: true
+  },
+  
+  {
+    id: "mullvad",
+    name: "Mullvad",
+    logoIcon: "🦡",
+    tagline: "Serious privacy, anonymous signup",
+    
+    advertisedSpeedMbps: 1000,
+    realSpeedMbps: 845,
+    speedScore: 85,
+    jurisdiction: "Sweden",
+    auditType: "independent",
+    auditFirm: "Cure53",
+    privacyScore: 95,
+    securityScore: 94,
+    streamingScore: 60,
+    platforms: ["Windows", "macOS", "Linux", "iOS", "Android", "Router"],
+    appsScore: 90,
+    simultaneousConnections: 5,
+    connectionsScore: 60,
+    monthlyPrice: 5.00,
+    yearlyPrice: 60.00,
+    bestPlan: "Monthly (same price)",
+    valueScore: 75,
+    ethicsScore: 98,
+    weightedScore: 0,
+    tags: ["privacy", "anonymous", "open-source", "audited", "no-logs"],
+    pros: ["Anonymous signup (account number, no email)", "Accepts cash and crypto", "Open source", "Independent audits"],
+    cons: ["Not great for streaming", "Small server network", "No live chat support"],
+    affiliateLink: "https://mullvad.net/affiliate",
+    freePlan: false
+  },
+  
+  {
+    id: "ivacy",
+    name: "Ivacy",
+    logoIcon: "🔒",
+    tagline: "Budget streaming specialist",
+    
+    advertisedSpeedMbps: 500,
+    realSpeedMbps: 398,
+    speedScore: 80,
+    jurisdiction: "Singapore",
+    auditType: "none",
+    privacyScore: 65,
+    securityScore: 72,
+    streamingScore: 88,
+    platforms: ["Windows", "macOS", "iOS", "Android", "Linux", "Router"],
+    appsScore: 85,
+    simultaneousConnections: 10,
+    connectionsScore: 75,
+    monthlyPrice: 1.16,
+    yearlyPrice: 26.88,
+    bestPlan: "5-year",
+    valueScore: 92,
+    ethicsScore: 60,
+    weightedScore: 0,
+    tags: ["budget", "streaming", "netflix", "torrenting"],
+    pros: ["Very cheap", "Good for streaming", "10 simultaneous connections"],
+    cons: ["No independent audit", "Smaller server network", "Based in Singapore (part of 14 Eyes)"],
+    affiliateLink: "https://ivacy.com/affiliate",
+    freePlan: false
+  },
+  
+  // Add 10+ more: CyberGhost, PIA, TunnelBear, Hotspot Shield, Windscribe, IPVanish, VyprVPN, PrivateVPN, Atlas VPN, Hide.me
+];
+3.2 Extended VPN List (to reach 15+)
+javascript
+const MORE_VPNS = [
+  {
+    id: "cyberghost",
+    name: "CyberGhost",
+    logoIcon: "👻",
+    tagline: "Streaming-optimized servers",
+    jurisdiction: "Romania",
+    auditType: "self-published",
+    privacyScore: 75,
+    speedScore: 83,
+    securityScore: 80,
+    streamingScore: 94,
+    valueScore: 86,
+    ethicsScore: 70,
+    simultaneousConnections: 7,
+    connectionsScore: 65,
+    monthlyPrice: 2.19,
+    bestPlan: "2-year",
+    affiliateLink: "https://cyberghost.com/affiliate",
+    tags: ["streaming", "beginner", "netflix", "bbc", "hulu"]
+  },
+  {
+    id: "pia",
+    name: "Private Internet Access (PIA)",
+    logoIcon: "🔐",
+    tagline: "Open source with proven no-logs",
+    jurisdiction: "USA",
+    auditType: "independent",
+    privacyScore: 82,
+    speedScore: 87,
+    securityScore: 91,
+    streamingScore: 78,
+    valueScore: 89,
+    ethicsScore: 75,
+    simultaneousConnections: "unlimited",
+    connectionsScore: 100,
+    monthlyPrice: 2.19,
+    bestPlan: "2-year",
+    affiliateLink: "https://pia.com/affiliate",
+    tags: ["open-source", "unlimited", "torrenting", "advanced"]
+  },
+  {
+    id: "windscribe",
+    name: "Windscribe",
+    logoIcon: "💨",
+    tagline: "Generous free tier + custom plans",
+    jurisdiction: "Canada",
+    auditType: "independent",
+    privacyScore: 85,
+    speedScore: 79,
+    securityScore: 83,
+    streamingScore: 72,
+    valueScore: 90,
+    ethicsScore: 80,
+    simultaneousConnections: "unlimited",
+    connectionsScore: 100,
+    monthlyPrice: 5.75,
+    bestPlan: "Build-a-Plan ($1/mo per location)",
+    affiliateLink: "https://windscribe.com/affiliate",
+    freePlan: true,
+    tags: ["free-tier", "unlimited", "customizable", "privacy"]
+  },
+  {
+    id: "hide_me",
+    name: "hide.me",
+    logoIcon: "🙈",
+    tagline: "Free tier with no logs",
+    jurisdiction: "Malaysia",
+    auditType: "independent",
+    privacyScore: 92,
+    speedScore: 76,
+    securityScore: 85,
+    streamingScore: 65,
+    valueScore: 84,
+    ethicsScore: 85,
+    simultaneousConnections: 10,
+    connectionsScore: 75,
+    monthlyPrice: 4.95,
+    bestPlan: "1-year",
+    affiliateLink: "https://hide.me/affiliate",
+    freePlan: true,
+    tags: ["free-tier", "malaysia", "privacy", "no-logs"]
+  },
+  {
+    id: "atlasvpn",
+    name: "Atlas VPN",
+    logoIcon: "🌍",
+    tagline: "NordSecurity budget brand",
+    jurisdiction: "USA",
+    auditType: "independent",
+    privacyScore: 78,
+    speedScore: 84,
+    securityScore: 82,
+    streamingScore: 85,
+    valueScore: 91,
+    ethicsScore: 72,
+    simultaneousConnections: "unlimited",
+    connectionsScore: 100,
+    monthlyPrice: 1.99,
+    bestPlan: "1-year",
+    affiliateLink: "https://atlasvpn.com/affiliate",
+    tags: ["budget", "unlimited", "streaming", "nord-security"]
+  },
+  {
+    id: "ipvanish",
+    name: "IPVanish",
+    logoIcon: "🗑️",
+    tagline: "Owns its server network",
+    jurisdiction: "USA",
+    auditType: "none",
+    privacyScore: 65,
+    speedScore: 86,
+    securityScore: 84,
+    streamingScore: 76,
+    valueScore: 80,
+    ethicsScore: 65,
+    simultaneousConnections: "unlimited",
+    connectionsScore: 100,
+    monthlyPrice: 3.33,
+    bestPlan: "1-year",
+    affiliateLink: "https://ipvanish.com/affiliate",
+    tags: ["unlimited", "usa", "owns-servers", "speed"]
+  },
+  {
+    id: "vyprvpn",
+    name: "VyprVPN",
+    logoIcon: "🐉",
+    tagline: "Chameleon protocol for restrictive networks",
+    jurisdiction: "Switzerland",
+    auditType: "self-published",
+    privacyScore: 88,
+    speedScore: 82,
+    securityScore: 88,
+    streamingScore: 70,
+    valueScore: 75,
+    ethicsScore: 78,
+    simultaneousConnections: 5,
+    connectionsScore: 60,
+    monthlyPrice: 5.00,
+    bestPlan: "1-year",
+    affiliateLink: "https://vyprvpn.com/affiliate",
+    tags: ["switzerland", "china", "obfuscation", "protocol"]
+  },
+  {
+    id: "privatevpn",
+    name: "PrivateVPN",
+    logoIcon: "🔒",
+    tagline: "Small but mighty",
+    jurisdiction: "Sweden",
+    auditType: "none",
+    privacyScore: 72,
+    speedScore: 78,
+    securityScore: 80,
+    streamingScore: 88,
+    valueScore: 88,
+    ethicsScore: 70,
+    simultaneousConnections: 10,
+    connectionsScore: 75,
+    monthlyPrice: 2.00,
+    bestPlan: "1-year",
+    affiliateLink: "https://privatevpn.com/affiliate",
+    tags: ["streaming", "budget", "netflix", "bbc"]
+  },
+  {
+    id: "tunnelbear",
+    name: "TunnelBear",
+    logoIcon: "🐻",
+    tagline: "Simple, audited, whimsical",
+    jurisdiction: "Canada",
+    auditType: "independent",
+    privacyScore: 85,
+    speedScore: 70,
+    securityScore: 82,
+    streamingScore: 55,
+    valueScore: 70,
+    ethicsScore: 82,
+    simultaneousConnections: 5,
+    connectionsScore: 60,
+    monthlyPrice: 3.33,
+    bestPlan: "1-year",
+    affiliateLink: "https://tunnelbear.com/affiliate",
+    freePlan: true,
+    tags: ["beginner", "audited", "free-tier", "whimsical"]
+  },
+  {
+    id: "hotspotshield",
+    name: "Hotspot Shield",
+    logoIcon: "🛡️",
+    tagline: "Proprietary Catapult Hydra protocol",
+    jurisdiction: "USA",
+    auditType: "self-published",
+    privacyScore: 68,
+    speedScore: 91,
+    securityScore: 78,
+    streamingScore: 82,
+    valueScore: 75,
+    ethicsScore: 60,
+    simultaneousConnections: 5,
+    connectionsScore: 60,
+    monthlyPrice: 2.99,
+    bestPlan: "1-year",
+    affiliateLink: "https://hotspotshield.com/affiliate",
+    freePlan: true,
+    tags: ["speed", "free-tier", "streaming", "usa"]
+  }
+];
+SECTION 4: UI COMPONENTS (VPN-SPECIFIC)
+4.1 Hero Section (Trust-first messaging)
+html
+<section class="hero">
+  <div class="hero__grid">
+    <div class="hero__copy">
+      <p class="hero__eyebrow">⚡ Independent VPN Testing · Real Speeds · Real Privacy</p>
+      <h1 class="hero__title">VPN Comparison</h1>
+      <p class="hero__tagline">Find the fastest, most private VPN for your needs — no marketing fluff.</p>
+      <p class="hero__sub">We test speed, privacy, streaming, and ethics. Our weighted score cuts through the hype.</p>
+      <ul class="hero__stats">
+        <li>📊 Real speed tests (not advertised)</li>
+        <li>🔒 Independent audit verification</li>
+        <li>⚖️ KAPE ethics framework</li>
+        <li>💰 Best value for your budget</li>
+        <li>🌍 20+ VPNs compared</li>
+      </ul>
+      <div class="hero__search-wrap">
+        <input type="search" id="search" placeholder="Search by VPN name, feature, or use case (Netflix, China, Torrenting)...">
+      </div>
+      <div class="hero__ctas">
+        <a href="#scorecards" class="btn btn--primary">See Top Rated VPNs</a>
+        <a href="#compare" class="btn btn--secondary">Full Comparison Table</a>
+      </div>
+    </div>
+    <div class="hero__visual">
+      <div class="shield-stack">
+        <div class="shield-icon">🛡️</div>
+        <div class="speed-meter">
+          <span>Speed test: 892 Mbps</span>
+          <div class="speed-bar" style="width: 89%"></div>
+        </div>
+        <div class="privacy-badge">🔒 No-logs audited</div>
+      </div>
+    </div>
+  </div>
+</section>
+4.2 Trust Indicators (Critical for VPN conversions)
+html
+<div class="trust-row">
+  <div class="trust-item">✅ 20+ VPNs tested</div>
+  <div class="trust-item">📋 15+ audit reports reviewed</div>
+  <div class="trust-item">⚡ 10,000+ speed tests conducted</div>
+  <div class="trust-item">🔓 30+ streaming platforms verified</div>
+  <div class="trust-item">🌐 Independent · No paid placement</div>
+</div>
+4.3 Scorecard (VPN-specific metrics)
+html
+<article class="scorecard">
+  <div class="scorecard__top-row">
+    <span class="scorecard__rank">#1</span>
+    <div class="scorecard__weighted">94<span>/100</span></div>
+  </div>
+  <div class="scorecard__header">
+    <span class="scorecard__icon">🛡️</span>
+    <h3 class="scorecard__name">NordVPN</h3>
+    <span class="scorecard__badge">Best Overall</span>
+  </div>
+  <div class="scorecard__metrics-grid">
+    <div class="metric">
+      <span class="metric__label">Speed</span>
+      <div class="metric__bar"><div style="width: 89%"></div></div>
+      <span class="metric__value">892 Mbps</span>
+    </div>
+    <div class="metric">
+      <span class="metric__label">Privacy</span>
+      <span class="metric__score">94<span>/100</span></span>
+    </div>
+    <div class="metric">
+      <span class="metric__label">Streaming</span>
+      <span class="metric__score">95<span>/100</span></span>
+    </div>
+    <div class="metric">
+      <span class="metric__label">Value</span>
+      <span class="metric__value">$3.39/mo</span>
+    </div>
+  </div>
+  <div class="scorecard__pros-cons">
+    <ul class="pros">✅ 5,400+ servers in 60 countries</ul>
+    <ul class="cons">⚠️ Pricier than budget options</ul>
+  </div>
+  <a href="{affiliateLink}" class="btn btn--primary">Get NordVPN →</a>
+  <p class="scorecard__disclaimer">30-day money-back guarantee · Affiliate link</p>
+</article>
+4.4 Comparison Table (Simplified for VPNs)
+html
+<table class="comparison-table">
+  <thead>
+    <tr>
+      <th>VPN</th>
+      <th>Our Score</th>
+      <th>Speed (Mbps)</th>
+      <th>Privacy</th>
+      <th>Streaming</th>
+      <th>Price / mo</th>
+      <th>Connections</th>
+      <th>Deal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- Dynamically populated -->
+  </tbody>
+</table>
+4.5 Detailed VPN Page Template (Future)
+html
+<section class="vpn-detail">
+  <div class="vpn-header">
+    <h1>NordVPN Review</h1>
+    <div class="vpn-score">94/100 — Best Overall</div>
+  </div>
+  
+  <div class="vpn-grid">
+    <div class="vpn-pros-cons">
+      <div class="pros">✅ 5,400+ servers</div>
+      <div class="pros">✅ No-logs audited by Deloitte</div>
+      <div class="cons">⚠️ Desktop app can be sluggish</div>
+    </div>
+    
+    <div class="vpn-metrics">
+      <h3>Speed Test Results</h3>
+      <div class="speed-chart">
+        <div>UK: 892 Mbps</div>
+        <div>US: 745 Mbps</div>
+        <div>Japan: 512 Mbps</div>
+        <div>Australia: 423 Mbps</div>
+      </div>
+    </div>
+    
+    <div class="vpn-privacy">
+      <h3>Privacy & Logging</h3>
+      <ul>
+        <li>Jurisdiction: Panama (privacy-friendly)</li>
+        <li>Audit: Deloitte, 2024 — passed</li>
+        <li>Warrant canary: Active</li>
+        <li>RAM-only servers: Yes</li>
+        <li>Accepts crypto: Yes (BTC, ETH, XRP)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+SECTION 5: FILTERS & TAGS (VPN-SPECIFIC)
+5.1 Filter Buttons
+html
+<div class="filters">
+  <!-- Use Case Filters -->
+  <button data-filter="streaming">📺 Streaming (Netflix, BBC)</button>
+  <button data-filter="torrenting">🏴‍☠️ Torrenting / P2P</button>
+  <button data-filter="china">🇨🇳 Works in China</button>
+  <button data-filter="gaming">🎮 Gaming (low ping)</button>
+  
+  <!-- Privacy Filters -->
+  <button data-filter="no-logs-audited">🔒 No-logs audited</button>
+  <button data-filter="ram-servers">💾 RAM-only servers</button>
+  <button data-filter="open-source">📖 Open source</button>
+  
+  <!-- Value Filters -->
+  <button data-filter="free-tier">🆓 Has free tier</button>
+  <button data-filter="under-3">💰 Under $3/month</button>
+  <button data-filter="under-5">💰 Under $5/month</button>
+  <button data-filter="money-back">🔄 30+ day money-back</button>
+  
+  <!-- Technical Filters -->
+  <button data-filter="wireguard">🔧 WireGuard protocol</button>
+  <button data-filter="unlimited-devices">📱 Unlimited devices</button>
+  <button data-filter="linux">🐧 Linux app</button>
+  <button data-filter="router">📡 Router support</button>
+  
+  <!-- Ethics Filters -->
+  <button data-filter="independent-audit">📋 Independent audit</button>
+  <button data-filter="non-profit">❤️ Non-profit / Foundation</button>
+  <button data-filter="panama-jurisdiction">🌎 Panama jurisdiction</button>
+  <button data-filter="switzerland-jurisdiction">🇨🇭 Switzerland jurisdiction</button>
+</div>
+5.2 Tag System for Each VPN
+javascript
+const tagMap = {
+  // Use cases
+  streaming: ['NordVPN', 'ExpressVPN', 'Surfshark', 'CyberGhost', 'Ivacy'],
+  torrenting: ['NordVPN', 'PIA', 'Mullvad', 'Windscribe', 'ProtonVPN'],
+  china: ['ExpressVPN', 'NordVPN', 'VyprVPN', 'Astrill'],
+  gaming: ['ExpressVPN', 'NordVPN', 'Hotspot Shield'],
+  
+  // Privacy
+  noLogsAudited: ['NordVPN', 'ExpressVPN', 'Surfshark', 'Mullvad', 'ProtonVPN', 'PIA', 'Windscribe'],
+  ramServers: ['NordVPN', 'ExpressVPN', 'Surfshark', 'ProtonVPN'],
+  openSource: ['Mullvad', 'ProtonVPN', 'PIA', 'Windscribe'],
+  
+  // Value
+  freeTier: ['ProtonVPN', 'Windscribe', 'hide.me', 'TunnelBear', 'Hotspot Shield'],
+  underThree: ['Surfshark', 'CyberGhost', 'PIA', 'Ivacy', 'AtlasVPN'],
+  underFive: ['NordVPN', 'ExpressVPN (sale)', 'ProtonVPN', 'Mullvad'],
+  
+  // Ethics
+  independentAudit: ['NordVPN', 'ExpressVPN', 'Surfshark', 'Mullvad', 'ProtonVPN', 'PIA', 'Windscribe'],
+  nonProfit: ['Mullvad (near-non-profit)', 'Proton (foundation)'],
+  panamaJurisdiction: ['NordVPN'],
+  switzerland
+This response is AI-generated, for reference only.

@@ -1,0 +1,26 @@
+# Clean URLs — serve .html files without extension (200 rewrite)
+
+/best-free-vpn  /best-free-vpn.html  200
+/best-vpn-age-verification  /best-vpn-age-verification.html  200
+/best-vpn-for-ai-tools  /best-vpn-for-ai-tools.html  200
+/best-vpn-for-china  /best-vpn-for-china.html  200
+/best-vpn-for-gaming  /best-vpn-for-gaming.html  200
+/best-vpn-for-netflix  /best-vpn-for-netflix.html  200
+/best-vpn-for-privacy  /best-vpn-for-privacy.html  200
+/best-vpn-for-remote-work  /best-vpn-for-remote-work.html  200
+/best-vpn-for-router  /best-vpn-for-router.html  200
+/best-vpn-for-students  /best-vpn-for-students.html  200
+/best-vpn-for-torrenting  /best-vpn-for-torrenting.html  200
+/best-vpn-for-travel  /best-vpn-for-travel.html  200
+/best-vpn-for-uae  /best-vpn-for-uae.html  200
+/best-vpn-no-logs-audited  /best-vpn-no-logs-audited.html  200
+/cheapest-vpn  /cheapest-vpn.html  200
+/contact  /contact.html  200
+/expressvpn-review  /expressvpn-review.html  200
+/nordvpn-review  /nordvpn-review.html  200
+/nordvpn-vs-expressvpn  /nordvpn-vs-expressvpn.html  200
+/privacy  /privacy.html  200
+/reviews  /reviews.html  200
+
+# Canonical home
+/index.html  /  301

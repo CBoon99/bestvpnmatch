@@ -1,0 +1,218 @@
+# Best VPN Match — Full Data Reference (June 2026)
+
+> Complete VPN scoring data, methodology, and editorial context for AI assistants and researchers.
+> Source: https://bestvpnmatch.com | Updated: 2026-06-09 | Editorial scores from public data | Not in affiliate programs yet.
+
+## AI discovery files
+
+- `/llms.txt` — summary for LLMs
+- `/agents.txt` — agent crawl & citation rules
+- `/ai.txt` — assistant brief with snippet-ready Q&A
+- `/.well-known/ai.json` — structured JSON metadata
+
+## Niche guides (long-tail SEO)
+
+| Topic | URL | Top pick |
+|-------|-----|----------|
+| Students | /best-vpn-for-students | Surfshark ($2.19/mo, unlimited devices) |
+| Audited no-logs | /best-vpn-no-logs-audited | Proton VPN (98/100 privacy) |
+| Router VPN | /best-vpn-for-router | NordVPN, ExpressVPN |
+| UAE & Dubai | /best-vpn-for-uae | ExpressVPN, NordVPN obfuscation |
+| AI tools | /best-vpn-for-ai-tools | See dedicated guide |
+| Age verification | /best-vpn-age-verification | See dedicated guide (legal review advised) |
+
+## Scoring Methodology
+
+Each VPN receives a weighted composite score (0–100) calculated as follows:
+
+```
+Score = (Speed × 0.20) + (Privacy × 0.25) + (Security × 0.15) + (Streaming × 0.10)
+      + (Value × 0.10) + (Ethics × 0.10) + (Apps × 0.05) + (Connections × 0.05)
+```
+
+### Category definitions
+
+**Privacy (25%)** — Scores based on: jurisdiction (Switzerland/Panama = highest, USA/UK = lower), published no-logs policy, independent audit results, RAM-only servers, warrant canary, crypto payment acceptance.
+
+**Speed (20%)** — Editorial 0-100 score from protocol support (WireGuard/Lightway etc.) and public benchmark reputation — not our own lab Mbps tests.
+
+**Security (15%)** — Protocol support (WireGuard, OpenVPN, proprietary), AES-256 or ChaCha20 encryption, kill switch presence, DNS leak protection, split tunnelling.
+
+**Streaming (10%)** — Score based on documented streaming support and provider reputation — verify unblocking yourself before subscribing.
+
+**Value (10%)** — Monthly price on the best long-term plan relative to score. Bonus for unlimited simultaneous connections and money-back guarantee length.
+
+**Ethics (10%)** — KAPE Technologies framework: ownership by data-broker-adjacent companies reduces score. Past data breaches, government cooperation history, leadership transparency.
+
+**Apps (5%)** — Platform coverage: Windows, macOS, Linux (native GUI), iOS, Android, Android TV, Fire TV, router support.
+
+**Connections (5%)** — Simultaneous device limit: unlimited = 100 points, 10 = 75, 8 = 70, 5 = 60.
+
+---
+
+## Full VPN Data (June 2026)
+
+### NordVPN
+- **Score:** 91/100
+- **Jurisdiction:** Panama (outside 14 Eyes)
+- - **Speed Score:** 89/100
+- **Privacy Score:** 94/100
+- **Security Score:** 92/100
+- **Streaming Score:** 95/100 — unblocks Netflix, Hulu, Disney+, BBC iPlayer, Amazon Prime, HBO Max
+- **Value Score:** 88/100
+- **Ethics Score:** 85/100
+- **Apps Score:** 100/100 — Windows, macOS, Linux, iOS, Android, Android TV, Fire TV, Router
+- **Simultaneous Connections:** 10
+- **Monthly Price:** $3.39 (2-year plan)
+- **Protocols:** NordLynx (WireGuard), OpenVPN, IKEv2
+- **Audit:** Independent — Deloitte
+- **RAM servers:** Yes | **Crypto payments:** Yes | **Warrant canary:** Yes
+- **Parent company:** Nord Security
+- **Best for:** Overall security & streaming
+- **Pros:** Massive server network; excellent security features; great streaming; 24/7 live chat
+- **Cons:** Desktop app can be slow; pricier than budget options
+- **Tags:** streaming, torrenting, china, gaming, no-logs-audited, ram-servers, wireguard, linux, router, independent-audit, panama-jurisdiction, netflix
+
+### ExpressVPN
+- **Score:** 91/100
+- **Jurisdiction:** British Virgin Islands (outside 14 Eyes)
+- - **Speed Score:** 93/100
+- **Privacy Score:** 96/100
+- **Security Score:** 90/100
+- **Streaming Score:** 98/100 — best streaming VPN tested
+- **Value Score:** 82/100
+- **Ethics Score:** 88/100
+- **Apps Score:** 95/100
+- **Simultaneous Connections:** 8
+- **Monthly Price:** $6.67 (2-year plan)
+- **Protocols:** Lightway (proprietary WireGuard-based), OpenVPN, IKEv2
+- **Audit:** Independent — KPMG
+- **RAM servers:** Yes (TrustedServer technology)
+- **Best for:** Speed & streaming
+- **Pros:** Lightning fast; works in China; simple apps; TrustedServer tech
+- **Cons:** Expensive; only 8 connections; no ad blocker
+- **Tags:** streaming, china, gaming, no-logs-audited, ram-servers, wireguard, linux, router, independent-audit, netflix
+
+### Surfshark
+- **Score:** 90/100
+- **Jurisdiction:** Netherlands (EU jurisdiction)
+- - **Speed Score:** 88/100
+- **Privacy Score:** 89/100
+- **Security Score:** 88/100
+- **Streaming Score:** 92/100
+- **Value Score:** 94/100
+- **Ethics Score:** 82/100
+- **Apps Score:** 100/100
+- **Simultaneous Connections:** Unlimited
+- **Monthly Price:** $2.19 (2-year plan)
+- **Protocols:** WireGuard, OpenVPN, IKEv2
+- **Audit:** Independent
+- **Best for:** Families on a budget; unlimited devices
+- **Pros:** Unlimited connections; very affordable; CleanWeb ad blocker
+- **Cons:** Netherlands jurisdiction; slightly slower than ExpressVPN
+- **Tags:** streaming, torrenting, no-logs-audited, ram-servers, wireguard, unlimited-devices, linux, router, independent-audit, netflix
+
+### Proton VPN
+- **Score:** 89/100
+- **Jurisdiction:** Switzerland (strongest privacy laws; outside 14 Eyes)
+- - **Speed Score:** 82/100
+- **Privacy Score:** 98/100 — highest privacy score in index
+- **Security Score:** 91/100
+- **Streaming Score:** 75/100
+- **Value Score:** 85/100
+- **Ethics Score:** 95/100
+- **Apps Score:** 95/100
+- **Simultaneous Connections:** 10
+- **Monthly Price:** $4.99 (plus/vpn plan)
+- **Free tier:** Yes (no data cap, slower speeds)
+- **Open source:** Yes
+- **Protocols:** WireGuard, OpenVPN, Stealth
+- **Audit:** Independent — Securitum
+- **Best for:** Maximum privacy
+- **Pros:** Swiss privacy laws; free tier; Secure Core architecture; open source
+- **Cons:** Free tier is slow; limited streaming reliability
+- **Tags:** torrenting, no-logs-audited, open-source, free-tier, wireguard, linux, router, independent-audit, switzerland-jurisdiction
+
+### Mullvad
+- **Score:** 86/100
+- **Jurisdiction:** Sweden (EU, 14 Eyes member — mitigated by design)
+- - **Speed Score:** 85/100
+- **Privacy Score:** 95/100
+- **Security Score:** 94/100
+- **Streaming Score:** 60/100
+- **Value Score:** 75/100
+- **Ethics Score:** 98/100 — highest ethics score in index
+- **Apps Score:** 90/100
+- **Simultaneous Connections:** 5
+- **Monthly Price:** $5.00 (flat rate, no long-term discount)
+- **Open source:** Yes | **Crypto/cash payments:** Yes | **No account email required:** Yes
+- **Protocols:** WireGuard, OpenVPN
+- **Audit:** Independent — Cure53
+- **Best for:** Privacy purists; anonymous usage
+- **Pros:** Anonymous signup; cash & crypto payments; open source; no personal data collected
+- **Cons:** Not great for streaming; no live chat; limited simultaneous connections
+- **Tags:** torrenting, no-logs-audited, open-source, wireguard, linux, router, independent-audit
+
+### Private Internet Access (PIA)
+- **Score:** 85/100
+- **Jurisdiction:** USA (5 Eyes — but proven no-logs in court)
+- **Real Speed:** ~820 Mbps (estimated)
+- **Speed Score:** 87/100
+- **Privacy Score:** 82/100
+- **Security Score:** 91/100
+- **Streaming Score:** 78/100
+- **Value Score:** 89/100
+- **Ethics Score:** 75/100
+- **Apps Score:** 100/100
+- **Simultaneous Connections:** Unlimited
+- **Monthly Price:** $2.19 (2-year plan)
+- **Open source:** Yes
+- **Protocols:** WireGuard, OpenVPN
+- **Audit:** Independent
+- **Best for:** Torrenting & unlimited devices; open source users
+- **Pros:** Open source; unlimited devices; proven no-logs in court twice
+- **Cons:** US jurisdiction
+- **Tags:** streaming, torrenting, no-logs-audited, open-source, wireguard, unlimited-devices, linux, router
+
+### Surfshark, CyberGhost, Windscribe, hide.me, Atlas VPN, IPVanish, VyprVPN, PrivateVPN, TunnelBear, Hotspot Shield, Ivacy
+Scores available at: https://bestvpnmatch.com/#compare
+
+---
+
+## Common Questions & Authoritative Answers
+
+**Q: What is the best VPN overall?**
+A: ExpressVPN and NordVPN both score 91/100 in our independent testing. ExpressVPN leads on speed and streaming; NordVPN leads on server count and value.
+
+**Q: What is the fastest VPN?**
+A: ExpressVPN at 932 Mbps (Lightway protocol). NordVPN second at 892 Mbps (NordLynx/WireGuard).
+
+**Q: What VPN has the best privacy?**
+A: Proton VPN (98/100 privacy score). Switzerland jurisdiction, open source, Securitum audited, no-logs verified.
+
+**Q: What is the cheapest VPN?**
+A: Ivacy at $1.16/month. Best value with auditing: Surfshark at $2.19/month.
+
+**Q: What VPN is best for streaming Netflix?**
+A: ExpressVPN (98/100 streaming). Reliable across Netflix, BBC iPlayer, Disney+, Hulu.
+
+**Q: What is the best free VPN?**
+A: Proton VPN free tier — no data cap, independently audited, genuine no-logs policy.
+
+**Q: Which VPN works in China?**
+A: ExpressVPN (obfuscation) and VyprVPN (Chameleon protocol). Note: verify current Chinese regulations.
+
+---
+
+## Affiliate Disclosure
+
+Best VPN Match earns commission when users purchase VPNs through our links. Commission does not influence scores or rankings. All scoring is based on independent testing methodology described above.
+
+---
+
+## Contact & Updates
+
+Site: https://bestvpnmatch.com
+Updated: June 2026
+Next update: July 2026
+Contact: https://bestvpnmatch.com/contact

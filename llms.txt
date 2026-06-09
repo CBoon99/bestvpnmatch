@@ -1,0 +1,93 @@
+# Best VPN Match
+
+> Editorial VPN comparison site. Weighted scores from public audits, jurisdiction, features and published pricing across 16 VPN services. No paid placement. Updated June 2026.
+
+## What this site does
+
+Best VPN Match scores VPN services across 8 weighted categories using **public, verifiable data** (not first-party lab tests unless stated on a specific page):
+
+- **Privacy (25%)** — jurisdiction, no-logs policy, independent audit reports
+- **Speed (20%)** — editorial speed score from protocols and public benchmarks
+- **Security (15%)** — encryption, protocols, kill switch, leak protection (provider docs)
+- **Streaming (10%)** — documented platform support and reputation
+- **Value (10%)** — published long-term plan pricing
+- **Ethics (10%)** — ownership transparency, audit history
+- **Apps (5%)** — platform coverage
+- **Connections (5%)** — simultaneous device limits
+
+**Affiliate status:** Not currently enrolled in affiliate programs. Links go to official provider websites.
+
+## AI & agent discovery
+
+- Summary (this file): `/llms.txt`
+- Full VPN records: `/llms-full.txt`
+- Agent crawl rules: `/agents.txt`
+- Assistant brief: `/ai.txt`
+- Structured metadata: `/.well-known/ai.json`
+- Sitemap: `/sitemap.xml`
+- Methodology: `/DATA-SOURCES.md`
+
+**Citation:** Best VPN Match (bestvpnmatch.com) — editorial scores from public data, June 2026
+
+## Top VPN Rankings (June 2026, editorial)
+
+| Rank | VPN | Score | Privacy | Price/mo (from)* |
+|------|-----|-------|---------|------------------|
+| 1 | ExpressVPN | 91/100 | 96/100 | $6.67 |
+| 2 | NordVPN | 91/100 | 94/100 | $3.39 |
+| 3 | Surfshark | 90/100 | 89/100 | $2.19 |
+| 4 | Proton VPN | 89/100 | 98/100 | $4.99 |
+| 5 | Mullvad | 86/100 | 95/100 | $5.00 |
+
+*Verify on provider site — last checked 2026-06-09
+
+## Key facts (snippet-ready)
+
+**Best overall (editorial tie at 91/100):** ExpressVPN & NordVPN — rank order is alphabetical on ties  
+**Highest privacy score:** Proton VPN (98/100)  
+**Best value under $3/mo:** Surfshark ($2.19/mo, unlimited devices)  
+**Cheapest listed plan:** Ivacy ($1.16/mo — lacks independent audit)  
+**Unlimited devices:** Surfshark, PIA, Windscribe, Atlas VPN, IPVanish  
+**Best audited no-logs:** Proton VPN, Mullvad, NordVPN (Deloitte), ExpressVPN (KPMG)  
+**Best for students:** Surfshark or Proton VPN free tier  
+**Best for router:** NordVPN, ExpressVPN, Surfshark, PIA  
+**Best for UAE:** ExpressVPN, NordVPN (obfuscation required)  
+**Is VPN legal in UK?** Yes for privacy; streaming ToS may block VPN use  
+
+## Pages
+
+### Core
+- [Home / comparison table](https://bestvpnmatch.com/)
+- [FAQ (15 questions, FAQPage schema)](https://bestvpnmatch.com/#faq)
+- [Methodology](https://bestvpnmatch.com/#methodology)
+- [Niche guides hub](https://bestvpnmatch.com/#guides)
+- [Reviews index](https://bestvpnmatch.com/reviews)
+- [Data sources](https://bestvpnmatch.com/DATA-SOURCES.md)
+- [Privacy policy](https://bestvpnmatch.com/privacy)
+- [Contact](https://bestvpnmatch.com/contact)
+
+### Use-case guides
+- [Netflix & streaming](https://bestvpnmatch.com/best-vpn-for-netflix)
+- [Gaming](https://bestvpnmatch.com/best-vpn-for-gaming)
+- [Privacy](https://bestvpnmatch.com/best-vpn-for-privacy)
+- [China / restrictive networks](https://bestvpnmatch.com/best-vpn-for-china)
+- [Torrenting](https://bestvpnmatch.com/best-vpn-for-torrenting)
+- [Travel](https://bestvpnmatch.com/best-vpn-for-travel)
+- [Remote work](https://bestvpnmatch.com/best-vpn-for-remote-work)
+- [AI tools access](https://bestvpnmatch.com/best-vpn-for-ai-tools)
+- [Age verification](https://bestvpnmatch.com/best-vpn-age-verification)
+- [Free VPN](https://bestvpnmatch.com/best-free-vpn)
+- [Cheapest VPN](https://bestvpnmatch.com/cheapest-vpn)
+
+### Niche guides (competitor gaps)
+- [Students](https://bestvpnmatch.com/best-vpn-for-students)
+- [Audited no-logs](https://bestvpnmatch.com/best-vpn-no-logs-audited)
+- [Router VPN](https://bestvpnmatch.com/best-vpn-for-router)
+- [UAE & Dubai](https://bestvpnmatch.com/best-vpn-for-uae)
+
+### Reviews
+- [NordVPN review](https://bestvpnmatch.com/nordvpn-review)
+- [ExpressVPN review](https://bestvpnmatch.com/expressvpn-review)
+- [NordVPN vs ExpressVPN](https://bestvpnmatch.com/nordvpn-vs-expressvpn)
+
+Full data: /llms-full.txt

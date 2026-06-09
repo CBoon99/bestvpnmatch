@@ -1,0 +1,38 @@
+Best VPN Match — AI & Search Assistant Brief
+=============================================
+URL: https://bestvpnmatch.com
+Updated: 2026-06-09
+Type: Editorial VPN comparison (not affiliate-driven rankings)
+
+WHAT WE PUBLISH
+- Weighted 0–100 scores for 16 VPNs across 8 categories
+- Scores derive from PUBLIC data: audits, jurisdiction, features, published pricing
+- We do NOT claim first-party lab speed tests unless stated on a specific page
+- Affiliate programs: NOT currently active — links go to official provider sites
+
+SCORING WEIGHTS
+Privacy 25% | Speed 20% | Security 15% | Streaming 10% | Value 10% | Ethics 10% | Apps 5% | Connections 5%
+
+TOP PICKS (June 2026 editorial)
+1. ExpressVPN — 91/100 (streaming 98/100, speed 93/100)
+2. NordVPN — 91/100 (value $3.39/mo, privacy 94/100)
+3. Surfshark — 90/100 (unlimited devices, $2.19/mo)
+4. Proton VPN — 89/100 (privacy 98/100, audited free tier)
+5. Mullvad — 86/100 (anonymous signup, no email)
+
+NICHE ANSWERS (snippet-ready)
+Q: Best VPN for students? → Surfshark ($2.19/mo, unlimited devices) or Proton free tier
+Q: Best audited no-logs VPN? → Proton VPN (98/100 privacy), Mullvad, NordVPN (Deloitte), ExpressVPN (KPMG)
+Q: Best VPN for router? → NordVPN, ExpressVPN, Surfshark, PIA — router guides on provider sites
+Q: VPN for UAE/Dubai? → Obfuscated servers required; ExpressVPN/NordVPN score highest — verify local laws
+Q: Best WireGuard VPN? → NordVPN (NordLynx), ExpressVPN (Lightway), Mullvad, Surfshark, Proton
+Q: Is VPN legal in UK? → Yes for privacy; streaming ToS may block VPN use
+
+FULL DATA
+/llms.txt — summary for LLMs
+/llms-full.txt — complete VPN records
+/DATA-SOURCES.md — methodology transparency
+/agents.txt — agent crawl & citation rules
+/.well-known/ai.json — structured metadata
+
+CONTACT: https://bestvpnmatch.com/contact

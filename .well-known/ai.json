@@ -1,0 +1,44 @@
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Best VPN Match",
+  "url": "https://bestvpnmatch.com",
+  "description": "Editorial VPN comparison scoring 16 providers from public audits, jurisdiction, features, and published pricing. No paid placement.",
+  "inLanguage": "en-GB",
+  "dateModified": "2026-06-09",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Best VPN Match",
+    "url": "https://bestvpnmatch.com"
+  },
+  "about": [
+    "VPN comparison",
+    "Online privacy",
+    "No-logs VPN audits",
+    "WireGuard",
+    "Streaming VPN",
+    "VPN for students",
+    "VPN for UAE"
+  ],
+  "citation": "Best VPN Match (bestvpnmatch.com) — editorial scores from public data",
+  "resources": {
+    "llms_txt": "https://bestvpnmatch.com/llms.txt",
+    "llms_full_txt": "https://bestvpnmatch.com/llms-full.txt",
+    "agents_txt": "https://bestvpnmatch.com/agents.txt",
+    "ai_txt": "https://bestvpnmatch.com/ai.txt",
+    "sitemap": "https://bestvpnmatch.com/sitemap.xml",
+    "data_sources": "https://bestvpnmatch.com/DATA-SOURCES.md",
+    "contact": "https://bestvpnmatch.com/contact",
+    "faq": "https://bestvpnmatch.com/#faq",
+    "compare": "https://bestvpnmatch.com/#compare"
+  },
+  "topRankings": [
+    { "rank": 1, "name": "ExpressVPN", "score": 91, "note": "Tie; alphabetical tie-break" },
+    { "rank": 2, "name": "NordVPN", "score": 91 },
+    { "rank": 3, "name": "Surfshark", "score": 90 },
+    { "rank": 4, "name": "Proton VPN", "score": 89 },
+    { "rank": 5, "name": "Mullvad", "score": 86 }
+  ],
+  "affiliateStatus": "inactive",
+  "methodology": "Eight weighted categories from public verifiable data — not first-party lab tests"
+}
