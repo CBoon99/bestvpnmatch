@@ -532,18 +532,18 @@
     /* ── Sticky Promo Bar ── */
     .promo-bar {
       position: sticky; top: 0; z-index: 150;
-      background: linear-gradient(90deg, #0d2a14 0%, #0a1f2e 50%, #130d2a 100%);
-      border-bottom: 1px solid rgba(0,210,106,0.25);
+      background: #0f1117;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
       padding: 0.55rem 1rem;
       display: flex; align-items: center; justify-content: center; gap: 0.65rem;
       flex-wrap: wrap; text-align: center;
     }
-    .promo-bar__text { font-size: 0.83rem; color: var(--text-secondary); }
-    .promo-bar__text strong { color: var(--text-primary); }
-    .promo-bar__deal { font-size: 0.78rem; font-weight: 700; padding: 0.22rem 0.6rem; border-radius: 999px; background: rgba(0,210,106,0.15); color: var(--accent-green); border: 1px solid rgba(0,210,106,0.3); }
-    .promo-bar__cta { font-size: 0.78rem; font-weight: 700; padding: 0.28rem 0.85rem; border-radius: 999px; background: var(--accent-green); color: #0a0c12; text-decoration: none; white-space: nowrap; transition: opacity 0.15s; }
-    .promo-bar__cta:hover { opacity: 0.85; }
-    .promo-bar__close { background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 1rem; padding: 0 0.25rem; margin-left: 0.25rem; line-height: 1; }
+    .promo-bar__text { font-size: 0.83rem; color: rgba(255,255,255,0.75); }
+    .promo-bar__text strong { color: #fff; }
+    .promo-bar__deal { font-size: 0.78rem; font-weight: 700; padding: 0.22rem 0.6rem; border-radius: 999px; background: rgba(43,127,255,0.15); color: #6eb3ff; border: 1px solid rgba(43,127,255,0.35); }
+    .promo-bar__cta { font-size: 0.78rem; font-weight: 700; padding: 0.28rem 0.85rem; border-radius: 999px; background: #fff; color: #0f1117; text-decoration: none; white-space: nowrap; transition: opacity 0.15s; }
+    .promo-bar__cta:hover { opacity: 0.88; }
+    .promo-bar__close { background: none; border: none; color: rgba(255,255,255,0.4); cursor: pointer; font-size: 1rem; padding: 0 0.25rem; margin-left: 0.25rem; line-height: 1; }
 
     /* ── Savings badge ── */
     .savings-badge { display: inline-block; font-size: 0.68rem; font-weight: 800; padding: 0.18rem 0.5rem; border-radius: 999px; background: rgba(0,210,106,0.15); color: var(--accent-green); border: 1px solid rgba(0,210,106,0.3); margin-left: 0.35rem; vertical-align: middle; }
@@ -569,7 +569,7 @@
     }
 
     /* ── Deal CTA ── */
-    .btn--deal-full { background: linear-gradient(135deg, var(--accent-green), #00a855) !important; color: #0a0c12 !important; font-weight: 800 !important; }
+    .btn--deal-full { background: var(--accent-blue) !important; color: #fff !important; font-weight: 700 !important; }
     .btn--deal-full:hover { opacity: 0.88 !important; transform: translateY(-1px) !important; }
     .deal-sub { font-size: 0.67rem; color: var(--text-muted); margin: 0.25rem 0 0; text-align: center; }
     .deal-sub strong { color: var(--accent-green); }
