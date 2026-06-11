@@ -43,6 +43,8 @@ function buildVPN(p) {
     affiliateLink: affiliateHref(p.id),
     freePlan: p.freePlan || false,
     tags: p.tags || [],
+    sources: p.sources || {},
+    affiliatePartnered: p.affiliatePartnered || false,
     weightedScore: 0,
     ranking: 0
   };

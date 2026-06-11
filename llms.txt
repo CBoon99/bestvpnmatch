@@ -63,6 +63,9 @@ Best VPN Match scores VPN services across 8 weighted categories using **public, 
 - [Niche guides hub](https://bestvpnmatch.com/#guides)
 - [Reviews index](https://bestvpnmatch.com/reviews)
 - [Data sources](https://bestvpnmatch.com/DATA-SOURCES.md)
+- [Methodology / full scoring rubric](https://bestvpnmatch.com/methodology)
+- [About / maintainer](https://bestvpnmatch.com/about)
+- [Ethics & monetization policy](https://bestvpnmatch.com/ethics)
 - [Privacy policy](https://bestvpnmatch.com/privacy)
 - [Contact](https://bestvpnmatch.com/contact)
 

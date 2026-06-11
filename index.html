@@ -1667,6 +1667,32 @@
       color: var(--amber-dark);
     }
 
+    /* Match quiz */
+    .quiz-step { animation: fadeIn 0.25s ease; }
+    @keyframes fadeIn { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:none; } }
+    .quiz-q { font-size:1.15rem; font-weight:700; margin-bottom:1rem; color:var(--text-primary); }
+    .quiz-progress { display:flex; gap:6px; margin-bottom:1.5rem; }
+    .quiz-dot { width:28px; height:4px; border-radius:2px; background:var(--border); transition:background 0.2s; }
+    .quiz-dot.active { background:var(--accent-blue); }
+    .quiz-dot.done { background:var(--accent-green); }
+    .quiz-options { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:0.75rem; }
+    .quiz-option { background:var(--card-bg); border:2px solid var(--border); border-radius:0.75rem; padding:1rem 1.1rem; cursor:pointer; transition:border-color 0.15s,background 0.15s; text-align:left; }
+    .quiz-option:hover, .quiz-option:focus-visible { border-color:var(--accent-blue); outline:none; }
+    .quiz-option .opt-label { font-weight:600; display:block; color:var(--text-primary); margin-bottom:2px; }
+    .quiz-option .opt-desc { font-size:0.8rem; color:var(--text-secondary); }
+    .quiz-result-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:1rem; }
+    .quiz-match { background:var(--card-bg); border:1px solid var(--border); border-radius:0.85rem; padding:1.25rem; }
+    .quiz-match.top { border-color:var(--accent-green); }
+    .quiz-match-rank { font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:0.35rem; color:var(--text-muted); }
+    .quiz-match.top .quiz-match-rank { color:var(--accent-green); }
+    .quiz-match-name { font-size:1.1rem; font-weight:800; display:flex; align-items:center; gap:0.4rem; margin-bottom:0.4rem; }
+    .quiz-match-reason { font-size:0.85rem; color:var(--text-secondary); margin-bottom:0.75rem; line-height:1.5; }
+    .quiz-sticky { position:fixed; bottom:0; left:0; right:0; z-index:200; background:var(--card-bg); border-top:1px solid var(--border); padding:0.65rem 1rem; display:flex; align-items:center; gap:0.75rem; font-size:0.85rem; transform:translateY(100%); transition:transform 0.3s; }
+    .quiz-sticky.visible { transform:none; }
+    .quiz-sticky strong { color:var(--text-primary); }
+    .quiz-sticky .quiz-sticky-actions { margin-left:auto; display:flex; gap:0.5rem; }
+    .quiz-redo { background:none; border:1px solid var(--border); border-radius:999px; padding:0.3rem 0.8rem; font-size:0.78rem; cursor:pointer; color:var(--text-secondary); }
+
     /* Product scorecards */
     .scorecards {
       display: grid;
@@ -2374,6 +2400,20 @@
         </div>
       </section>
 
+      <!-- 3-Question Match Flow -->
+      <section id="match-quiz" class="section section--alt" style="padding:3rem 0">
+        <div class="container">
+          <header class="section__header" style="margin-bottom:1.5rem">
+            <h2 class="section__title">Find Your Best VPN Match</h2>
+            <p class="section__lead">Three questions. Your personalised top-3.</p>
+          </header>
+          <div id="quiz-body">
+            <!-- Steps injected by JS -->
+          </div>
+          <div id="quiz-result" style="display:none"></div>
+        </div>
+      </section>
+
       <section id="scorecards" class="section">
         <div class="container">
           <header class="section__header">
@@ -2758,14 +2798,195 @@
           <a href="${v.affiliateLink}" class="btn btn--primary btn--sm btn--deal-full" target="_blank" rel="${outboundRel()}" style="white-space:nowrap">${SITE_CONFIG.affiliateActive ? (v.savingsPct > 0 ? `Save ${v.savingsPct}%` : "Get Deal") : "Visit site"} →</a>
           ${v.moneyBackGuarantee ? `<div style="font-size:0.6rem;color:var(--text-muted);margin-top:0.2rem">✅ ${v.moneyBackGuarantee} MBG</div>` : ""}
         </td>
-        <td><span class="score-pill ${scoreClass}">${v.weightedScore}<span style="font-size:0.7em;opacity:0.65">/100</span></span></td>
+        <td><span class="score-pill ${scoreClass}">${v.weightedScore}<span style="font-size:0.7em;opacity:0.65">/100</span></span><a href="/methodology" title="How this score is calculated" style="font-size:0.6rem;color:var(--accent-blue);text-decoration:none;margin-left:2px;vertical-align:super">ⓘ</a></td>
         <td>
           ${renderMiniBar(v.speedScore)}
-          <span style="font-family:var(--font-mono);font-size:0.72rem;color:var(--text-secondary)">${v.speedScore}/100</span>
+          <span style="font-family:var(--font-mono);font-size:0.72rem;color:var(--text-secondary)">${v.speedScore}/100</span>${v.sources?.speedProtocolUrl ? `<a href="${v.sources.speedProtocolUrl}" target="_blank" rel="noopener noreferrer" title="Speed score source: protocol docs" style="font-size:0.6rem;color:var(--accent-blue);text-decoration:none;margin-left:2px;vertical-align:super">ⓘ</a>` : ""}
         </td>
         <td>${priceHtml}</td>`;
       return tr;
     }
+
+    /* =====================================================================
+       3-QUESTION MATCH FLOW
+       Budget → Priority → Devices → personalised top-3 recommendation
+       ===================================================================== */
+    (function initMatchQuiz() {
+      const STEPS = [
+        {
+          id: "budget",
+          question: "What's your budget?",
+          options: [
+            { value: "free",   label: "Free",          desc: "I don't want to spend anything",        maxPrice: 0 },
+            { value: "low",    label: "Under $3/mo",   desc: "Budget-conscious, long-term plan",       maxPrice: 3 },
+            { value: "mid",    label: "Under $6/mo",   desc: "Mid-range, most popular tier",           maxPrice: 6 },
+            { value: "any",    label: "Price no object",desc: "Best features, whatever the cost",      maxPrice: Infinity }
+          ]
+        },
+        {
+          id: "priority",
+          question: "What matters most to you?",
+          options: [
+            { value: "privacy",   label: "Privacy",       desc: "Audited no-logs, safe jurisdiction"   },
+            { value: "speed",     label: "Speed",          desc: "Fast WireGuard protocol, large network" },
+            { value: "streaming", label: "Streaming",      desc: "Unblock Netflix, BBC iPlayer, Disney+" },
+            { value: "allround",  label: "All-rounder",    desc: "Best overall balanced score"          }
+          ]
+        },
+        {
+          id: "devices",
+          question: "How many devices do you need to cover?",
+          options: [
+            { value: "single",    label: "Just me (1–3)",  desc: "Phone + laptop"                       },
+            { value: "household", label: "4–10 devices",   desc: "Family or shared household"           },
+            { value: "unlimited", label: "Unlimited",      desc: "I need every device covered"          }
+          ]
+        }
+      ];
+
+      let answers = {};
+      let currentStep = 0;
+      const body = document.getElementById("quiz-body");
+      const result = document.getElementById("quiz-result");
+
+      function scoreMatch(v) {
+        let s = v.weightedScore;
+        const { budget, priority, devices } = answers;
+
+        // Budget filter — hard limit on free, otherwise weighted preference
+        if (budget === "free" && !v.freePlan) return -1;
+        if (budget === "low"  && v.monthlyPrice > 3) s -= 20;
+        if (budget === "mid"  && v.monthlyPrice > 6) s -= 15;
+
+        // Priority boost
+        if (priority === "privacy")   s += (v.privacyScore - 80) * 0.4;
+        if (priority === "speed")     s += (v.speedScore - 80)   * 0.4;
+        if (priority === "streaming") s += (v.streamingScore - 80) * 0.4;
+        // "allround" uses raw weightedScore, no boost needed
+
+        // Devices preference
+        if (devices === "unlimited" && v.simultaneousConnections !== "unlimited") s -= 12;
+        if (devices === "household" && (v.simultaneousConnections === "unlimited" || v.simultaneousConnections >= 8)) s += 5;
+
+        return Math.round(s);
+      }
+
+      function reasonText(v) {
+        const { budget, priority, devices } = answers;
+        const parts = [];
+        if (priority === "privacy")   parts.push(`Privacy ${v.privacyScore}/100 (${v.auditType === "independent" ? (v.auditFirm || "independent") + " audit" : v.jurisdiction + " jurisdiction"})`);
+        if (priority === "speed")     parts.push(`Speed ${v.speedScore}/100 via ${v.protocols[0]}`);
+        if (priority === "streaming") parts.push(`Streaming ${v.streamingScore}/100`);
+        if (priority === "allround")  parts.push(`Overall ${v.weightedScore}/100`);
+        if (v.freePlan && budget === "free") parts.push("Free tier available");
+        else if (budget !== "any") parts.push(`From $${v.monthlyPrice.toFixed(2)}/mo`);
+        if (devices === "unlimited" && v.simultaneousConnections === "unlimited") parts.push("Unlimited devices");
+        return parts.join(" · ");
+      }
+
+      function renderStep(i) {
+        const step = STEPS[i];
+        body.innerHTML = `
+          <div class="quiz-step">
+            <div class="quiz-progress">
+              ${STEPS.map((_, si) => `<div class="quiz-dot${si < i ? " done" : si === i ? " active" : ""}"></div>`).join("")}
+            </div>
+            <p class="quiz-q">Q${i + 1}/3: ${step.question}</p>
+            <div class="quiz-options">
+              ${step.options.map(o => `
+                <button class="quiz-option" data-value="${o.value}" type="button">
+                  <span class="opt-label">${o.label}</span>
+                  <span class="opt-desc">${o.desc}</span>
+                </button>`).join("")}
+            </div>
+          </div>`;
+
+        body.querySelectorAll(".quiz-option").forEach(btn => {
+          btn.addEventListener("click", () => {
+            answers[step.id] = btn.dataset.value;
+            if (i < STEPS.length - 1) {
+              currentStep++;
+              renderStep(currentStep);
+            } else {
+              showResult();
+            }
+          });
+        });
+      }
+
+      function showResult() {
+        body.innerHTML = "";
+        result.style.display = "block";
+
+        const scored = VPNS
+          .map(v => ({ v, s: scoreMatch(v) }))
+          .filter(x => x.s >= 0)
+          .sort((a, b) => b.s - a.s);
+
+        const top3 = scored.slice(0, 3);
+        const priorityLabel = STEPS[1].options.find(o => o.value === answers.priority)?.label || "";
+        const budgetLabel   = STEPS[0].options.find(o => o.value === answers.budget)?.label   || "";
+        const devicesLabel  = STEPS[2].options.find(o => o.value === answers.devices)?.label  || "";
+
+        result.innerHTML = `
+          <div style="margin-bottom:1.25rem">
+            <p style="font-size:0.82rem;color:var(--text-muted)">
+              Your answers: <strong>${budgetLabel}</strong> · <strong>${priorityLabel}</strong> · <strong>${devicesLabel}</strong>
+              <button class="quiz-redo" onclick="initMatchQuizRedo()" style="margin-left:8px">Redo</button>
+            </p>
+          </div>
+          <div class="quiz-result-grid">
+            ${top3.map((x, idx) => {
+              const v = x.v;
+              const priceStr = v.freePlan && answers.budget === "free" ? "Free tier" : `$${v.monthlyPrice.toFixed(2)}/mo`;
+              return `
+                <div class="quiz-match${idx === 0 ? " top" : ""}">
+                  <p class="quiz-match-rank">${idx === 0 ? "✦ Best match" : idx === 1 ? "2nd pick" : "3rd pick"}</p>
+                  <p class="quiz-match-name">${v.logoIcon} ${v.name}</p>
+                  <p class="quiz-match-reason">${reasonText(v)}</p>
+                  <a href="${v.affiliateLink}" class="btn btn--primary btn--sm btn--deal-full" target="_blank" rel="${outboundRel()}" style="display:block;text-align:center">
+                    ${SITE_CONFIG.affiliateActive ? (v.savingsPct > 0 ? `Save ${v.savingsPct}%` : "Get Deal") : "Visit site"} →
+                  </a>
+                  <p style="font-size:0.7rem;color:var(--text-muted);text-align:center;margin-top:4px">${priceStr}</p>
+                </div>`;
+            }).join("")}
+          </div>
+          <p style="font-size:0.78rem;color:var(--text-muted);margin-top:1rem;text-align:center">
+            Personalised from ${scored.length} VPNs using your priorities · <a href="/methodology" style="color:var(--accent-blue)">How scores work</a>
+          </p>`;
+
+        // Show persistent sticky widget
+        const top = top3[0]?.v;
+        if (top) {
+          let sticky = document.getElementById("quiz-sticky-widget");
+          if (!sticky) {
+            sticky = document.createElement("div");
+            sticky.id = "quiz-sticky-widget";
+            sticky.className = "quiz-sticky";
+            document.body.appendChild(sticky);
+          }
+          sticky.innerHTML = `
+            <span>Your match: <strong>${top.logoIcon} ${top.name}</strong> — ${top.weightedScore}/100</span>
+            <div class="quiz-sticky-actions">
+              <a href="${top.affiliateLink}" class="btn btn--primary btn--sm" target="_blank" rel="${outboundRel()}" style="padding:0.3rem 0.9rem;font-size:0.8rem">Visit site →</a>
+              <button class="quiz-redo" onclick="initMatchQuizRedo()">Retake quiz</button>
+            </div>`;
+          setTimeout(() => sticky.classList.add("visible"), 400);
+        }
+      }
+
+      function reset() {
+        answers = {};
+        currentStep = 0;
+        result.style.display = "none";
+        const sticky = document.getElementById("quiz-sticky-widget");
+        if (sticky) sticky.classList.remove("visible");
+        renderStep(0);
+      }
+
+      window.initMatchQuizRedo = reset;
+      renderStep(0);
+    })();
 
     function renderFeatured() {
       const v = getById(FEATURED_VPN_ID);
@@ -3019,14 +3240,29 @@
       // Find cheapest by monthly price for best value badge
       const cheapestPrice = Math.min(...selected.map(v => v.monthlyPrice));
 
-      const rows = [
-        { label: "Score",       fn: v => `${v.weightedScore}/100` },
-        { label: "Speed",       fn: v => `${v.speedScore}/100` },
-        { label: "Privacy",     fn: v => `${v.privacyScore}/100` },
-        { label: "Price / mo",  fn: v => `$${v.monthlyPrice.toFixed(2)}` },
-        { label: "2-yr total",  fn: v => `$${(v.monthlyPrice * 24).toFixed(2)}` },
-        { label: "Money-back",  fn: v => v.moneyBackGuarantee },
+      function srcLink(url, label) {
+        if (!url) return "";
+        return ` <a href="${url}" target="_blank" rel="noopener noreferrer" title="Source: ${label}" style="font-size:0.65rem;color:var(--accent-blue);text-decoration:none;vertical-align:super">ⓘ</a>`;
+      }
+      const scoreRows = [
+        { label: "Overall",     cat: null,        fn: v => `${v.weightedScore}/100<a href="/methodology" target="_blank" style="font-size:0.65rem;color:var(--accent-blue);text-decoration:none;vertical-align:super" title="How composite score is calculated">ⓘ</a>` },
+        { label: "Privacy 25%", cat: "privacy",   fn: v => `${v.privacyScore}/100${srcLink(v.sources?.privacy, "Privacy source")}` },
+        { label: "Speed 20%",   cat: "speed",     fn: v => `${v.speedScore}/100${srcLink(v.sources?.speed, "Speed source")}` },
+        { label: "Security 15%",cat: "security",  fn: v => `${v.securityScore}/100${srcLink(v.sources?.security, "Security features")}` },
+        { label: "Streaming 10%",cat:"streaming", fn: v => `${v.streamingScore}/100${srcLink(v.sources?.streaming, "Streaming info")}` },
+        { label: "Value 10%",   cat: "value",     fn: v => `${v.valueScore}/100${srcLink(v.sources?.value, "Pricing page")}` },
+        { label: "Ethics 10%",  cat: "ethics",    fn: v => `${v.ethicsScore}/100${srcLink(v.sources?.ethics, "Ownership/ethics source")}` },
+        { label: "Apps 5%",     cat: "apps",      fn: v => `${v.appsScore}/100${srcLink(v.sources?.apps, "Apps page")}` },
+        { label: "Connections 5%",cat:"connections",fn: v => `${typeof v.simultaneousConnections === "number" ? v.simultaneousConnections : "∞"}${srcLink(v.sources?.connections, "Pricing page")}` },
       ];
+      const metaRows = [
+        { label: "Jurisdiction",fn: v => v.jurisdiction },
+        { label: "Audit",       fn: v => v.auditType === "independent" ? `${v.auditFirm || "Independent"}${srcLink(v.sources?.privacy, "Audit report")}` : v.auditType === "self-published" ? "Self-published" : `<span style="color:var(--danger)">None</span>` },
+        { label: "Price / mo",  fn: v => `$${v.monthlyPrice.toFixed(2)}${srcLink(v.sources?.value, "Provider pricing")}` },
+        { label: "Money-back",  fn: v => v.moneyBackGuarantee || "—" },
+        { label: "Affiliate?",  fn: v => v.affiliatePartnered ? `<span style="color:var(--accent-green)">Yes — disclosed</span>` : `<span style="color:var(--text-muted)">No</span>` },
+      ];
+      const rows = [...scoreRows, ...metaRows];
 
       list.innerHTML = `
         <li style="display:grid;grid-template-columns:5.5rem repeat(${selected.length},1fr);gap:0.5rem;padding:0.4rem 0;border-bottom:2px solid var(--border);font-weight:700;font-size:0.75rem;color:var(--text-secondary);text-transform:uppercase;letter-spacing:0.04em">

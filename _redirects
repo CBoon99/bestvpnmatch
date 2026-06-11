@@ -1,5 +1,8 @@
 # Clean URLs — serve .html files without extension (200 rewrite)
 
+/about  /about.html  200
+/ethics  /ethics.html  200
+/methodology  /methodology.html  200
 /best-free-vpn  /best-free-vpn.html  200
 /best-vpn-age-verification  /best-vpn-age-verification.html  200
 /best-vpn-for-ai-tools  /best-vpn-for-ai-tools.html  200
