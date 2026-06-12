@@ -38,7 +38,7 @@ const VPN_RECORDS = [
     tags:["streaming","torrenting","china","gaming","no-logs-audited","ram-servers","wireguard","linux","router","independent-audit","panama-jurisdiction","netflix","under-5"]
   },
   {
-    id:"expressvpn", name:"ExpressVPN", logoIcon:"⚡", tagline:"Speed and simplicity",
+    id:"expressvpn", name:"ExpressVPN", logoIcon:"<svg viewBox='0 0 24 24' width='1em' height='1em' style='vertical-align:-0.12em' aria-hidden='true'><path d='M13 2 L4.8 13.4 H10.4 L9.2 22 L19.2 10.2 H13.4 Z' fill='#da3940' stroke='#da3940' stroke-width='1.5' stroke-linejoin='round'/></svg>", tagline:"Speed and simplicity",
     realSpeedMbps:932, speedScore:93,
     jurisdiction:"British Virgin Islands", auditType:"independent", auditFirm:"KPMG",
     privacyScore:96, securityScore:90, streamingScore:98,

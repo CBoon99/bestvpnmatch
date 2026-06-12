@@ -42,12 +42,13 @@
   <text x="80" y="130" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="52" fill="#f0f3f8" letter-spacing="-1">Best VPN <tspan fill="url(#accent)">Match</tspan></text>
 
   <!-- Tagline -->
-  <text x="80" y="180" font-family="system-ui, -apple-system, sans-serif" font-weight="400" font-size="24" fill="#8892b0">Independent testing · Real scores · No paid placement</text>
+  <text x="80" y="180" font-family="system-ui, -apple-system, sans-serif" font-weight="400" font-size="24" fill="#8892b0">Independent scoring · Public data · No paid placement</text>
 
   <!-- Score cards row -->
   <!-- Card 1: ExpressVPN -->
   <rect x="80" y="230" width="210" height="110" rx="12" fill="url(#cardgrad)" stroke="#2a2d3e" stroke-width="1"/>
-  <text x="100" y="268" font-family="system-ui, sans-serif" font-size="13" fill="#8892b0">⚡ ExpressVPN</text>
+  <path transform="translate(100,256.5) scale(0.55)" d="M13 2 L4.8 13.4 H10.4 L9.2 22 L19.2 10.2 H13.4 Z" fill="#da3940" stroke="#da3940" stroke-width="1.5" stroke-linejoin="round"/>
+  <text x="118" y="268" font-family="system-ui, sans-serif" font-size="13" fill="#8892b0">ExpressVPN</text>
   <text x="100" y="308" font-family="system-ui, sans-serif" font-weight="800" font-size="42" fill="#00d26a">91</text>
   <text x="155" y="308" font-family="system-ui, sans-serif" font-size="18" fill="#8892b0">/100</text>
   <text x="100" y="330" font-family="system-ui, sans-serif" font-size="11" fill="#6b7280">932 Mbps · BVI</text>
@@ -79,7 +80,8 @@
     <text x="133" y="390" text-anchor="middle" fill="#8892b0">🔒 Privacy</text>
 
     <rect x="198" y="370" width="92" height="30" rx="15" fill="#1a1d2b" stroke="#2a2d3e" stroke-width="1"/>
-    <text x="244" y="390" text-anchor="middle" fill="#8892b0">⚡ Speed</text>
+    <path transform="translate(212,377) scale(0.5)" d="M13 2 L4.8 13.4 H10.4 L9.2 22 L19.2 10.2 H13.4 Z" fill="#da3940" stroke="#da3940" stroke-width="1.5" stroke-linejoin="round"/>
+    <text x="251" y="390" text-anchor="middle" fill="#8892b0">Speed</text>
 
     <rect x="302" y="370" width="114" height="30" rx="15" fill="#1a1d2b" stroke="#2a2d3e" stroke-width="1"/>
     <text x="359" y="390" text-anchor="middle" fill="#8892b0">📺 Streaming</text>
@@ -97,7 +99,7 @@
   <!-- Bottom bar -->
   <rect x="0" y="560" width="1200" height="70" fill="#0a0c12" opacity="0.8"/>
   <text x="80" y="603" font-family="system-ui, sans-serif" font-size="18" fill="#8892b0">bestvpnmatch.com</text>
-  <text x="1120" y="603" font-family="system-ui, sans-serif" font-size="16" fill="#8892b0" text-anchor="end">16+ VPNs · June 2026</text>
+  <text x="1120" y="603" font-family="system-ui, sans-serif" font-size="16" fill="#8892b0" text-anchor="end">15 VPNs · June 2026</text>
 
   <!-- Accent glow dot top right -->
   <circle cx="1100" cy="100" r="120" fill="#00d26a" opacity="0.04"/>

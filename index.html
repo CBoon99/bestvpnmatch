@@ -491,7 +491,7 @@
       animation: shieldGlow 2.5s ease-in-out infinite alternate, heroFloat 5s ease-in-out infinite;
     }
     .speed-meter { margin: 1.25rem 0; }
-    .speed-meter__label { font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-secondary); margin-bottom: 0.5rem; display: flex; justify-content: space-between; }
+    .speed-meter__label { font-size: 0.75rem; font-weight: 500; color: var(--text-secondary); margin-bottom: 0.5rem; display: flex; justify-content: space-between; }
     .speed-bar { height: 8px; background: rgba(139,147,175,0.15); border-radius: 999px; overflow: hidden; }
     .speed-bar__fill { height: 100%; background: var(--accent-green); border-radius: 999px; transition: width 1.2s var(--ease-out); }
     .privacy-badge {
@@ -536,11 +536,12 @@
       background: #0f1117;
       border-bottom: 1px solid rgba(255,255,255,0.08);
       padding: 0.55rem 1rem;
-      display: flex; align-items: center; justify-content: center; gap: 0.65rem;
+      display: flex; align-items: center; justify-content: center; gap: 0.85rem;
       flex-wrap: wrap; text-align: center;
     }
-    .promo-bar__text { font-size: 0.83rem; color: rgba(255,255,255,0.75); }
+    .promo-bar__text { font-size: 0.83rem; color: rgba(255,255,255,0.75); display: inline-flex; align-items: center; gap: 0.45rem; }
     .promo-bar__text strong { color: #fff; }
+    .promo-bar__icon { flex-shrink: 0; }
     .promo-bar__deal { font-size: 0.78rem; font-weight: 700; padding: 0.22rem 0.6rem; border-radius: 999px; background: rgba(34,197,94,0.15); color: #22c55e; border: 1px solid rgba(34,197,94,0.35); }
     .promo-bar__cta { font-size: 0.78rem; font-weight: 700; padding: 0.28rem 0.85rem; border-radius: 999px; background: #fff; color: #0f1117; text-decoration: none; white-space: nowrap; transition: opacity 0.15s; }
     .promo-bar__cta:hover { opacity: 0.88; }
@@ -764,18 +765,28 @@
     .logo {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.45rem;
       font-family: var(--font-display);
       font-size: 1.5rem;
-      font-weight: 600;
+      font-weight: 700;
       color: var(--ink);
-      letter-spacing: 0.02em;
+      letter-spacing: -0.025em;
+      line-height: 1;
       text-decoration: none;
     }
+    .logo-mark {
+      width: 28px;
+      height: 28px;
+      color: #0f172a;
+      flex-shrink: 0;
+      filter: drop-shadow(0 5px 10px rgba(15, 23, 42, 0.12));
+    }
+    [data-theme="dark"] .logo-mark { color: var(--accent-green); }
     .logo:hover { text-decoration: none; }
     .logo span { color: var(--amber); }
     .nav-links {
       display: flex;
+      align-items: center;
       gap: 1.5rem;
       list-style: none;
       margin: 0;
@@ -907,10 +918,11 @@
     }
     .hero__title {
       font-family: var(--font-display);
-      font-size: clamp(2.35rem, 5.5vw, 3.5rem);
+      font-size: clamp(2.1rem, 4.2vw, 3rem);
       font-weight: 700;
       line-height: 1.12;
-      margin: 0 0 0.75rem;
+      letter-spacing: -0.02em;
+      margin: 0 0 0.85rem;
       color: var(--text-primary);
     }
     .hero__title .accent { color: var(--accent-green); }
@@ -1255,11 +1267,13 @@
       border-radius: 50%;
       display: grid;
       place-items: center;
-      font-family: var(--font-display);
-      font-size: 1.1rem;
-      font-weight: 600;
       background: linear-gradient(135deg, rgba(22, 163, 74, 0.15), rgba(22, 163, 74, 0.05));
       color: var(--amber-dark);
+    }
+    .category-tile__icon svg {
+      width: 1.15rem;
+      height: 1.15rem;
+      stroke: currentColor;
     }
     .category-tile__title {
       font-size: 0.88rem;
@@ -2322,7 +2336,7 @@
     }
     .hero__note {
       font-size: 0.78rem; color: var(--text-muted);
-      margin: 0; text-align: center;
+      margin: 0.85rem 0 0; text-align: center;
     }
     @media (min-width: 900px) { .hero__note { text-align: left; } }
 
@@ -2343,20 +2357,22 @@
       border: 0.5px solid rgba(22,163,74,0.25);
       margin-bottom: 1rem;
     }
+    [data-theme="dark"] .hero-card__chip { color: #4ade80; }
     .hero-card__header {
-      display: flex; align-items: flex-start;
-      justify-content: space-between; gap: 1rem;
-      margin-bottom: 0.25rem;
+      display: flex; align-items: center;
+      justify-content: space-between; gap: 1.25rem;
+      margin-bottom: 1.1rem;
     }
-    .hero-card__brand { display: flex; align-items: center; gap: 0.6rem; flex: 1; }
+    .hero-card__main { display: flex; flex-direction: column; gap: 0.85rem; min-width: 0; }
+    .hero-card__brand { display: flex; align-items: center; gap: 0.6rem; }
     .hero-card__icon { font-size: 1.5rem; line-height: 1; flex-shrink: 0; }
     .hero-card__name { font-size: 1.1rem; font-weight: 700; color: var(--text-primary); }
-    .hero-card__img {
-      width: 90px; height: 90px;
-      object-fit: cover; object-position: top center;
-      border-radius: 12px; flex-shrink: 0;
+    .hero-card__shield {
+      width: 150px; height: 126px; flex-shrink: 0;
+      filter: drop-shadow(0 12px 26px rgba(22,163,74,0.28));
+      animation: heroFloat 5s ease-in-out infinite;
     }
-    .hero-card__score { margin-bottom: 1rem; }
+    .hero-card__score { margin: 0; }
     .hero-card__score-num { font-size: 2.25rem; font-weight: 700; color: var(--accent-green); line-height: 1; }
     .hero-card__score-denom { font-size: 1rem; font-weight: 500; color: var(--text-muted); }
     .hero-card__score-label { font-size: 0.72rem; color: var(--text-muted); margin: 0.1rem 0 0; }
@@ -2426,7 +2442,7 @@
     <header class="site-header">
       <div class="container site-header__inner">
         <a href="/" class="logo" aria-label="Best VPN Match home">
-          <svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true" style="color:var(--accent-green)"><use href="#shield-logo"/></svg>
+          <svg class="logo-mark" viewBox="0 0 32 32" aria-hidden="true"><use href="#shield-logo"/></svg>
           Best VPN <span>Match</span>
         </a>
         <nav aria-label="Main">
@@ -2474,9 +2490,9 @@
           <path fill="currentColor" d="M7 1h8v4h2c1.4 0 2.5 1.1 2.5 2.5v2.5c0 1.2-.7 2.3-1.8 2.8v13.2c0 2-1.6 3.5-3.5 3.5H9.8c-2 0-3.5-1.6-3.5-3.5V13.3C5.2 12.8 4.5 11.7 4.5 10.5V8c0-1.4 1.1-2.5 2.5-2.5H7V1zm3 23.5h4v-2.5h-4v2.5z" opacity="0.95"/>
         </symbol>
         <symbol id="shield-logo" viewBox="0 0 32 32">
-          <path fill="currentColor" d="M16 2L4 7v9c0 7.2 5.1 13.9 12 14 6.9-.1 12-6.8 12-14V7L16 2z" opacity="0.25"/>
-          <path fill="none" stroke="currentColor" stroke-width="1.5" d="M16 2L4 7v9c0 7.2 5.1 13.9 12 14 6.9-.1 12-6.8 12-14V7L16 2z"/>
-          <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M13 16l2 2 4-5" opacity="0.9"/>
+          <path fill="currentColor" d="M16 2.5 5.5 6.9v8.7c0 6.8 4.5 12.3 10.5 13.9 6-1.6 10.5-7.1 10.5-13.9V6.9L16 2.5Z"/>
+          <path fill="rgba(255,255,255,0.16)" d="M16 2.5 26.5 6.9v8.7c0 1.9-.35 3.7-1 5.35-5-2.05-13.95-2.05-19 0-.65-1.65-1-3.45-1-5.35V6.9L16 2.5Z"/>
+          <path fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="m12.4 16.2 2.3 2.4 5-5.8"/>
         </symbol>
         <symbol id="globe-net" viewBox="0 0 64 64">
           <circle cx="32" cy="32" r="28" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
@@ -2503,7 +2519,7 @@
     </div>
 
     <div class="promo-bar" id="promo-bar" role="banner">
-      <span class="promo-bar__text">🔒 <strong>Top Rated:</strong> <span id="promo-name">NordVPN</span></span>
+      <span class="promo-bar__text"><svg class="promo-bar__icon" viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M7.5 10V7.5a4.5 4.5 0 0 1 9 0V10" fill="none" stroke="#22c55e" stroke-width="2.2" stroke-linecap="round"/><rect x="5" y="10" width="14" height="9.5" rx="2.5" fill="#22c55e"/></svg> <strong>Top Rated:</strong> <span id="promo-name">NordVPN</span></span>
       <span class="promo-bar__deal" id="promo-savings">Editorial pick</span>
       <a href="#scorecards" class="promo-bar__cta" id="promo-cta">See top picks →</a>
       <button class="promo-bar__close" id="promo-close" aria-label="Close">✕</button>
@@ -2544,15 +2560,45 @@
             <div class="hero-card" id="hero-visual-stack">
               <span class="hero-card__chip">Top Pick Overall</span>
               <div class="hero-card__header">
-                <div class="hero-card__brand">
-                  <span class="hero-card__icon" id="hero-shield">🔵</span>
-                  <span class="hero-card__name" id="hero-top-name">ExpressVPN</span>
+                <div class="hero-card__main">
+                  <div class="hero-card__brand">
+                    <span class="hero-card__icon" id="hero-shield">🔵</span>
+                    <span class="hero-card__name" id="hero-top-name">ExpressVPN</span>
+                  </div>
+                  <div class="hero-card__score">
+                    <span class="hero-card__score-num" id="hero-top-score">91</span><span class="hero-card__score-denom">/100</span>
+                    <p class="hero-card__score-label">Editorial Score</p>
+                  </div>
                 </div>
-                <img src="VPN%20Design%20Example.png" alt="" class="hero-card__img" aria-hidden="true" loading="eager">
-              </div>
-              <div class="hero-card__score">
-                <span class="hero-card__score-num" id="hero-top-score">91</span><span class="hero-card__score-denom">/100</span>
-                <p class="hero-card__score-label">Editorial Score</p>
+                <svg class="hero-card__shield" viewBox="24 4 116 112" aria-hidden="true" focusable="false">
+                  <defs>
+                    <radialGradient id="hero-shield-glow" cx="50%" cy="62%" r="50%">
+                      <stop offset="0%" stop-color="#34d399" stop-opacity="0.38"/>
+                      <stop offset="70%" stop-color="#34d399" stop-opacity="0.08"/>
+                      <stop offset="100%" stop-color="#34d399" stop-opacity="0"/>
+                    </radialGradient>
+                    <linearGradient id="hero-shield-grad" x1="28" y1="8" x2="105" y2="92" gradientUnits="userSpaceOnUse">
+                      <stop offset="0%" stop-color="#9af3bd"/>
+                      <stop offset="42%" stop-color="#37c878"/>
+                      <stop offset="100%" stop-color="#07934a"/>
+                    </linearGradient>
+                    <linearGradient id="hero-shield-face" x1="42" y1="16" x2="90" y2="96" gradientUnits="userSpaceOnUse">
+                      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.58"/>
+                      <stop offset="55%" stop-color="#ffffff" stop-opacity="0.08"/>
+                      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+                    </linearGradient>
+                    <filter id="hero-shield-shadow" x="-30%" y="-20%" width="160%" height="160%">
+                      <feDropShadow dx="0" dy="9" stdDeviation="8" flood-color="#04783f" flood-opacity="0.25"/>
+                    </filter>
+                  </defs>
+                  <ellipse cx="82" cy="83" rx="58" ry="34" fill="url(#hero-shield-glow)"/>
+                  <ellipse cx="82" cy="95" rx="48" ry="17" fill="none" stroke="#10b981" stroke-opacity="0.28" stroke-width="1.4"/>
+                  <ellipse cx="82" cy="96" rx="34" ry="10" fill="none" stroke="#10b981" stroke-opacity="0.22" stroke-width="1.2"/>
+                  <path filter="url(#hero-shield-shadow)" d="M82 13 122 27v29c0 25.4-15.8 43.4-40 51.5C57.8 99.4 42 81.4 42 56V27L82 13Z" fill="url(#hero-shield-grad)"/>
+                  <path d="M82 13 122 27v29c0 6.8-1.15 13.05-3.35 18.65C99.7 68 64.3 68 45.35 74.65 43.15 69.05 42 62.8 42 56V27L82 13Z" fill="url(#hero-shield-face)"/>
+                  <path d="M82 18.5 116.5 30.5v25.2c0 21.5-13.3 36.8-34.5 44-21.2-7.2-34.5-22.5-34.5-44V30.5L82 18.5Z" fill="none" stroke="#d1fae5" stroke-opacity="0.7" stroke-width="1.5"/>
+                  <path d="M68.4 59.8 78.1 69.5 98 47.6" fill="none" stroke="#fff" stroke-width="7.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
               </div>
               <ul class="hero-card__pros" id="hero-top-pros">
                 <li>Best for streaming</li>
@@ -3010,12 +3056,12 @@
     })();
 
     const CATEGORY_TILES = [
-      { title:"Best for Netflix & Streaming", hint:"Unblocks major platforms", search:"Netflix", letter:"S" },
-      { title:"Best for Privacy", hint:"Audited no-logs VPNs", search:"privacy audited", letter:"P" },
-      { title:"Best Budget VPNs", hint:"Under $3 per month", search:"budget", letter:"B" },
-      { title:"Unlimited Devices", hint:"Whole household covered", search:"unlimited", letter:"U" },
-      { title:"Free Tier Options", hint:"Try before you buy", search:"free", letter:"F" },
-      { title:"Works in China", hint:"Censorship bypass", search:"China", letter:"C" }
+      { title:"Best for Netflix & Streaming", hint:"Unblocks major platforms", search:"Netflix", icon:"streaming" },
+      { title:"Best for Privacy", hint:"Audited no-logs VPNs", search:"privacy audited", icon:"privacy" },
+      { title:"Best Budget VPNs", hint:"Under $3 per month", search:"budget", icon:"budget" },
+      { title:"Unlimited Devices", hint:"Whole household covered", search:"unlimited", icon:"devices" },
+      { title:"Free Tier Options", hint:"Try before you buy", search:"free", icon:"free" },
+      { title:"Works in China", hint:"Censorship bypass", search:"China", icon:"china" }
     ];
 
     function scoreGrade(s) {
@@ -3349,7 +3395,7 @@
       const pros = document.getElementById("hero-top-pros");
       if (bar) bar.style.width = top.speedScore + "%";
       if (val) val.textContent = top.speedScore + "/100";
-      if (shield) shield.textContent = top.logoIcon;
+      if (shield) shield.innerHTML = top.logoIcon;
       if (name) name.textContent = top.name;
       if (score) score.textContent = Math.round(top.weightedScore);
       if (pros && top.pros && top.pros.length) {
@@ -3360,10 +3406,23 @@
     function renderCategoryTiles() {
       document.getElementById("category-tiles").innerHTML = CATEGORY_TILES.map(t => `
         <button type="button" class="category-tile" data-search="${t.search}">
-          <span class="category-tile__letter">${t.letter}</span>
+          <span class="category-tile__icon">${categoryIcon(t.icon)}</span>
           <span class="category-tile__title">${t.title}</span>
           <span class="category-tile__hint">${t.hint}</span>
         </button>`).join("");
+    }
+
+    function categoryIcon(type) {
+      const attrs = `viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"`;
+      const icons = {
+        streaming: `<svg ${attrs}><circle cx="12" cy="12" r="8.5"/><path d="m10.2 8.8 5.1 3.2-5.1 3.2V8.8Z"/></svg>`,
+        privacy: `<svg ${attrs}><path d="M7.5 10V7.5a4.5 4.5 0 0 1 9 0V10"/><rect x="5" y="10" width="14" height="10" rx="2.2"/><path d="M12 14v2"/></svg>`,
+        budget: `<svg ${attrs}><path d="M5 7.5h14a2 2 0 0 1 2 2V18a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9.5a2 2 0 0 1 2-2Z"/><path d="M16 7.5V6a2 2 0 0 0-2-2H6.5A2.5 2.5 0 0 0 4 6.5v1"/><path d="M17 14h.01"/></svg>`,
+        devices: `<svg ${attrs}><rect x="4" y="5" width="12" height="15" rx="2"/><path d="M8 18h4"/><rect x="16" y="9" width="4" height="8" rx="1.3"/></svg>`,
+        free: `<svg ${attrs}><path d="M20 12v8H4v-8"/><path d="M22 7v5H2V7h20Z"/><path d="M12 22V7"/><path d="M12 7H8.5a2.2 2.2 0 1 1 2.2-2.2C10.7 6 12 7 12 7Z"/><path d="M12 7h3.5a2.2 2.2 0 1 0-2.2-2.2C13.3 6 12 7 12 7Z"/></svg>`,
+        china: `<svg ${attrs}><path d="M4 19h16"/><path d="M6 19V9l3-3 3 3v10"/><path d="M12 19V8l3-3 3 3v11"/><path d="M6 12h12"/></svg>`
+      };
+      return icons[type] || icons.privacy;
     }
 
     function renderScorecard({ category, vpnId, badge, label }, index) {
