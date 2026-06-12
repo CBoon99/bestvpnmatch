@@ -2505,6 +2505,25 @@
 
           <p class="empty-state" id="empty-state">No VPNs match your filters. Try clearing filters or another search.</p>
 
+          <!-- Custom weights panel -->
+          <details id="weights-panel" style="margin-bottom:1rem">
+            <summary style="cursor:pointer;font-size:0.8rem;color:var(--accent-blue);user-select:none;list-style:none;display:flex;align-items:center;gap:0.4rem;width:fit-content">
+              <span id="weights-arrow" style="font-size:0.65rem;transition:transform 0.15s">▶</span> Customise score weights
+            </summary>
+            <div style="margin-top:0.75rem;padding:1rem;background:var(--bg-elevated);border:1px solid var(--border);border-radius:var(--radius)">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem;flex-wrap:wrap;gap:0.5rem">
+                <p style="margin:0;font-size:0.75rem;color:var(--text-muted)">Drag sliders to reweight the 8 scoring categories. Scores and ranking update live. Total must equal 100%.</p>
+                <div style="display:flex;align-items:center;gap:0.75rem">
+                  <span id="weights-total-badge" style="font-size:0.75rem;font-weight:700;padding:0.15rem 0.55rem;border-radius:999px;background:rgba(0,210,106,0.15);color:var(--accent-green)">Total: 100%</span>
+                  <button type="button" id="weights-reset" class="btn btn--secondary btn--sm" style="font-size:0.72rem">Reset to defaults</button>
+                </div>
+              </div>
+              <div id="weights-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:0.6rem 1.5rem">
+                <!-- sliders injected by JS -->
+              </div>
+            </div>
+          </details>
+
           <div class="table-wrap">
             <table class="comparison-table" id="comparison-table">
               <thead>
@@ -3136,6 +3155,95 @@
     function initScorecards() {
       document.getElementById("scorecards").innerHTML = SCORECARDS.map(renderScorecard).join("");
     }
+
+    /* =====================================================================
+       CUSTOM WEIGHTS PANEL
+       ===================================================================== */
+    (function initWeightsPanel() {
+      const DEFAULT_WEIGHTS = { privacy:25, speed:20, security:15, streaming:10, value:10, ethics:10, apps:5, connections:5 };
+      const LABELS = { privacy:"Privacy", speed:"Speed", security:"Security", streaming:"Streaming", value:"Value", ethics:"Ethics", apps:"Apps", connections:"Connections" };
+
+      function loadWeights() {
+        try { const s = sessionStorage.getItem("vpn-weights"); if (s) return JSON.parse(s); } catch(e) {}
+        return { ...DEFAULT_WEIGHTS };
+      }
+      function saveWeights(w) { try { sessionStorage.setItem("vpn-weights", JSON.stringify(w)); } catch(e) {} }
+
+      let weights = loadWeights();
+
+      function recomputeScores() {
+        VPNS.forEach(v => {
+          v.weightedScore = Math.round(
+            v.privacyScore     * weights.privacy     / 100 +
+            v.speedScore       * weights.speed       / 100 +
+            v.securityScore    * weights.security    / 100 +
+            v.streamingScore   * weights.streaming   / 100 +
+            v.valueScore       * weights.value       / 100 +
+            v.ethicsScore      * weights.ethics      / 100 +
+            v.appsScore        * weights.apps        / 100 +
+            v.connectionsScore * weights.connections / 100
+          );
+        });
+        VPNS.sort((a, b) => b.weightedScore - a.weightedScore);
+        VPNS.forEach((v, i) => { v.ranking = i + 1; });
+      }
+
+      function refreshTable() {
+        recomputeScores();
+        initTable();
+        updateResultCount();
+      }
+
+      function updateTotalBadge(total) {
+        const badge = document.getElementById("weights-total-badge");
+        if (!badge) return;
+        const ok = total === 100;
+        badge.textContent = `Total: ${total}%`;
+        badge.style.background = ok ? "rgba(0,210,106,0.15)" : "rgba(239,68,68,0.15)";
+        badge.style.color = ok ? "var(--accent-green)" : "var(--danger)";
+      }
+
+      function buildSliders() {
+        const grid = document.getElementById("weights-grid");
+        if (!grid) return;
+        grid.innerHTML = Object.keys(DEFAULT_WEIGHTS).map(key => `
+          <div>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.2rem">
+              <label for="w-${key}" style="font-size:0.75rem;color:var(--text-secondary);font-weight:600">${LABELS[key]}</label>
+              <span id="w-${key}-val" style="font-size:0.72rem;font-family:var(--font-mono);color:var(--text-primary);font-weight:700">${weights[key]}%</span>
+            </div>
+            <input type="range" id="w-${key}" data-key="${key}" min="0" max="60" step="1" value="${weights[key]}"
+              style="width:100%;accent-color:var(--accent-blue);cursor:pointer">
+          </div>`).join("");
+
+        grid.addEventListener("input", e => {
+          const inp = e.target;
+          if (!inp.dataset.key) return;
+          weights[inp.dataset.key] = Number(inp.value);
+          document.getElementById(`w-${inp.dataset.key}-val`).textContent = `${inp.value}%`;
+          const total = Object.values(weights).reduce((s, n) => s + n, 0);
+          updateTotalBadge(total);
+          if (total === 100) { saveWeights(weights); refreshTable(); }
+        });
+      }
+
+      document.getElementById("weights-reset")?.addEventListener("click", () => {
+        weights = { ...DEFAULT_WEIGHTS };
+        saveWeights(weights);
+        buildSliders();
+        updateTotalBadge(100);
+        refreshTable();
+      });
+
+      const panel = document.getElementById("weights-panel");
+      const arrow = document.getElementById("weights-arrow");
+      panel?.addEventListener("toggle", () => {
+        if (arrow) arrow.style.transform = panel.open ? "rotate(90deg)" : "";
+      });
+
+      buildSliders();
+      updateTotalBadge(Object.values(weights).reduce((s, n) => s + n, 0));
+    })();
 
     let activeFilters = new Set();
     let searchQuery = "";
