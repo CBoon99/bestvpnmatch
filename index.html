@@ -611,6 +611,17 @@
     #table-body tr[data-rank="3"] { border-left: 3px solid var(--accent-purple); }
     #table-body tr[data-rank="1"] td:first-child { background: rgba(0,210,106,0.03); }
 
+    /* ── Score breakdown row ── */
+    .score-expand-btn { background: none; border: none; cursor: pointer; font-size: 0.6rem; color: var(--text-muted); padding: 0 2px; vertical-align: middle; line-height: 1; transition: transform 0.15s; }
+    .score-expand-btn[aria-expanded="true"] { transform: rotate(90deg); color: var(--accent-blue); }
+    .score-breakdown-row td { padding: 0.6rem 1rem 0.7rem 3rem; background: var(--bg-elevated); border-top: 1px solid var(--border); }
+    .score-breakdown-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 0.4rem 1.2rem; }
+    .score-breakdown-item { display: flex; align-items: center; gap: 0.35rem; font-size: 0.72rem; }
+    .score-breakdown-item .sb-label { color: var(--text-muted); min-width: 70px; }
+    .score-breakdown-item .sb-val { font-family: var(--font-mono); font-weight: 700; color: var(--text-primary); }
+    .score-breakdown-item .sb-bar { flex: 1; height: 4px; border-radius: 2px; background: var(--border); overflow: hidden; }
+    .score-breakdown-item .sb-bar-fill { height: 100%; border-radius: 2px; background: var(--accent-blue); }
+
     /* ── Shortlist (Still Unsure?) ── */
     .shortlist { display: grid; gap: 1rem; margin-bottom: 2rem; }
     @media (min-width: 600px) { .shortlist { grid-template-columns: repeat(3, 1fr); } }
@@ -2807,13 +2818,41 @@
             : `<a href="${v.affiliateLink}" class="btn btn--primary btn--sm btn--deal-full" target="_blank" rel="${outboundRel()}" style="white-space:nowrap">${SITE_CONFIG.affiliateActive ? (v.savingsPct > 0 ? `Save ${v.savingsPct}%` : "Get Deal") : "Visit site"} →</a>
                ${v.moneyBackGuarantee ? `<div style="font-size:0.6rem;color:var(--text-muted);margin-top:0.2rem">✅ ${v.moneyBackGuarantee} MBG</div>` : ""}`}
         </td>
-        <td style="white-space:nowrap"><span class="score-pill ${scoreClass}">${v.weightedScore}<span style="font-size:0.7em;opacity:0.65">/100</span></span><a href="/methodology" title="How this score is calculated" style="font-size:0.6rem;color:var(--accent-blue);text-decoration:none;margin-left:2px;vertical-align:super">ⓘ</a>${auditDot(v)}</td>
+        <td style="white-space:nowrap">
+          <button class="score-expand-btn" data-target="${v.id}-breakdown" aria-expanded="false" aria-label="Show score breakdown for ${v.name}" title="Show score breakdown">▶</button>
+          <span class="score-pill ${scoreClass}">${v.weightedScore}<span style="font-size:0.7em;opacity:0.65">/100</span></span><a href="/methodology" title="How this score is calculated" style="font-size:0.6rem;color:var(--accent-blue);text-decoration:none;margin-left:2px;vertical-align:super">ⓘ</a>${auditDot(v)}</td>
         <td>
           ${renderMiniBar(v.speedScore)}
           <span style="font-family:var(--font-mono);font-size:0.72rem;color:var(--text-secondary)">${v.speedScore}/100</span>${v.sources?.speed ? `<a href="${v.sources.speed}" target="_blank" rel="noopener noreferrer" title="Speed score source: protocol docs" style="font-size:0.6rem;color:var(--accent-blue);text-decoration:none;margin-left:2px;vertical-align:super">ⓘ</a>` : ""}
         </td>
         <td>${priceHtml}</td>`;
-      return tr;
+
+      const breakdown = document.createElement("tr");
+      breakdown.id = `${v.id}-breakdown`;
+      breakdown.className = "score-breakdown-row";
+      breakdown.hidden = true;
+      const cats = [
+        { key: "privacy",     label: "Privacy",     score: v.privacyScore,    wt: "25%", src: v.sources?.privacy },
+        { key: "speed",       label: "Speed",       score: v.speedScore,      wt: "20%", src: v.sources?.speed },
+        { key: "security",    label: "Security",    score: v.securityScore,   wt: "15%", src: v.sources?.security },
+        { key: "streaming",   label: "Streaming",   score: v.streamingScore,  wt: "10%", src: v.sources?.streaming },
+        { key: "value",       label: "Value",       score: v.valueScore,      wt: "10%", src: v.sources?.value },
+        { key: "ethics",      label: "Ethics",      score: v.ethicsScore,     wt: "10%", src: v.sources?.ethics },
+        { key: "apps",        label: "Apps",        score: v.appsScore,       wt: "5%",  src: v.sources?.apps },
+        { key: "connections", label: "Connections", score: v.connectionsScore,wt: "5%",  src: v.sources?.connections }
+      ];
+      breakdown.innerHTML = `<td colspan="6"><div class="score-breakdown-grid">${cats.map(c => `
+        <div class="score-breakdown-item">
+          <span class="sb-label">${c.label} <span style="color:var(--text-muted);font-size:0.65em">(${c.wt})</span></span>
+          <span class="sb-val">${c.score ?? "—"}</span>
+          <span class="sb-bar"><span class="sb-bar-fill" style="width:${c.score ?? 0}%"></span></span>
+          ${c.src ? `<a href="${c.src}" target="_blank" rel="noopener noreferrer" title="Source for ${c.label} score" style="font-size:0.65rem;color:var(--accent-blue);text-decoration:none;flex-shrink:0">ⓘ</a>` : ""}
+        </div>`).join("")}</div></td>`;
+
+      const frag = document.createDocumentFragment();
+      frag.appendChild(tr);
+      frag.appendChild(breakdown);
+      return frag;
     }
 
     /* =====================================================================
@@ -3083,6 +3122,15 @@
       const tbody = document.getElementById("table-body");
       tbody.innerHTML = "";
       VPNS.forEach(v => tbody.appendChild(renderTableRow(v)));
+      tbody.addEventListener("click", e => {
+        const btn = e.target.closest(".score-expand-btn");
+        if (!btn) return;
+        const row = document.getElementById(btn.dataset.target);
+        if (!row) return;
+        const open = btn.getAttribute("aria-expanded") === "true";
+        btn.setAttribute("aria-expanded", String(!open));
+        row.hidden = open;
+      });
     }
 
     function initScorecards() {
@@ -3100,9 +3148,15 @@
     }
 
     function updateResultCount() {
-      const rows = document.querySelectorAll("#table-body tr");
+      const rows = document.querySelectorAll("#table-body tr:not(.score-breakdown-row)");
       let visible = 0;
-      rows.forEach(r => { const show = rowMatchesFilters(r); r.classList.toggle("is-hidden", !show); if (show) visible++; });
+      rows.forEach(r => {
+        const show = rowMatchesFilters(r);
+        r.classList.toggle("is-hidden", !show);
+        if (show) visible++;
+        const bdr = document.getElementById(`${r.dataset.id}-breakdown`);
+        if (bdr) bdr.classList.toggle("is-hidden", !show);
+      });
       document.getElementById("visible-count").textContent = visible;
       document.getElementById("total-count").textContent = VPNS.length;
       document.getElementById("empty-state").style.display = visible ? "none" : "block";
@@ -3202,8 +3256,8 @@
 
     function sortTableBy(column) {
       const tbody = document.getElementById("table-body");
-      const rows = Array.from(tbody.querySelectorAll("tr:not(.is-hidden)"));
-      const hidden = Array.from(tbody.querySelectorAll("tr.is-hidden"));
+      const rows = Array.from(tbody.querySelectorAll("tr:not(.is-hidden):not(.score-breakdown-row)"));
+      const hidden = Array.from(tbody.querySelectorAll("tr.is-hidden:not(.score-breakdown-row)"));
       if (currentSort.column === column) currentSort.direction = currentSort.direction === "asc" ? "desc" : "asc";
       else { currentSort.column = column; currentSort.direction = column === "score" ? "desc" : "asc"; }
       const key = { original:"name", alternative:"name", similarity:"speed", score:"score", longevity:"privacy", price:"price", rating:"streaming" }[column] || column;
@@ -3212,7 +3266,11 @@
         if (["score","speed","privacy","streaming","price"].includes(key)) { av = Number(av)||0; bv = Number(bv)||0; return currentSort.direction==="asc" ? av-bv : bv-av; }
         return currentSort.direction==="asc" ? av.localeCompare(bv) : bv.localeCompare(av);
       });
-      rows.forEach(r => tbody.appendChild(r)); hidden.forEach(r => tbody.appendChild(r));
+      [...rows, ...hidden].forEach(r => {
+        tbody.appendChild(r);
+        const bdr = document.getElementById(`${r.dataset.id}-breakdown`);
+        if (bdr) tbody.appendChild(bdr);
+      });
       document.querySelectorAll(".sortable").forEach(th => { th.classList.remove("sort-asc","sort-desc"); if (th.dataset.sort===column) th.classList.add(currentSort.direction==="asc"?"sort-asc":"sort-desc"); });
     }
 
