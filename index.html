@@ -2746,6 +2746,16 @@
     function formatPrice(n) { return "$" + n.toFixed(2); }
     function connLabel(c) { return c === "unlimited" ? "Unlimited" : String(c); }
 
+    function auditDot(v) {
+      const map = {
+        independent: { color: "var(--accent-green)", label: `Independent audit${v.auditFirm ? " (" + v.auditFirm + ")" : ""}` },
+        "self-published": { color: "var(--warning)",      label: "Self-published audit only" },
+        none:             { color: "var(--danger)",        label: "No audit — score based on features & policy" }
+      };
+      const { color, label } = map[v.auditType] || map.none;
+      return `<span title="${label}" aria-label="${label}" style="display:inline-block;width:7px;height:7px;border-radius:50%;background:${color};margin-left:4px;vertical-align:middle;flex-shrink:0;cursor:help"></span>`;
+    }
+
     function renderMiniBar(pct) {
       return `<div class="mini-bar-wrap"><div class="mini-bar" aria-hidden="true"><span class="mini-bar__fill" style="--w:${pct}%"></span></div><span>${pct}</span></div>`;
     }
@@ -2797,7 +2807,7 @@
             : `<a href="${v.affiliateLink}" class="btn btn--primary btn--sm btn--deal-full" target="_blank" rel="${outboundRel()}" style="white-space:nowrap">${SITE_CONFIG.affiliateActive ? (v.savingsPct > 0 ? `Save ${v.savingsPct}%` : "Get Deal") : "Visit site"} →</a>
                ${v.moneyBackGuarantee ? `<div style="font-size:0.6rem;color:var(--text-muted);margin-top:0.2rem">✅ ${v.moneyBackGuarantee} MBG</div>` : ""}`}
         </td>
-        <td><span class="score-pill ${scoreClass}">${v.weightedScore}<span style="font-size:0.7em;opacity:0.65">/100</span></span><a href="/methodology" title="How this score is calculated" style="font-size:0.6rem;color:var(--accent-blue);text-decoration:none;margin-left:2px;vertical-align:super">ⓘ</a></td>
+        <td style="white-space:nowrap"><span class="score-pill ${scoreClass}">${v.weightedScore}<span style="font-size:0.7em;opacity:0.65">/100</span></span><a href="/methodology" title="How this score is calculated" style="font-size:0.6rem;color:var(--accent-blue);text-decoration:none;margin-left:2px;vertical-align:super">ⓘ</a>${auditDot(v)}</td>
         <td>
           ${renderMiniBar(v.speedScore)}
           <span style="font-family:var(--font-mono);font-size:0.72rem;color:var(--text-secondary)">${v.speedScore}/100</span>${v.sources?.speed ? `<a href="${v.sources.speed}" target="_blank" rel="noopener noreferrer" title="Speed score source: protocol docs" style="font-size:0.6rem;color:var(--accent-blue);text-decoration:none;margin-left:2px;vertical-align:super">ⓘ</a>` : ""}
