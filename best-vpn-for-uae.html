@@ -61,5 +61,30 @@ ul{margin:8px 0 8px 20px;color:var(--sec);font-size:.9rem}</style>
 <details><summary>Why do VPNs fail in Dubai?</summary><p>ISPs use deep packet inspection to detect OpenVPN and standard WireGuard handshakes. Obfuscated protocols (Lightway, Nord Obfuscated, Surfshark Camouflage) disguise traffic as normal HTTPS.</p></details>
 <details><summary>Should I install the VPN before travelling to UAE?</summary><p>Yes — download and test the app before departure. App stores may be restricted once you arrive, and hotel Wi‑Fi may block VPN download pages.</p></details></div></div></section>
 </main>
+<!-- ── Best Match network banner ── -->
+<style>
+  .network-banner { padding: 1rem 0 2rem; }
+  .network-banner__inner { width: min(100% - 2rem, var(--max, 1160px)); margin-inline: auto; }
+  .network-banner__card {
+    display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap;
+    background: rgba(37,99,235,0.08); border: 1px solid rgba(37,99,235,0.3);
+    border-radius: var(--radius, 12px); padding: 1rem 1.25rem;
+    font-size: 0.9rem; color: var(--text-secondary, #334155); line-height: 1.6;
+  }
+  .network-banner__card strong { color: var(--text-primary, #0f172a); }
+  .network-banner__card a { color: var(--accent-blue, #2563eb); font-weight: 700; text-decoration: none; }
+  .network-banner__card a:hover { text-decoration: underline; }
+</style>
+<section class="network-banner" aria-label="Best Match network">
+  <div class="network-banner__inner">
+    <div class="network-banner__card">
+      <span aria-hidden="true">🔗</span>
+      <span>Part of the <strong>Best Match</strong> network — building your own setup? Compare
+        <a href="https://www.besthostingmatch.com" target="_blank" rel="noopener noreferrer">Hosting</a> and
+        <a href="https://www.bestvpsmatch.com" target="_blank" rel="noopener noreferrer">VPS</a> providers too.</span>
+    </div>
+  </div>
+</section>
+
 <footer><div class="container"><p>© 2026 Best VPN Match · <a href="/methodology">Methodology</a> · <a href="/about">About</a> · <a href="/ethics">Ethics</a> · <a href="/privacy">Privacy</a> · <a href="/contact">Contact</a></p></div></footer>
 </body></html>
