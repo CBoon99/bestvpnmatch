@@ -2211,6 +2211,34 @@
       .section { padding: 2.5rem 0; }
     }
 
+    /* ── Mobile table layout ── */
+    @media (max-width: 640px) {
+      /* Make VPN name column sticky so it stays visible while scrolling */
+      .comparison-table td:nth-child(2),
+      .comparison-table th:nth-child(2) {
+        position: sticky;
+        left: 44px; /* width of checkbox col */
+        background: var(--bg-card);
+        z-index: 1;
+        box-shadow: 2px 0 6px -2px rgba(0,0,0,0.08);
+      }
+      .comparison-table th:nth-child(2) {
+        background: var(--bg-elevated);
+        z-index: 3;
+      }
+      /* Hide Speed column — visible in breakdown rows */
+      .comparison-table td:nth-child(5),
+      .comparison-table th:nth-child(5) { display: none; }
+      /* Shrink checkbox col */
+      .comparison-table td:first-child,
+      .comparison-table th:first-child { min-width: 44px; padding: 0.5rem 0.4rem; }
+      /* Score breakdown grid: single column on mobile */
+      .score-breakdown-grid { grid-template-columns: 1fr 1fr; }
+      .score-breakdown-row td { padding: 0.6rem 0.6rem 0.7rem 0.6rem; }
+      /* Weights panel: single column */
+      #weights-grid { grid-template-columns: 1fr; }
+    }
+
     /* Reduced motion */
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
