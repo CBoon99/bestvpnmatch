@@ -45,6 +45,7 @@ function buildVPN(p) {
     tags: p.tags || [],
     sources: p.sources || {},
     affiliatePartnered: p.affiliatePartnered || false,
+    status: p.status || "active",
     weightedScore: 0,
     ranking: 0
   };

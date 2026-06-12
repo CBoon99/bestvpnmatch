@@ -637,14 +637,7 @@
     .sticky-bar__pick-save { font-size: 0.53rem; color: var(--accent-green); font-weight: 800; }
 
     /* ── Mid-page email capture ── */
-    .email-capture { background: linear-gradient(135deg, rgba(43,127,255,0.08) 0%, rgba(0,210,106,0.06) 100%); border: 1px solid rgba(0,210,106,0.2); border-radius: var(--radius); padding: 1.75rem 2rem; display: grid; gap: 1rem; align-items: center; max-width: 680px; margin: 0 auto 2rem; }
-    @media (min-width: 560px) { .email-capture { grid-template-columns: 1fr auto; } }
-    .email-capture__copy { }
-    .email-capture__title { font-size: 1rem; font-weight: 700; color: var(--text-primary); margin: 0 0 0.35rem; }
-    .email-capture__sub { font-size: 0.8rem; color: var(--text-secondary); margin: 0; }
-    .email-capture__form { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-    .email-capture__input { flex: 1; min-width: 180px; padding: 0.55rem 0.9rem; border-radius: 999px; border: 1px solid var(--border); background: var(--bg-card); color: var(--text-primary); font-family: var(--font-body); font-size: 0.85rem; }
-    .email-capture__input:focus { outline: none; border-color: var(--accent-green); box-shadow: 0 0 0 3px rgba(0,210,106,0.15); }
+    /* email-capture CSS removed — no email collection */
 
     /* ── Best-for label in table ── */
     .bestfor-label { font-size: 0.65rem; color: var(--accent-green); font-weight: 600; margin-top: 0.15rem; }
@@ -2307,9 +2300,9 @@
     </div>
 
     <div class="promo-bar" id="promo-bar" role="banner">
-      <span class="promo-bar__text">🔒 <strong>Today's Top Deal:</strong> <span id="promo-name">NordVPN</span></span>
-      <span class="promo-bar__deal" id="promo-savings">Save up to 83%</span>
-      <a href="#scorecards" class="promo-bar__cta" id="promo-cta">Claim Deal →</a>
+      <span class="promo-bar__text">🔒 <strong>Top Rated:</strong> <span id="promo-name">NordVPN</span></span>
+      <span class="promo-bar__deal" id="promo-savings">Editorial pick</span>
+      <a href="#scorecards" class="promo-bar__cta" id="promo-cta">See top picks →</a>
       <button class="promo-bar__close" id="promo-close" aria-label="Close">✕</button>
     </div>
 
@@ -2507,7 +2500,7 @@
                 <tr>
                   <th scope="col" style="width:44px;text-align:center">Compare</th>
                   <th scope="col" data-sort="original" class="sortable">VPN <span class="sort-indicator"></span></th>
-                  <th scope="col">Best Deal</th>
+                  <th scope="col">Visit</th>
                   <th scope="col" data-sort="score" class="sortable">Score <span class="score-tooltip" tabindex="0">ⓘ<span class="tooltip-text">20% Speed · 25% Privacy · 15% Security · 10% Streaming · 10% Value · 10% Ethics · 5% Apps · 5% Connections</span></span> <span class="sort-indicator"></span></th>
                   <th scope="col" data-sort="similarity" class="sortable">Speed <span class="sort-indicator"></span></th>
                   <th scope="col" data-sort="price" class="sortable">Price / mo <span class="sort-indicator"></span></th>
@@ -2658,7 +2651,7 @@
     <div id="compare-modal" role="dialog" aria-modal="true" aria-labelledby="compare-modal-title">
       <div class="compare-modal__panel">
         <h3 id="compare-modal-title" style="margin:0 0 0.5rem;font-family:var(--font-display);">Side-by-side comparison</h3>
-        <p style="font-size:0.85rem;color:var(--ink-muted);margin:0;">Compare key metrics side by side — click a deal to get the best current price.</p>
+        <p style="font-size:0.85rem;color:var(--ink-muted);margin:0;">Compare key metrics side by side. Click "Visit site" to go to the provider's official page.</p>
         <ul class="compare-modal__list" id="compare-modal-list"></ul>
         <button type="button" class="btn btn--secondary" id="compare-modal-close" style="width:100%;">Close</button>
       </div>
@@ -2680,16 +2673,12 @@
           </p>
         </div>
         <div>
-          <h3 style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-soft); margin: 0 0 0.5rem;">Stay updated</h3>
-          <p style="font-size: 0.85rem; color: var(--ink-muted); margin: 0;">Scores and pricing are reviewed regularly. See <a href="/DATA-SOURCES.md">data sources</a> and <a href="#methodology">methodology</a>.</p>
-        </div>
-        <div>
-          <h3 style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-soft); margin: 0 0 0.75rem;">Site</h3>
+          <h3 style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-soft); margin: 0 0 0.75rem;">Transparency</h3>
           <ul class="footer__links">
-            <li><a href="/reviews">Reviews</a></li>
-            <li><a href="#disclosure">Disclosure</a></li>
-            <li><a href="/privacy">Privacy</a></li>
-            <li><a href="/contact">Contact</a></li>
+            <li><a href="/methodology">Methodology</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/ethics">Ethics policy</a></li>
+            <li><a href="/DATA-SOURCES.md">Data sources</a></li>
           </ul>
         </div>
         <div>
@@ -2721,14 +2710,21 @@
     const FEATURED_VPN_ID = [...VPNS].sort((a,b) => b.weightedScore - a.weightedScore)[0].id;
     const FEATURED_WHY = "Top editorial score across our eight public-data categories. Confirm current pricing on the provider site before you buy.";
 
-    const SCORECARDS = [
-      { category:"Best Overall", vpnId: [...VPNS].sort((a,b)=>b.weightedScore-a.weightedScore)[0].id, badge:"Editor's pick", label:"Best Overall" },
-      { category:"Best Privacy", vpnId: [...VPNS].sort((a,b)=>b.privacyScore-a.privacyScore)[0].id, badge:"Audited", label:"Top Privacy" },
-      { category:"Fastest Speed", vpnId: [...VPNS].sort((a,b)=>b.speedScore-a.speedScore)[0].id, badge:"Speed test", label:"Fastest" },
-      { category:"Best Value", vpnId: [...VPNS].sort((a,b)=>b.valueScore-a.valueScore)[0].id, badge:"Best deal", label:"Best Value" },
-      { category:"Best Streaming", vpnId: [...VPNS].sort((a,b)=>b.streamingScore-a.streamingScore)[0].id, badge:"Netflix+", label:"Streaming" },
-      { category:"Best Budget", vpnId: [...VPNS].sort((a,b)=>a.monthlyPrice-b.monthlyPrice)[0].id, badge:"Under $2", label:"Budget" }
-    ];
+    // Scorecards — deduplicated so no VPN appears twice
+    const SCORECARDS = (() => {
+      const candidates = [
+        { category:"Best Overall",   fn: vs => [...vs].sort((a,b)=>b.weightedScore-a.weightedScore)[0],  badge:"Editor's pick", label:"Best Overall" },
+        { category:"Best Privacy",   fn: vs => [...vs].sort((a,b)=>b.privacyScore-a.privacyScore)[0],    badge:"Audited",       label:"Top Privacy" },
+        { category:"Fastest Speed",  fn: vs => [...vs].sort((a,b)=>b.speedScore-a.speedScore)[0],        badge:"Speed",         label:"Fastest" },
+        { category:"Best Value",     fn: vs => [...vs].sort((a,b)=>b.valueScore-a.valueScore)[0],        badge:"Best value",    label:"Best Value" },
+        { category:"Best Streaming", fn: vs => [...vs].sort((a,b)=>b.streamingScore-a.streamingScore)[0],badge:"Netflix+",      label:"Streaming" },
+        { category:"Best Budget",    fn: vs => [...vs].filter(v=>!v.status||v.status!=="discontinued").sort((a,b)=>a.monthlyPrice-b.monthlyPrice)[0], badge:"Budget", label:"Budget" }
+      ];
+      const seen = new Set();
+      return candidates
+        .map(c => { const v = c.fn(VPNS); return v ? { ...c, vpnId: v.id } : null; })
+        .filter(c => { if (!c || seen.has(c.vpnId)) return false; seen.add(c.vpnId); return true; });
+    })();
 
     const CATEGORY_TILES = [
       { title:"Best for Netflix & Streaming", hint:"Unblocks major platforms", search:"Netflix", letter:"S" },
@@ -2777,31 +2773,34 @@
                        : "score-pill--good";
       const rankBadge = v.ranking <= 3
         ? `<span style="font-size:0.62rem;font-weight:800;padding:0.1rem 0.4rem;border-radius:999px;background:${v.ranking===1?"rgba(0,210,106,0.15)":v.ranking===2?"rgba(43,127,255,0.12)":"rgba(139,92,246,0.12)"};color:${v.ranking===1?"var(--accent-green)":v.ranking===2?"var(--accent-blue)":"var(--accent-purple)"};margin-left:0.3rem">#${v.ranking}</span>` : "";
-      const priceHtml = v.savingsPct > 0
+      const priceHtml = (v.savingsPct > 0 && SITE_CONFIG.affiliateActive)
         ? `<span class="price-was">${formatPrice(v.regularPrice)}</span> <span class="price-now">${formatPrice(v.monthlyPrice)}</span><br><span class="savings-badge">-${v.savingsPct}%</span>`
         : `<span class="price-now">${formatPrice(v.monthlyPrice)}</span>`;
 
+      const isDiscontinued = v.status === "discontinued";
       tr.innerHTML = `
         <td style="text-align:center;width:44px">
-          <input type="checkbox" class="compare-checkbox" data-id="${v.id}" aria-label="Select ${v.name} for comparison" style="width:1rem;height:1rem;cursor:pointer;accent-color:var(--accent-blue)">
+          <input type="checkbox" class="compare-checkbox" data-id="${v.id}" aria-label="Select ${v.name} for comparison" style="width:1rem;height:1rem;cursor:pointer;accent-color:var(--accent-blue)"${isDiscontinued ? " disabled" : ""}>
         </td>
         <td>
           <div style="display:flex;align-items:center;gap:0.55rem">
-            <span style="font-size:1.4rem">${v.logoIcon}</span>
+            <span style="font-size:1.4rem;${isDiscontinued ? "filter:grayscale(1);opacity:0.6" : ""}">${v.logoIcon}</span>
             <div>
-              <div style="font-weight:700;color:var(--text-primary);display:flex;align-items:center">${v.name}${rankBadge}</div>
-              <div class="bestfor-label">${v.bestFor}</div>
+              <div style="font-weight:700;color:var(--text-primary);display:flex;align-items:center;gap:0.3rem">${v.name}${rankBadge}${isDiscontinued ? `<span style="font-size:0.6rem;font-weight:700;padding:0.1rem 0.4rem;border-radius:999px;background:rgba(120,120,120,0.15);color:var(--text-muted);border:1px solid var(--border)">Discontinued</span>` : ""}</div>
+              <div class="bestfor-label">${isDiscontinued ? "Service ended 2024 — links may be offline" : v.bestFor}</div>
             </div>
           </div>
         </td>
         <td style="white-space:nowrap">
-          <a href="${v.affiliateLink}" class="btn btn--primary btn--sm btn--deal-full" target="_blank" rel="${outboundRel()}" style="white-space:nowrap">${SITE_CONFIG.affiliateActive ? (v.savingsPct > 0 ? `Save ${v.savingsPct}%` : "Get Deal") : "Visit site"} →</a>
-          ${v.moneyBackGuarantee ? `<div style="font-size:0.6rem;color:var(--text-muted);margin-top:0.2rem">✅ ${v.moneyBackGuarantee} MBG</div>` : ""}
+          ${isDiscontinued
+            ? `<span style="font-size:0.75rem;color:var(--text-muted)">Service ended</span>`
+            : `<a href="${v.affiliateLink}" class="btn btn--primary btn--sm btn--deal-full" target="_blank" rel="${outboundRel()}" style="white-space:nowrap">${SITE_CONFIG.affiliateActive ? (v.savingsPct > 0 ? `Save ${v.savingsPct}%` : "Get Deal") : "Visit site"} →</a>
+               ${v.moneyBackGuarantee ? `<div style="font-size:0.6rem;color:var(--text-muted);margin-top:0.2rem">✅ ${v.moneyBackGuarantee} MBG</div>` : ""}`}
         </td>
         <td><span class="score-pill ${scoreClass}">${v.weightedScore}<span style="font-size:0.7em;opacity:0.65">/100</span></span><a href="/methodology" title="How this score is calculated" style="font-size:0.6rem;color:var(--accent-blue);text-decoration:none;margin-left:2px;vertical-align:super">ⓘ</a></td>
         <td>
           ${renderMiniBar(v.speedScore)}
-          <span style="font-family:var(--font-mono);font-size:0.72rem;color:var(--text-secondary)">${v.speedScore}/100</span>${v.sources?.speedProtocolUrl ? `<a href="${v.sources.speedProtocolUrl}" target="_blank" rel="noopener noreferrer" title="Speed score source: protocol docs" style="font-size:0.6rem;color:var(--accent-blue);text-decoration:none;margin-left:2px;vertical-align:super">ⓘ</a>` : ""}
+          <span style="font-family:var(--font-mono);font-size:0.72rem;color:var(--text-secondary)">${v.speedScore}/100</span>${v.sources?.speed ? `<a href="${v.sources.speed}" target="_blank" rel="noopener noreferrer" title="Speed score source: protocol docs" style="font-size:0.6rem;color:var(--accent-blue);text-decoration:none;margin-left:2px;vertical-align:super">ⓘ</a>` : ""}
         </td>
         <td>${priceHtml}</td>`;
       return tr;
@@ -2991,9 +2990,9 @@
     function renderFeatured() {
       const v = getById(FEATURED_VPN_ID);
       if (!v) return;
-      const savingsHtml = v.savingsPct > 0
+      const savingsHtml = (v.savingsPct > 0 && SITE_CONFIG.affiliateActive)
         ? `<span class="savings-badge savings-badge--hot">Save ${v.savingsPct}%</span>` : "";
-      const priceHtml = v.savingsPct > 0
+      const priceHtml = (v.savingsPct > 0 && SITE_CONFIG.affiliateActive)
         ? `<span class="price-was">${formatPrice(v.regularPrice)}</span><span class="price-now">${formatPrice(v.monthlyPrice)}/mo</span>`
         : `<strong>${formatPrice(v.monthlyPrice)}/mo</strong>`;
       document.getElementById("featured-match").innerHTML = `
@@ -3012,7 +3011,7 @@
           </div>
           <div class="featured-match__cta">
             <p class="featured-match__why">${FEATURED_WHY}</p>
-            <a href="${v.affiliateLink}" class="btn btn--primary btn--deal-full" target="_blank" rel="${outboundRel()}">Get ${v.name}${v.savingsPct > 0 ? ` — Save ${v.savingsPct}%` : ""} →</a>
+            <a href="${v.affiliateLink}" class="btn btn--primary btn--deal-full" target="_blank" rel="${outboundRel()}">Get ${v.name}${(v.savingsPct > 0 && SITE_CONFIG.affiliateActive) ? ` — Save ${v.savingsPct}%` : ""} →</a>
             <p class="deal-sub">✅ <strong>${v.moneyBackGuarantee}</strong> money-back guarantee · Links to official provider site</p>
           </div>
         </article>`;
@@ -3046,9 +3045,9 @@
       const ribbon = isTop
         ? `<div class="editors-choice-ribbon">Editor's Pick</div>`
         : isSecond ? `<div class="most-popular-ribbon">Most Popular</div>` : "";
-      const savingsHtml = v.savingsPct > 0
+      const savingsHtml = (v.savingsPct > 0 && SITE_CONFIG.affiliateActive)
         ? `<span class="savings-badge${v.savingsPct >= 70 ? ' savings-badge--hot' : ''}">Save ${v.savingsPct}%</span>` : "";
-      const priceHtml = v.savingsPct > 0
+      const priceHtml = (v.savingsPct > 0 && SITE_CONFIG.affiliateActive)
         ? `<span class="price-was">${formatPrice(v.regularPrice)}</span><span class="price-now">${formatPrice(v.monthlyPrice)}/mo</span>`
         : `<span class="price-now">${formatPrice(v.monthlyPrice)}/mo</span>`;
       return `<article class="scorecard" style="animation-delay:${index * 0.08}s">
@@ -3065,7 +3064,7 @@
         <ul class="scorecard__pros-cons" style="list-style:none;padding:0;margin:0 0 1rem;font-size:0.82rem;color:var(--text-secondary)">
           <li>✅ ${v.pros[0]}</li><li>⚠️ ${v.cons[0]}</li>
         </ul>
-        <a href="${v.affiliateLink}" class="btn btn--primary btn--deal-full" target="_blank" rel="${outboundRel()}">Get ${v.name}${v.savingsPct > 0 ? ` — Save ${v.savingsPct}%` : ""} →</a>
+        <a href="${v.affiliateLink}" class="btn btn--primary btn--deal-full" target="_blank" rel="${outboundRel()}">Get ${v.name}${(v.savingsPct > 0 && SITE_CONFIG.affiliateActive) ? ` — Save ${v.savingsPct}%` : ""} →</a>
         <p class="deal-sub">✅ <strong>${v.moneyBackGuarantee}</strong> money-back guarantee · Official provider link</p>
       </article>`;
     }
@@ -3169,6 +3168,7 @@
         showSuggestions(input.value.trim());
       });
 
+      input.addEventListener("keydown", e => { if (e.key === "Enter" && input.value.trim()) { runSearch(input.value.trim()); suggestions?.classList.remove("is-open"); } });
       input.addEventListener("blur", () => setTimeout(() => suggestions?.classList.remove("is-open"), 150));
       input.addEventListener("focus", () => { if (input.value.trim()) showSuggestions(input.value.trim()); });
 
@@ -3369,9 +3369,9 @@
         if (!config) return;
         const v = config.sortFn(VPNS);
         if (!v) return;
-        const savingsHtml = v.savingsPct > 0
+        const savingsHtml = (v.savingsPct > 0 && SITE_CONFIG.affiliateActive)
           ? `<span class="savings-badge savings-badge--hot">Save ${v.savingsPct}%</span>` : "";
-        const priceHtml = v.savingsPct > 0
+        const priceHtml = (v.savingsPct > 0 && SITE_CONFIG.affiliateActive)
           ? `<span class="price-was">${formatPrice(v.regularPrice)}</span> <span class="price-now">${formatPrice(v.monthlyPrice)}/mo</span>`
           : `<span class="price-now">${formatPrice(v.monthlyPrice)}/mo</span>`;
         document.getElementById("intent-result").innerHTML = `
@@ -3404,13 +3404,13 @@
       el.innerHTML = SHORTLIST_CONFIG.map((s, i) => {
         const v = s.sortFn(VPNS);
         if (!v) return "";
-        const savingsHtml = v.savingsPct > 0 ? `<span class="savings-badge">Save ${v.savingsPct}%</span>` : "";
+        const savingsHtml = (v.savingsPct > 0 && SITE_CONFIG.affiliateActive) ? `<span class="savings-badge">Save ${v.savingsPct}%</span>` : "";
         return `<div class="shortlist-card${i === 0 ? " shortlist-card--top" : ""}">
           <p class="shortlist-card__label">${s.label}</p>
           <p class="shortlist-card__name">${v.logoIcon} ${v.name} ${savingsHtml}</p>
           <p class="shortlist-card__why">${v.pros[0]}</p>
           <p class="shortlist-card__price">
-            ${v.savingsPct > 0 ? `<span class="price-was">${formatPrice(v.regularPrice)}</span> ` : ""}<span class="price-now">${formatPrice(v.monthlyPrice)}/mo</span> · ✅ ${v.moneyBackGuarantee} MBG
+            ${(v.savingsPct > 0 && SITE_CONFIG.affiliateActive) ? `<span class="price-was">${formatPrice(v.regularPrice)}</span> ` : ""}<span class="price-now">${formatPrice(v.monthlyPrice)}/mo</span> · ✅ ${v.moneyBackGuarantee} MBG
           </p>
           <a href="${v.affiliateLink}" class="btn btn--primary btn--sm btn--deal-full" target="_blank" rel="${outboundRel()}">Get ${v.name} →</a>
         </div>`;
@@ -3430,10 +3430,10 @@
       const seen = new Set();
       const unique = picks.filter(v => { if (seen.has(v.id)) return false; seen.add(v.id); return true; });
       picksEl.innerHTML = unique.map(v => `
-        <a href="${v.affiliateLink}" class="sticky-bar__pick" target="_blank" rel="${outboundRel()}" aria-label="Get ${v.name}${v.savingsPct > 0 ? ` – Save ${v.savingsPct}%` : ""}">
+        <a href="${v.affiliateLink}" class="sticky-bar__pick" target="_blank" rel="${outboundRel()}" aria-label="Get ${v.name}">
           <span class="sticky-bar__pick-icon">${v.logoIcon}</span>
           <span class="sticky-bar__pick-name">${v.name}</span>
-          ${v.savingsPct > 0 ? `<span class="sticky-bar__pick-save">-${v.savingsPct}%</span>` : ""}
+          ${(v.savingsPct > 0 && SITE_CONFIG.affiliateActive) ? `<span class="sticky-bar__pick-save">-${v.savingsPct}%</span>` : ""}
         </a>`).join("");
     }
 
@@ -3445,9 +3445,8 @@
       const savings = document.getElementById("promo-savings");
       const nameEl = document.getElementById("promo-name");
       if (nameEl) nameEl.textContent = top.name;
-      if (cta) { cta.href = top.affiliateLink; cta.textContent = `Get ${top.name} →`; }
-      if (savings && top.savingsPct > 0) savings.textContent = `Save ${top.savingsPct}%`;
-      else if (savings) savings.style.display = "none";
+      if (cta) { cta.href = top.affiliateLink; cta.textContent = `See top picks →`; }
+      if (savings) savings.textContent = "Editorial pick";
       document.getElementById("promo-close")?.addEventListener("click", () => { if (bar) bar.style.display = "none"; });
     }
 
@@ -3602,7 +3601,7 @@
       const topVPN = [...VPNS].sort((a,b) => b.weightedScore - a.weightedScore)[0];
       document.getElementById("exit-vpn-name").textContent = topVPN.name;
       document.getElementById("exit-vpn-price").textContent = formatPrice(topVPN.monthlyPrice);
-      document.getElementById("exit-vpn-saving").textContent = topVPN.savingsPct > 0 ? `save ${topVPN.savingsPct}%` : "best rated";
+      document.getElementById("exit-vpn-saving").textContent = (topVPN.savingsPct > 0 && SITE_CONFIG.affiliateActive) ? `save ${topVPN.savingsPct}%` : "best rated";
       const exitCta = document.getElementById("exit-cta");
       exitCta.href = topVPN.affiliateLink;
       exitCta.rel = outboundRel();
