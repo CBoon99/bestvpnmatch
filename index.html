@@ -3132,7 +3132,7 @@
 
     const SUGGESTION_TERMS = [
       "NordVPN","ExpressVPN","Surfshark","Proton VPN","Mullvad","CyberGhost",
-      "Private Internet Access","Windscribe","hide.me","Atlas VPN","IPVanish",
+      "Private Internet Access","Windscribe","hide.me","IPVanish",
       "VyprVPN","TunnelBear","Hotspot Shield","Ivacy","PrivateVPN",
       "streaming","Netflix","BBC iPlayer","Disney+","Hulu",
       "privacy","no-logs","audited","open source","WireGuard","kill switch",
@@ -3345,7 +3345,7 @@
       privacy: {
         sortFn: vpns => [...vpns].sort((a,b) => b.privacyScore - a.privacyScore)[0],
         label: "Best for Privacy & No-Logs",
-        why: "Independent audit verified. Privacy-friendly jurisdiction. Warrant canary active. The most trustworthy no-logs policy we tested."
+        why: "Independent audit verified. Privacy-friendly jurisdiction. Warrant canary active. The most trustworthy no-logs policy per published audit reports."
       },
       budget: {
         sortFn: vpns => [...vpns].filter(v => v.tags.includes("under-3")).sort((a,b) => a.monthlyPrice - b.monthlyPrice)[0],

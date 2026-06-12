@@ -259,31 +259,6 @@ const VPN_RECORDS = [
     tags:["no-logs-audited","free-tier","wireguard","linux","router","independent-audit","under-5"]
   },
   {
-    id:"atlasvpn", name:"Atlas VPN", logoIcon:"🌍", tagline:"Budget NordSecurity brand — discontinued 2024",
-    status:"discontinued",
-    jurisdiction:"USA", auditType:"independent",
-    privacyScore:78, speedScore:84, securityScore:82, streamingScore:85,
-    valueScore:91, ethicsScore:72, appsScore:78,
-    simultaneousConnections:"unlimited", connectionsScore:100,
-    monthlyPrice:1.99,
-    protocols:["WireGuard","IPSec"],
-    pros:["Very affordable","Unlimited devices"],
-    cons:["US jurisdiction","Smaller network"],
-    bestFor:"Budget unlimited devices",
-    affiliatePartnered: false,
-    sources:{
-      privacy:   "https://atlasvpn.com/privacy-policy",
-      speed:     "https://www.wireguard.com/",
-      security:  "https://atlasvpn.com/features",
-      streaming: "https://atlasvpn.com/features/streaming",
-      value:     "https://atlasvpn.com/pricing",
-      ethics:    "https://nordvpn.com/about-us/",                     // Nord Security parent
-      apps:      "https://atlasvpn.com/download",
-      connections:"https://atlasvpn.com/pricing"
-    },
-    tags:["streaming","wireguard","unlimited-devices","independent-audit","netflix","under-3","under-5"]
-  },
-  {
     id:"ipvanish", name:"IPVanish", logoIcon:"🗂️", tagline:"Owns its server network",
     jurisdiction:"USA", auditType:"none",
     privacyScore:65, speedScore:86, securityScore:84, streamingScore:76,

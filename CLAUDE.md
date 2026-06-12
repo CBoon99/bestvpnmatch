@@ -9,7 +9,7 @@
 
 **bestvpnmatch.com** — an independent VPN comparison and editorial scoring site.
 
-- Scores 16 VPN providers across 8 categories using **public, verifiable data only** (no first-person lab tests)
+- Scores 15 VPN providers across 8 categories using **public, verifiable data only** (no first-person lab tests)
 - Links users to official VPN provider homepages — **no affiliate income yet**
 - Run by Carl Boon (solo, no company entity)
 - Deployed on Netlify from `github.com:CBoon99/bestvpnmatch.git`
@@ -196,14 +196,6 @@ outboundRel()                        // "noopener sponsored" or "noopener norefe
 outboundLabel()                      // "Affiliate link" or "Official site"
 ```
 
-### Atlas VPN special case
-
-`status: "discontinued"` in `vpn-data.js`. The record is kept for historical completeness but:
-- Table row shows grey "Discontinued" badge
-- CTA replaced with "Service ended" text
-- Checkbox is disabled
-- `LINK_CHECK_EXEMPT` in `site-config.js` excludes it from link checker
-
 ---
 
 ## index.html architecture
@@ -324,10 +316,6 @@ Source: `v.auditType` field on each VPN record.
 
 All landing pages need `/methodology`, `/about`, `/ethics` links in their **footers** (navs already updated, footers are inconsistent).
 
-### P2.5 — Atlas VPN removal
-
-Atlas VPN is flagged discontinued. Eventually remove it from `VPN_RAW` in `vpn-data.js` entirely, remove from `VPN_SAVINGS`, `VPN_HOME_LINKS`, `LINK_CHECK_EXEMPT`, and `SUGGESTION_TERMS` in `index.html`.
-
 ### P2.6 — Mobile table layout audit
 
 The comparison table is a full-width `<table>`. On mobile it currently scrolls horizontally. Consider a card-per-VPN layout below a certain breakpoint.
@@ -433,4 +421,3 @@ When scores or pricing change:
 - Do not remove the anti-flash theme script from `<head>` or make it async/defer
 - Do not add company contact info, address, or entity claims (no legal entity exists yet)
 - Do not remove `DATA-SOURCES.md` — it's referenced from footer and methodology page
-- Do not add Atlas VPN as an active recommendation — it is discontinued

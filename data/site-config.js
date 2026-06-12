@@ -24,7 +24,6 @@ const VPN_HOME_LINKS = {
   pia: "https://www.privateinternetaccess.com",
   windscribe: "https://windscribe.com",
   hide_me: "https://hide.me",
-  atlasvpn: "https://atlasvpn.com",
   ipvanish: "https://www.ipvanish.com",
   vyprvpn: "https://www.vyprvpn.com",
   privatevpn: "https://privatevpn.com",
@@ -34,9 +33,7 @@ const VPN_HOME_LINKS = {
 };
 
 /** Skipped by scripts/check_links.py — document reason; remove VPN from data when ready */
-const LINK_CHECK_EXEMPT = {
-  atlasvpn: "Atlas VPN discontinued (2024); domain offline — pending removal from comparison"
-};
+const LINK_CHECK_EXEMPT = {};
 
 /** [savingsPct, regularMonthlyPrice] — verify on provider sites; last checked SITE_CONFIG.dataLastVerified */
 const VPN_SAVINGS = {
@@ -50,7 +47,6 @@ const VPN_SAVINGS = {
   pia: [83, 11.99],
   windscribe: [50, 9.00],
   hide_me: [58, 9.99],
-  atlasvpn: [83, 10.99],
   ipvanish: [72, 10.99],
   vyprvpn: [50, 10.00],
   privatevpn: [85, 11.99],
