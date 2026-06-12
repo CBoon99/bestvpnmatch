@@ -174,7 +174,7 @@ Score = (Speed × 0.20) + (Privacy × 0.25) + (Security × 0.15) + (Streaming ×
 - **Cons:** US jurisdiction
 - **Tags:** streaming, torrenting, no-logs-audited, open-source, wireguard, unlimited-devices, linux, router
 
-### Surfshark, CyberGhost, Windscribe, hide.me, Atlas VPN, IPVanish, VyprVPN, PrivateVPN, TunnelBear, Hotspot Shield, Ivacy
+### Surfshark, CyberGhost, Windscribe, hide.me, IPVanish, VyprVPN, PrivateVPN, TunnelBear, Hotspot Shield, Ivacy
 Scores available at: https://bestvpnmatch.com/#compare
 
 ---

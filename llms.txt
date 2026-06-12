@@ -1,6 +1,6 @@
 # Best VPN Match
 
-> Editorial VPN comparison site. Weighted scores from public audits, jurisdiction, features and published pricing across 16 VPN services. No paid placement. Updated June 2026.
+> Editorial VPN comparison site. Weighted scores from public audits, jurisdiction, features and published pricing across 15 VPN services. No paid placement. Updated June 2026.
 
 ## What this site does
 
@@ -47,7 +47,7 @@ Best VPN Match scores VPN services across 8 weighted categories using **public, 
 **Highest privacy score:** Proton VPN (98/100)  
 **Best value under $3/mo:** Surfshark ($2.19/mo, unlimited devices)  
 **Cheapest listed plan:** Ivacy ($1.16/mo — lacks independent audit)  
-**Unlimited devices:** Surfshark, PIA, Windscribe, Atlas VPN, IPVanish  
+**Unlimited devices:** Surfshark, PIA, Windscribe, IPVanish
 **Best audited no-logs:** Proton VPN, Mullvad, NordVPN (Deloitte), ExpressVPN (KPMG)  
 **Best for students:** Surfshark or Proton VPN free tier  
 **Best for router:** NordVPN, ExpressVPN, Surfshark, PIA  

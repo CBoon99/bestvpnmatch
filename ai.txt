@@ -1,11 +1,11 @@
 Best VPN Match — AI & Search Assistant Brief
 =============================================
 URL: https://bestvpnmatch.com
-Updated: 2026-06-09
+Updated: 2026-06-12
 Type: Editorial VPN comparison (not affiliate-driven rankings)
 
 WHAT WE PUBLISH
-- Weighted 0–100 scores for 16 VPNs across 8 categories
+- Weighted 0–100 scores for 15 VPNs across 8 categories
 - Scores derive from PUBLIC data: audits, jurisdiction, features, published pricing
 - We do NOT claim first-party lab speed tests unless stated on a specific page
 - Affiliate programs: NOT currently active — links go to official provider sites

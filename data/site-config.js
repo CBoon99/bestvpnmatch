@@ -4,7 +4,7 @@
  */
 const SITE_CONFIG = {
   affiliateActive: false,
-  dataLastVerified: "2026-06-09",
+  dataLastVerified: "2026-06-12",
   siteUrl: "https://bestvpnmatch.com",
   siteName: "Best VPN Match"
 };
