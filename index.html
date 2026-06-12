@@ -552,21 +552,32 @@
 
     /* ── Editor's Choice ribbon ── */
     .scorecard { position: relative; overflow: hidden; }
+    @keyframes ribbon-shimmer {
+      0%   { transform: translateX(-120%) skewX(-20deg); }
+      100% { transform: translateX(300%) skewX(-20deg); }
+    }
+    .editors-choice-ribbon,
+    .most-popular-ribbon {
+      position: absolute; top: 10px; right: -34px;
+      font-size: 0.58rem; font-weight: 800; letter-spacing: 0.06em;
+      text-transform: uppercase; padding: 0.22rem 2.6rem;
+      transform: rotate(45deg); pointer-events: none; overflow: hidden;
+      z-index: 1;
+    }
+    .editors-choice-ribbon::after,
+    .most-popular-ribbon::after {
+      content: "";
+      position: absolute; top: 0; left: 0; height: 100%; width: 40%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
+      animation: ribbon-shimmer 3.5s ease-in-out infinite;
+    }
     .editors-choice-ribbon {
-      position: absolute; top: 18px; right: -26px;
       background: linear-gradient(90deg, #0a5c2e, #16a34a);
-      color: #ffffff; font-size: 0.6rem; font-weight: 800; letter-spacing: 0.06em;
-      text-transform: uppercase; padding: 0.28rem 2.4rem;
-      transform: rotate(35deg); box-shadow: 0 2px 8px rgba(22,163,74,0.4);
-      pointer-events: none;
+      color: #ffffff; box-shadow: 0 2px 10px rgba(22,163,74,0.45);
     }
     .most-popular-ribbon {
-      position: absolute; top: 18px; right: -26px;
-      background: linear-gradient(90deg, #1d4ed8, #2563eb);
-      color: #fff; font-size: 0.6rem; font-weight: 800; letter-spacing: 0.06em;
-      text-transform: uppercase; padding: 0.28rem 2.4rem;
-      transform: rotate(35deg); box-shadow: 0 2px 8px rgba(37,99,235,0.4);
-      pointer-events: none;
+      background: linear-gradient(90deg, #1d4ed8, #3b82f6);
+      color: #fff; box-shadow: 0 2px 10px rgba(59,130,246,0.45);
     }
 
     /* ── Deal CTA ── */
@@ -583,7 +594,7 @@
     .scroll-bridge__label { font-size: 0.73rem; color: var(--text-muted); letter-spacing: 0.06em; animation: heroFloat 2.5s ease-in-out infinite; display: inline-block; }
 
     /* ── Intent Quiz ── */
-    .intent-section { background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-card) 100%); padding: 2.25rem 0; border-bottom: 1px solid var(--border); }
+    .intent-section { background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-card) 100%); padding: 1.75rem 0; border-bottom: 1px solid var(--border); }
     .intent-section__q { text-align: center; font-size: 1.05rem; font-weight: 600; color: var(--text-secondary); margin: 0 0 1.25rem; }
     .intent-section__q strong { color: var(--text-primary); }
     .intent-tiles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; max-width: 620px; margin: 0 auto; }
@@ -1748,6 +1759,12 @@
     .scorecard__icon { font-size: 1.4rem; flex-shrink: 0; }
     .scorecard__name { font-size: 1rem; font-weight: 700; color: var(--text-primary); margin: 0; flex: 1; }
     .scorecard__badge { font-size: 0.68rem; font-weight: 600; padding: 0.18rem 0.5rem; border-radius: 999px; background: rgba(22,163,74,0.1); color: var(--accent-green); border: 1px solid rgba(22,163,74,0.25); white-space: nowrap; }
+    .scorecard__metrics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem 1rem; }
+    .metric { display: flex; flex-direction: column; gap: 0.15rem; }
+    .metric__label { font-size: 0.7rem; color: var(--text-muted); font-weight: 500; }
+    .metric__score { font-size: 0.9rem; font-weight: 700; color: var(--text-primary); }
+    .metric__score span { font-size: 0.7rem; font-weight: 400; color: var(--text-muted); }
+    .metric__value { font-size: 0.85rem; font-weight: 600; color: var(--text-primary); }
     .scorecard__badges-row {
       display: flex;
       flex-wrap: wrap;
@@ -2082,6 +2099,7 @@
       align-items: flex-start;
       gap: 0.5rem;
       margin-bottom: 0.5rem;
+      padding-right: 3.5rem; /* clear the corner ribbon */
     }
     .scorecard__disclaimer--strong {
       background: rgba(22, 163, 74, 0.07);
@@ -2211,7 +2229,7 @@
       .mobile-menu-toggle { display: block; }
       .nav-links { display: none; }
       .hero { padding-top: 2rem; }
-      .section { padding: 2.5rem 0; }
+      .section { padding: 1.5rem 0; }
     }
 
     /* ── Mobile table layout ── */
@@ -2615,7 +2633,7 @@
       </section>
 
       <!-- 3-Question Match Flow -->
-      <section id="quiz-section" class="section section--alt" style="padding:3rem 0">
+      <section id="quiz-section" class="section section--alt" style="padding:1.75rem 0">
         <div class="container">
           <header class="section__header" style="margin-bottom:1.5rem">
             <h2 class="section__title">Find Your Best VPN Match</h2>
@@ -2628,7 +2646,7 @@
         </div>
       </section>
 
-      <section id="scorecards" class="section">
+      <section id="scorecards-section" class="section">
         <div class="container">
           <header class="section__header">
             <h2 class="section__title">Best VPN Matches — Ranked by Editorial Score</h2>
@@ -3340,7 +3358,7 @@
         ${ribbon}
         <div class="scorecard__top-row"><span class="scorecard__rank">#${v.ranking}</span><div class="scorecard__weighted">${v.weightedScore}<span>/100</span></div></div>
         <div class="scorecard__header"><span class="scorecard__icon">${v.logoIcon}</span><h3 class="scorecard__name">${v.name}</h3><span class="scorecard__badge">${badge}</span>${savingsHtml}</div>
-        <p style="font-size:0.85rem;color:var(--text-secondary);margin:0 0 1rem">${category}</p>
+        <p style="font-size:0.82rem;color:var(--text-secondary);margin:0">${category}</p>
         <div class="scorecard__metrics-grid">
           <div class="metric"><span class="metric__label">Speed</span><div class="metric__bar"><span style="width:${v.speedScore}%"></span></div><span class="metric__value">${v.speedScore}/100</span></div>
           <div class="metric"><span class="metric__label">Privacy</span><span class="metric__score">${v.privacyScore}<span>/100</span></span></div>
