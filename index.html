@@ -309,33 +309,33 @@
   <style>
     :root {
       /* ── Light theme (default) ── */
-      --bg-dark: #ffffff;
-      --bg-card: #f7f8fa;
-      --bg-elevated: #eef0f4;
-      --text-primary: #0f1117;
-      --text-secondary: #454d6b;
-      --text-muted: #6b7280;
-      --accent-green: #00955a;   /* WCAG AA on white: 4.6:1 */
-      --accent-blue: #1a6ef5;    /* WCAG AA on white: 4.7:1 */
-      --accent-purple: #7c3aed;   /* #7c3aed on #f7f8fa = 5.1:1 WCAG AA ✓ */
-      --success: #00955a;
-      --warning: #b45309;
+      --bg-dark: #f8fafc;
+      --bg-card: #ffffff;
+      --bg-elevated: #f1f5f9;
+      --text-primary: #0f172a;
+      --text-secondary: #334155;
+      --text-muted: #64748b;
+      --accent-green: #16a34a;
+      --accent-blue: #2563eb;
+      --accent-purple: #7c3aed;
+      --success: #16a34a;
+      --warning: #d97706;
       --danger: #dc2626;
       /* Semantic aliases */
-      --cream: #ffffff;
-      --cream-dark: #eef0f4;
-      --ink: #0f1117;
-      --ink-muted: #454d6b;
-      --ink-soft: #6b7280;
-      --amber: #00955a;
-      --amber-dark: #007a49;
-      --amber-light: #1a6ef5;
+      --cream: #f8fafc;
+      --cream-dark: #f1f5f9;
+      --ink: #0f172a;
+      --ink-muted: #334155;
+      --ink-soft: #64748b;
+      --amber: #16a34a;
+      --amber-dark: #0a5c2e;
+      --amber-light: #2563eb;
       --white: #ffffff;
-      --border: rgba(15, 17, 23, 0.1);
-      --shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-      --shadow-lg: 0 8px 36px rgba(0, 0, 0, 0.1);
-      --shadow-hover: 0 12px 40px rgba(0, 149, 90, 0.14);
-      --header-bg: rgba(255, 255, 255, 0.92);
+      --border: #e2e8f0;
+      --shadow: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.06);
+      --shadow-lg: 0 4px 16px rgba(0,0,0,0.08);
+      --shadow-hover: 0 8px 24px rgba(10,92,46,0.12);
+      --header-bg: rgba(255, 255, 255, 0.95);
       /* Layout & type — shared */
       --radius: 16px;
       --radius-sm: 8px;
@@ -351,32 +351,32 @@
     }
 
     [data-theme="dark"] {
-      --bg-dark: #0a0c12;
-      --bg-card: #11131a;
-      --bg-elevated: #1a1d2b;
-      --text-primary: #f0f3f8;
-      --text-secondary: #a0a8c0;
-      --text-muted: #7a84a0;
-      --accent-green: #00d26a;
-      --accent-blue: #2b7fff;
+      --bg-dark: #0f172a;
+      --bg-card: #1e293b;
+      --bg-elevated: #1e293b;
+      --text-primary: #f1f5f9;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --accent-green: #22c55e;
+      --accent-blue: #2563eb;
       --accent-purple: #8b5cf6;
-      --success: #00d26a;
+      --success: #22c55e;
       --warning: #f59e0b;
       --danger: #ef4444;
-      --cream: #0a0c12;
-      --cream-dark: #11131a;
-      --ink: #f0f3f8;
-      --ink-muted: #a0a8c0;
-      --ink-soft: #7a84a0;
-      --amber: #00d26a;
-      --amber-dark: #00a855;
-      --amber-light: #2b7fff;
-      --white: #1a1d2b;
-      --border: rgba(139, 147, 175, 0.15);
-      --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-      --shadow-lg: 0 12px 48px rgba(0, 0, 0, 0.45);
-      --shadow-hover: 0 16px 56px rgba(0, 210, 106, 0.12);
-      --header-bg: rgba(10, 12, 18, 0.92);
+      --cream: #0f172a;
+      --cream-dark: #1e293b;
+      --ink: #f1f5f9;
+      --ink-muted: #cbd5e1;
+      --ink-soft: #94a3b8;
+      --amber: #22c55e;
+      --amber-dark: #22c55e;
+      --amber-light: #2563eb;
+      --white: #1e293b;
+      --border: rgba(148, 163, 184, 0.15);
+      --shadow: 0 4px 16px rgba(0,0,0,0.25);
+      --shadow-lg: 0 8px 32px rgba(0,0,0,0.4);
+      --shadow-hover: 0 12px 40px rgba(34,197,94,0.1);
+      --header-bg: rgba(15, 23, 42, 0.95);
     }
 
     @keyframes fadeUp {
@@ -401,8 +401,8 @@
       100% { transform: scale(1); }
     }
     @keyframes glowPulse {
-      0%, 100% { box-shadow: 0 4px 16px rgba(0, 210, 106, 0.3); }
-      50% { box-shadow: 0 6px 28px rgba(0, 210, 106, 0.5); }
+      0%, 100% { box-shadow: 0 4px 16px rgba(22, 163, 74, 0.3); }
+      50% { box-shadow: 0 6px 28px rgba(22, 163, 74, 0.5); }
     }
     @keyframes heroFloat {
       0%, 100% { transform: translateY(0); }
@@ -414,8 +414,8 @@
     }
     
     @keyframes pulseGreen {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(0, 210, 106, 0.4); }
-      50% { box-shadow: 0 0 0 8px rgba(0, 210, 106, 0); }
+      0%, 100% { box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.4); }
+      50% { box-shadow: 0 0 0 8px rgba(22, 163, 74, 0); }
     }
     @keyframes shieldGlow {
       from { filter: drop-shadow(0 0 0px var(--accent-blue)); }
@@ -448,25 +448,25 @@
       pointer-events: none;
       z-index: 0;
       background-image:
-        linear-gradient(rgba(43, 127, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(43, 127, 255, 0.03) 1px, transparent 1px);
+        linear-gradient(rgba(16, 163, 74, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(16, 163, 74, 0.025) 1px, transparent 1px);
       background-size: 60px 60px;
       animation: gridMove 20s linear infinite;
     }
-    .mist--1 { background: radial-gradient(circle, rgba(43, 127, 255, 0.08) 0%, transparent 70%) !important; }
-    .mist--2 { background: radial-gradient(circle, rgba(0, 210, 106, 0.06) 0%, transparent 70%) !important; }
-    .mist--3 { background: radial-gradient(circle, rgba(139, 92, 246, 0.05) 0%, transparent 70%) !important; }
+    .mist--1 { background: radial-gradient(circle, rgba(16, 163, 74, 0.06) 0%, transparent 70%) !important; }
+    .mist--2 { background: radial-gradient(circle, rgba(16, 163, 74, 0.05) 0%, transparent 70%) !important; }
+    .mist--3 { background: radial-gradient(circle, rgba(16, 163, 74, 0.03) 0%, transparent 70%) !important; }
     [data-theme="dark"] .site-header { background: var(--header-bg) !important; border-bottom-color: var(--border) !important; }
     [data-theme="dark"] body::before { opacity: 1; }
     body::before { opacity: 0.4; }
-    .trust-strip { background: linear-gradient(90deg, rgba(43,127,255,0.08), rgba(0,210,106,0.1), rgba(139,92,246,0.08)) !important; color: var(--text-secondary) !important; }
+    .trust-strip { background: linear-gradient(90deg, rgba(16,163,74,0.05), rgba(16,163,74,0.08), rgba(16,163,74,0.05)) !important; color: var(--text-secondary) !important; }
     .trust-marquee { overflow: hidden; border-bottom: 1px solid var(--border); background: var(--bg-card); padding: 0.65rem 0; }
     .trust-marquee__track { display: flex; width: max-content; animation: trustScroll 28s linear infinite; }
     .trust-marquee__track:hover { animation-play-state: paused; }
     .trust-item { flex-shrink: 0; padding: 0 1.75rem; font-size: 0.78rem; font-weight: 500; color: var(--text-secondary); white-space: nowrap; }
     .trust-item strong { color: var(--accent-green); }
     .hero__search { background: var(--bg-card) !important; color: var(--text-primary) !important; border-color: var(--border) !important; }
-    .hero__search:focus { border-color: var(--accent-blue) !important; box-shadow: 0 0 0 3px rgba(43,127,255,0.25), var(--shadow-lg) !important; }
+    .hero__search:focus { border-color: var(--accent-green) !important; box-shadow: 0 0 0 3px rgba(22,163,74,0.2), var(--shadow-lg) !important; }
     .compare-stack, .shield-stack {
       position: relative;
       width: min(100%, 360px);
@@ -474,14 +474,14 @@
       background: linear-gradient(165deg, var(--bg-elevated) 0%, var(--bg-card) 100%);
       border: 1px solid var(--border);
       border-radius: calc(var(--radius) + 4px);
-      box-shadow: var(--shadow-lg), 0 0 40px rgba(43, 127, 255, 0.08);
+      box-shadow: var(--shadow-lg), 0 0 40px rgba(16, 163, 74, 0.06);
       overflow: hidden;
     }
     .shield-stack::after {
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(transparent 0%, rgba(43,127,255,0.04) 50%, transparent 100%);
+      background: linear-gradient(transparent 0%, rgba(16,163,74,0.03) 50%, transparent 100%);
       animation: scanline 4s linear infinite;
       pointer-events: none;
     }
@@ -493,46 +493,46 @@
     .speed-meter { margin: 1.25rem 0; }
     .speed-meter__label { font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-secondary); margin-bottom: 0.5rem; display: flex; justify-content: space-between; }
     .speed-bar { height: 8px; background: rgba(139,147,175,0.15); border-radius: 999px; overflow: hidden; }
-    .speed-bar__fill { height: 100%; background: linear-gradient(90deg, var(--accent-blue), var(--accent-green)); border-radius: 999px; transition: width 1.2s var(--ease-out); animation: pulseGreen 2s infinite; }
+    .speed-bar__fill { height: 100%; background: var(--accent-green); border-radius: 999px; transition: width 1.2s var(--ease-out); }
     .privacy-badge {
       display: inline-flex; align-items: center; gap: 0.5rem;
       padding: 0.5rem 1rem; border-radius: 999px;
-      background: rgba(0,210,106,0.12); border: 1px solid rgba(0,210,106,0.3);
+      background: rgba(22,163,74,0.1); border: 1px solid rgba(22,163,74,0.25);
       color: var(--accent-green); font-size: 0.8rem; font-weight: 600;
     }
     .orbit-ring {
       position: absolute; width: 120px; height: 120px;
-      border: 1px dashed rgba(43,127,255,0.25); border-radius: 50%;
+      border: 1px dashed rgba(16,163,74,0.2); border-radius: 50%;
       top: 50%; left: 50%; transform: translate(-50%,-50%);
       animation: rotateSlow 18s linear infinite;
     }
     .scorecard { background: var(--bg-card) !important; border-color: var(--border) !important; }
-    .scorecard__rank { background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)) !important; }
+    .scorecard__rank { background: linear-gradient(135deg, #0a5c2e, #16a34a) !important; }
     .featured-match { background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-card) 50%, var(--bg-dark) 100%) !important; }
     .featured-match__card { background: var(--bg-elevated) !important; border-color: var(--border) !important; }
-    .featured-match__card::before { background: linear-gradient(90deg, var(--accent-blue), var(--accent-green), var(--accent-purple)) !important; }
+    .featured-match__card::before { background: linear-gradient(90deg, #0a5c2e, #16a34a, #22c55e) !important; }
     .section--alt { background: var(--bg-card) !important; }
     .category-tile { background: var(--bg-elevated) !important; border-color: var(--border) !important; }
-    .category-tile:hover { border-color: var(--accent-blue) !important; box-shadow: 0 0 24px rgba(43,127,255,0.15) !important; }
+    .category-tile:hover { border-color: var(--accent-green) !important; box-shadow: 0 0 24px rgba(22,163,74,0.12) !important; }
     .comparison-table { background: var(--bg-card); }
     .comparison-table th { background: var(--bg-elevated) !important; color: var(--text-secondary) !important; }
     .comparison-table td { border-color: var(--border) !important; }
-    .comparison-table tbody tr:hover { background: rgba(43,127,255,0.05) !important; }
-    .filter-btn.is-active { background: rgba(0,210,106,0.15) !important; border-color: var(--accent-green) !important; color: var(--accent-green) !important; }
-    #sort-by-score.is-active { background: rgba(0,210,106,0.12) !important; border-color: var(--accent-green) !important; color: var(--accent-green) !important; }
+    .comparison-table tbody tr:hover { background: rgba(22,163,74,0.04) !important; }
+    .filter-btn.is-active { background: rgba(22,163,74,0.1) !important; border-color: var(--accent-green) !important; color: var(--accent-green) !important; }
+    #sort-by-score.is-active { background: rgba(22,163,74,0.1) !important; border-color: var(--accent-green) !important; color: var(--accent-green) !important; }
     .vpn-icon { font-size: 1.5rem; line-height: 1; }
     .vpn-name-cell { display: flex; align-items: center; gap: 0.65rem; }
     .vpn-name-cell__text strong { display: block; color: var(--text-primary); }
     .vpn-name-cell__text span { font-size: 0.75rem; color: var(--text-muted); }
     .metric__bar { height: 6px; background: rgba(139,147,175,0.15); border-radius: 999px; overflow: hidden; margin: 0.35rem 0; }
-    .metric__bar span { display: block; height: 100%; background: linear-gradient(90deg, var(--accent-blue), var(--accent-green)); border-radius: 999px; }
+    .metric__bar span { display: block; height: 100%; background: var(--accent-green); border-radius: 999px; }
     .site-footer { background: var(--bg-card) !important; border-top: 1px solid var(--border); }
     .disclosure { background: var(--bg-elevated) !important; border-color: var(--border) !important; }
-    .notice-box { background: rgba(43,127,255,0.08) !important; border-color: rgba(43,127,255,0.2) !important; }
+    .notice-box { background: rgba(22,163,74,0.06) !important; border-color: rgba(22,163,74,0.2) !important; }
 
     /* ── Sticky Promo Bar ── */
     .promo-bar {
-      position: sticky; top: 0; z-index: 150;
+      position: relative; z-index: 90;
       background: #0f1117;
       border-bottom: 1px solid rgba(255,255,255,0.08);
       padding: 0.55rem 1rem;
@@ -541,37 +541,37 @@
     }
     .promo-bar__text { font-size: 0.83rem; color: rgba(255,255,255,0.75); }
     .promo-bar__text strong { color: #fff; }
-    .promo-bar__deal { font-size: 0.78rem; font-weight: 700; padding: 0.22rem 0.6rem; border-radius: 999px; background: rgba(43,127,255,0.15); color: #6eb3ff; border: 1px solid rgba(43,127,255,0.35); }
+    .promo-bar__deal { font-size: 0.78rem; font-weight: 700; padding: 0.22rem 0.6rem; border-radius: 999px; background: rgba(34,197,94,0.15); color: #22c55e; border: 1px solid rgba(34,197,94,0.35); }
     .promo-bar__cta { font-size: 0.78rem; font-weight: 700; padding: 0.28rem 0.85rem; border-radius: 999px; background: #fff; color: #0f1117; text-decoration: none; white-space: nowrap; transition: opacity 0.15s; }
     .promo-bar__cta:hover { opacity: 0.88; }
     .promo-bar__close { background: none; border: none; color: rgba(255,255,255,0.4); cursor: pointer; font-size: 1rem; padding: 0 0.25rem; margin-left: 0.25rem; line-height: 1; }
 
     /* ── Savings badge ── */
-    .savings-badge { display: inline-block; font-size: 0.68rem; font-weight: 800; padding: 0.18rem 0.5rem; border-radius: 999px; background: rgba(0,210,106,0.15); color: var(--accent-green); border: 1px solid rgba(0,210,106,0.3); margin-left: 0.35rem; vertical-align: middle; }
+    .savings-badge { display: inline-block; font-size: 0.68rem; font-weight: 800; padding: 0.18rem 0.5rem; border-radius: 999px; background: rgba(22,163,74,0.1); color: var(--accent-green); border: 1px solid rgba(22,163,74,0.25); margin-left: 0.35rem; vertical-align: middle; }
     .savings-badge--hot { background: rgba(239,68,68,0.18); color: #fca5a5; border-color: rgba(239,68,68,0.4); } /* contrast boosted */
 
     /* ── Editor's Choice ribbon ── */
     .scorecard { position: relative; overflow: hidden; }
     .editors-choice-ribbon {
       position: absolute; top: 18px; right: -26px;
-      background: linear-gradient(90deg, var(--accent-green), #00a855);
-      color: #0a0c12; font-size: 0.6rem; font-weight: 800; letter-spacing: 0.06em;
+      background: linear-gradient(90deg, #0a5c2e, #16a34a);
+      color: #ffffff; font-size: 0.6rem; font-weight: 800; letter-spacing: 0.06em;
       text-transform: uppercase; padding: 0.28rem 2.4rem;
-      transform: rotate(35deg); box-shadow: 0 2px 8px rgba(0,210,106,0.4);
+      transform: rotate(35deg); box-shadow: 0 2px 8px rgba(22,163,74,0.4);
       pointer-events: none;
     }
     .most-popular-ribbon {
       position: absolute; top: 18px; right: -26px;
-      background: linear-gradient(90deg, var(--accent-blue), #1a5fd8);
+      background: linear-gradient(90deg, #1d4ed8, #2563eb);
       color: #fff; font-size: 0.6rem; font-weight: 800; letter-spacing: 0.06em;
       text-transform: uppercase; padding: 0.28rem 2.4rem;
-      transform: rotate(35deg); box-shadow: 0 2px 8px rgba(43,127,255,0.4);
+      transform: rotate(35deg); box-shadow: 0 2px 8px rgba(37,99,235,0.4);
       pointer-events: none;
     }
 
     /* ── Deal CTA ── */
-    .btn--deal-full { background: var(--accent-blue) !important; color: #fff !important; font-weight: 700 !important; }
-    .btn--deal-full:hover { opacity: 0.88 !important; transform: translateY(-1px) !important; }
+    .btn--deal-full { background: #0a5c2e !important; color: #fff !important; font-weight: 700 !important; }
+    .btn--deal-full:hover { background: #0d6e37 !important; opacity: 1 !important; transform: translateY(-1px) !important; }
     .deal-sub { font-size: 0.67rem; color: var(--text-muted); margin: 0.25rem 0 0; text-align: center; }
     .deal-sub strong { color: var(--accent-green); }
     .mbg-pill { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.7rem; color: var(--text-secondary); }
@@ -590,10 +590,10 @@
     @media (min-width: 560px) { .intent-tiles { grid-template-columns: repeat(4, 1fr); } }
     .intent-tile { display: flex; flex-direction: column; align-items: center; gap: 0.45rem; padding: 1.1rem 0.65rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg-elevated); color: var(--text-primary); cursor: pointer; font-family: var(--font-body); font-size: 0.8rem; font-weight: 600; transition: all var(--dur-fast) var(--ease-out); text-align: center; line-height: 1.3; }
     .intent-tile__icon { font-size: 1.65rem; }
-    .intent-tile:hover, .intent-tile.is-active { border-color: var(--accent-green); background: rgba(0,210,106,0.08); transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,210,106,0.12); }
+    .intent-tile:hover, .intent-tile.is-active { border-color: var(--accent-green); background: rgba(22,163,74,0.07); transform: translateY(-3px); box-shadow: 0 6px 20px rgba(22,163,74,0.1); }
     .intent-tile.is-active .intent-tile__icon { filter: drop-shadow(0 0 6px var(--accent-green)); }
     .intent-result { max-width: 620px; margin: 1.25rem auto 0; min-height: 0; }
-    .intent-answer { display: grid; gap: 1rem; background: var(--bg-elevated); border: 1px solid rgba(0,210,106,0.4); border-radius: var(--radius); padding: 1.25rem 1.5rem; animation: fadeUp 0.3s var(--ease-out); box-shadow: 0 0 24px rgba(0,210,106,0.08); }
+    .intent-answer { display: grid; gap: 1rem; background: var(--bg-elevated); border: 1px solid rgba(22,163,74,0.3); border-radius: var(--radius); padding: 1.25rem 1.5rem; animation: fadeUp 0.3s var(--ease-out); box-shadow: 0 0 24px rgba(22,163,74,0.07); }
     @media (min-width: 480px) { .intent-answer { grid-template-columns: 1fr auto; align-items: center; } }
     .intent-answer__label { font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.09em; color: var(--accent-green); margin: 0 0 0.3rem; }
     .intent-answer__name { font-size: 1.1rem; font-weight: 700; color: var(--text-primary); margin: 0 0 0.25rem; }
@@ -602,15 +602,15 @@
 
     /* ── Score pill colour tiers ── */
     .score-pill { display: inline-flex; align-items: baseline; gap: 0.1rem; font-weight: 700; font-size: 0.92rem; padding: 0.22rem 0.55rem; border-radius: 999px; }
-    .score-pill--exceptional { background: rgba(0,210,106,0.14); color: var(--accent-green); border: 1px solid rgba(0,210,106,0.3); }
-    .score-pill--excellent   { background: rgba(43,127,255,0.12); color: #60a5fa; border: 1px solid rgba(43,127,255,0.25); }
-    .score-pill--good        { background: rgba(245,158,11,0.11); color: #f59e0b; border: 1px solid rgba(245,158,11,0.25); }
+    .score-pill--exceptional { background: rgba(22,163,74,0.12); color: #15803d; border: 1px solid rgba(22,163,74,0.25); }
+    .score-pill--excellent   { background: rgba(22,163,74,0.08); color: #166534; border: 1px solid rgba(22,163,74,0.18); }
+    .score-pill--good        { background: rgba(217,119,6,0.10); color: #b45309; border: 1px solid rgba(217,119,6,0.22); }
 
     /* ── Top-3 table row highlight ── */
-    #table-body tr[data-rank="1"] { border-left: 3px solid var(--accent-green); }
-    #table-body tr[data-rank="2"] { border-left: 3px solid var(--accent-blue); }
-    #table-body tr[data-rank="3"] { border-left: 3px solid var(--accent-purple); }
-    #table-body tr[data-rank="1"] td:first-child { background: rgba(0,210,106,0.03); }
+    #table-body tr[data-rank="1"] { border-left: 3px solid #0a5c2e; }
+    #table-body tr[data-rank="2"] { border-left: 3px solid #16a34a; }
+    #table-body tr[data-rank="3"] { border-left: 3px solid #22c55e; }
+    #table-body tr[data-rank="1"] td:first-child { background: rgba(22,163,74,0.03); }
 
     /* ── Score breakdown row ── */
     .score-expand-btn { background: none; border: none; cursor: pointer; font-size: 0.6rem; color: var(--text-muted); padding: 0 2px; vertical-align: middle; line-height: 1; transition: transform 0.15s; }
@@ -627,7 +627,7 @@
     .shortlist { display: grid; gap: 1rem; margin-bottom: 2rem; }
     @media (min-width: 600px) { .shortlist { grid-template-columns: repeat(3, 1fr); } }
     .shortlist-card { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; display: flex; flex-direction: column; gap: 0.65rem; transition: border-color var(--dur-fast); }
-    .shortlist-card--top { border-color: rgba(0,210,106,0.4); box-shadow: 0 0 20px rgba(0,210,106,0.07); }
+    .shortlist-card--top { border-color: rgba(22,163,74,0.35); box-shadow: 0 0 20px rgba(22,163,74,0.06); }
     .shortlist-card__label { font-size: 0.62rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.09em; color: var(--accent-green); }
     .shortlist-card__name { font-size: 1rem; font-weight: 700; color: var(--text-primary); display: flex; align-items: center; gap: 0.45rem; flex-wrap: wrap; }
     .shortlist-card__why { font-size: 0.79rem; color: var(--text-secondary); flex: 1; line-height: 1.5; }
@@ -642,8 +642,8 @@
     .sticky-bar__inner { display: flex; align-items: center; gap: 0.5rem; }
     .sticky-bar__label { font-size: 0.62rem; color: var(--text-muted); white-space: nowrap; writing-mode: vertical-rl; transform: rotate(180deg); line-height: 1; }
     .sticky-bar__picks { display: flex; gap: 0.4rem; flex: 1; }
-    .sticky-bar__pick { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 0.12rem; text-decoration: none; background: rgba(0,210,106,0.09); border: 1px solid rgba(0,210,106,0.2); border-radius: var(--radius-sm); padding: 0.3rem 0.2rem; transition: background var(--dur-fast); }
-    .sticky-bar__pick:hover { background: rgba(0,210,106,0.18); }
+    .sticky-bar__pick { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 0.12rem; text-decoration: none; background: rgba(22,163,74,0.08); border: 1px solid rgba(22,163,74,0.18); border-radius: var(--radius-sm); padding: 0.3rem 0.2rem; transition: background var(--dur-fast); }
+    .sticky-bar__pick:hover { background: rgba(22,163,74,0.16); }
     .sticky-bar__pick-icon { font-size: 1.05rem; }
     .sticky-bar__pick-name { font-size: 0.65rem; font-weight: 700; color: var(--text-primary); text-align: center; max-width: 64px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; } /* min readable size */
     .sticky-bar__pick-save { font-size: 0.53rem; color: var(--accent-green); font-weight: 800; }
@@ -693,20 +693,20 @@
     .mist--1 {
       width: 420px; height: 420px;
       top: -8%; left: -5%;
-      background: radial-gradient(circle, rgba(196, 146, 42, 0.07) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(16, 163, 74, 0.06) 0%, transparent 70%);
       animation-duration: 22s;
     }
     .mist--2 {
       width: 360px; height: 360px;
       top: 35%; right: -10%;
-      background: radial-gradient(circle, rgba(232, 200, 120, 0.15) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(16, 163, 74, 0.05) 0%, transparent 70%);
       animation-duration: 26s;
       animation-delay: -4s;
     }
     .mist--3 {
       width: 300px; height: 300px;
       bottom: 10%; left: 20%;
-      background: radial-gradient(circle, rgba(26, 24, 20, 0.04) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(16, 163, 74, 0.03) 0%, transparent 70%);
       animation-duration: 20s;
       animation-delay: -8s;
     }
@@ -724,7 +724,7 @@
     /* Trust strip */
     @media (max-width: 639px) { .trust-strip { display: none; } }
     .trust-strip {
-      background: linear-gradient(90deg, rgba(26, 24, 20, 0.04), rgba(196, 146, 42, 0.08), rgba(26, 24, 20, 0.04));
+      background: linear-gradient(90deg, rgba(22, 163, 74, 0.04), rgba(22, 163, 74, 0.07), rgba(22, 163, 74, 0.04));
       border-bottom: 1px solid var(--border);
       padding: 0.45rem 0;
       font-size: 0.72rem;
@@ -800,16 +800,16 @@
     }
     .btn:active { transform: scale(0.97); }
     .btn--primary {
-      background: linear-gradient(135deg, var(--amber) 0%, var(--amber-dark) 100%);
-      color: var(--white);
-      box-shadow: 0 4px 16px rgba(196, 146, 42, 0.35);
+      background: #0a5c2e;
+      color: #ffffff;
+      box-shadow: 0 4px 16px rgba(10, 92, 46, 0.3);
     }
     .btn--primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 28px rgba(196, 146, 42, 0.45);
+      box-shadow: 0 8px 28px rgba(10, 92, 46, 0.4);
+      background: #0d6e37;
       text-decoration: none;
-      color: var(--white);
-      animation: glowPulse 2s ease-in-out infinite;
+      color: #ffffff;
     }
     .btn--secondary {
       background: var(--white);
@@ -818,8 +818,8 @@
     }
     .btn--secondary:hover {
       transform: translateY(-2px);
-      border-color: var(--amber);
-      box-shadow: 0 6px 20px rgba(26, 24, 20, 0.08);
+      border-color: var(--accent-green);
+      box-shadow: 0 6px 20px rgba(15, 23, 42, 0.08);
       text-decoration: none;
     }
     .btn--sm {
@@ -827,15 +827,15 @@
       font-size: 0.8rem;
     }
     .btn--deal {
-      background: var(--ink);
-      color: var(--white);
+      background: #0a5c2e;
+      color: #ffffff;
       white-space: nowrap;
     }
     .btn--deal:hover {
-      background: var(--amber-dark);
+      background: #0d6e37;
       transform: translateY(-1px);
-      box-shadow: 0 4px 14px rgba(154, 111, 26, 0.35);
-      color: var(--white);
+      box-shadow: 0 4px 14px rgba(10, 92, 46, 0.3);
+      color: #ffffff;
       text-decoration: none;
     }
 
@@ -900,11 +900,9 @@
       font-weight: 700;
       line-height: 1.12;
       margin: 0 0 0.75rem;
-      background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-blue) 45%, var(--accent-green) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      color: var(--text-primary);
     }
+    .hero__title .accent { color: var(--accent-green); }
     .hero__tagline {
       font-size: clamp(1.05rem, 2.2vw, 1.2rem);
       color: var(--ink-muted);
@@ -969,8 +967,8 @@
     }
     .hero__search:focus {
       outline: none;
-      border-color: var(--accent-blue);
-      box-shadow: 0 0 0 3px rgba(43, 127, 255, 0.25), var(--shadow-lg);
+      border-color: var(--accent-green);
+      box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.2), var(--shadow-lg);
     }
     .hero__search-icon {
       position: absolute;
@@ -1000,7 +998,7 @@
       cursor: pointer; transition: background var(--dur-fast);
     }
     .search-suggestions li:hover, .search-suggestions li[aria-selected="true"] {
-      background: rgba(43,127,255,0.08); color: var(--text-primary);
+      background: rgba(22,163,74,0.07); color: var(--text-primary);
     }
     .hero__ctas {
       display: flex;
@@ -1022,9 +1020,9 @@
       box-shadow: none !important;
     }
     .btn--ghost:hover {
-      border-color: var(--accent-blue) !important;
+      border-color: var(--accent-green) !important;
       color: var(--text-primary) !important;
-      background: rgba(43,127,255,0.06) !important;
+      background: rgba(22,163,74,0.06) !important;
     }
 
     /* Hero comparison visual */
@@ -1038,10 +1036,10 @@
       position: relative;
       width: min(100%, 340px);
       padding: 2rem 1.5rem 1.5rem;
-      background: linear-gradient(165deg, var(--white) 0%, rgba(247, 244, 239, 0.9) 100%);
+      background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: calc(var(--radius) + 4px);
-      box-shadow: var(--shadow-lg), 0 0 0 1px rgba(196, 146, 42, 0.08);
+      box-shadow: var(--shadow-lg);
     }
     .compare-stack__label {
       font-size: 0.65rem;
@@ -1099,7 +1097,7 @@
       font-weight: 700;
       padding: 0.35rem 0.65rem;
       border-radius: 999px;
-      background: rgba(196, 146, 42, 0.12);
+      background: rgba(22, 163, 74, 0.1);
       color: var(--amber-dark);
     }
     .compare-stack__save {
@@ -1237,8 +1235,8 @@
     }
     .category-tile:hover {
       transform: translateY(-4px);
-      border-color: rgba(196, 146, 42, 0.45);
-      box-shadow: var(--shadow-hover), 0 0 0 1px rgba(196, 146, 42, 0.15);
+      border-color: rgba(22, 163, 74, 0.45);
+      box-shadow: var(--shadow-hover), 0 0 0 1px rgba(22, 163, 74, 0.15);
     }
     .category-tile__icon {
       width: 2.25rem;
@@ -1249,7 +1247,7 @@
       font-family: var(--font-display);
       font-size: 1.1rem;
       font-weight: 600;
-      background: linear-gradient(135deg, rgba(196, 146, 42, 0.2), rgba(196, 146, 42, 0.05));
+      background: linear-gradient(135deg, rgba(22, 163, 74, 0.15), rgba(22, 163, 74, 0.05));
       color: var(--amber-dark);
     }
     .category-tile__title {
@@ -1272,9 +1270,9 @@
       color: var(--ink-muted);
       margin: -0.5rem 0 1.5rem;
       padding: 0.85rem 1rem;
-      background: rgba(43, 127, 255, 0.06);
+      background: rgba(22, 163, 74, 0.05);
       border-radius: var(--radius-sm);
-      border-left: 3px solid var(--accent-blue);
+      border-left: 3px solid var(--accent-green);
     }
     .table-intro strong { color: var(--ink); }
 
@@ -1299,7 +1297,7 @@
       height: 3px;
       margin-top: 0.5rem;
       border-radius: 2px;
-      background: linear-gradient(90deg, var(--amber), var(--amber-light), transparent);
+      background: linear-gradient(90deg, #0a5c2e, #16a34a, transparent);
     }
     .section__lead {
       color: var(--ink-muted);
@@ -1335,9 +1333,9 @@
       font-size: 0.65rem;
       padding: 0.15rem 0.45rem;
       border-radius: 999px;
-      background: rgba(196, 146, 42, 0.1);
+      background: rgba(22, 163, 74, 0.08);
       color: var(--amber-dark);
-      border: 1px solid rgba(196, 146, 42, 0.2);
+      border: 1px solid rgba(22, 163, 74, 0.18);
       white-space: nowrap;
     }
 
@@ -1353,16 +1351,16 @@
       margin-top: 0.25rem;
     }
     .lux-badge--match {
-      background: linear-gradient(135deg, #2a2618, #4a3f20);
-      color: var(--amber-light);
+      background: linear-gradient(135deg, #0a5c2e, #16a34a);
+      color: #ffffff;
     }
     .lux-badge--value {
-      background: rgba(196, 146, 42, 0.15);
+      background: rgba(22, 163, 74, 0.1);
       color: var(--amber-dark);
-      border: 1px solid rgba(196, 146, 42, 0.3);
+      border: 1px solid rgba(22, 163, 74, 0.25);
     }
     .lux-badge--lasting {
-      background: rgba(26, 24, 20, 0.08);
+      background: rgba(15, 23, 42, 0.06);
       color: var(--ink-muted);
     }
 
@@ -1651,11 +1649,11 @@
       transition: background 0.25s ease, box-shadow 0.25s ease;
     }
     .comparison-table tbody tr:hover {
-      background: linear-gradient(90deg, rgba(196, 146, 42, 0.06), rgba(196, 146, 42, 0.02));
-      box-shadow: inset 3px 0 0 var(--amber);
+      background: linear-gradient(90deg, rgba(22, 163, 74, 0.05), rgba(22, 163, 74, 0.01));
+      box-shadow: inset 3px 0 0 var(--accent-green);
     }
     .comparison-table tbody tr:hover td:first-child {
-      background: linear-gradient(90deg, rgba(196, 146, 42, 0.06), rgba(196, 146, 42, 0.02));
+      background: linear-gradient(90deg, rgba(22, 163, 74, 0.05), rgba(22, 163, 74, 0.01));
     }
     .comparison-table tbody tr.is-hidden { display: none; }
     .cell--original { font-weight: 600; color: var(--ink); }
@@ -1668,7 +1666,7 @@
       font-size: 0.75rem;
       padding: 0.15rem 0.4rem;
       border-radius: var(--radius-sm);
-      background: rgba(196, 146, 42, 0.12);
+      background: rgba(22, 163, 74, 0.1);
       color: var(--amber-dark);
     }
 
@@ -1678,11 +1676,11 @@
     .quiz-q { font-size:1.15rem; font-weight:700; margin-bottom:1rem; color:var(--text-primary); }
     .quiz-progress { display:flex; gap:6px; margin-bottom:1.5rem; }
     .quiz-dot { width:28px; height:4px; border-radius:2px; background:var(--border); transition:background 0.2s; }
-    .quiz-dot.active { background:var(--accent-blue); }
+    .quiz-dot.active { background:var(--accent-green); }
     .quiz-dot.done { background:var(--accent-green); }
     .quiz-options { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:0.75rem; }
     .quiz-option { background:var(--card-bg); border:2px solid var(--border); border-radius:0.75rem; padding:1rem 1.1rem; cursor:pointer; transition:border-color 0.15s,background 0.15s; text-align:left; }
-    .quiz-option:hover, .quiz-option:focus-visible { border-color:var(--accent-blue); outline:none; }
+    .quiz-option:hover, .quiz-option:focus-visible { border-color:var(--accent-green); outline:none; }
     .quiz-option .opt-label { font-weight:600; display:block; color:var(--text-primary); margin-bottom:2px; }
     .quiz-option .opt-desc { font-size:0.8rem; color:var(--text-secondary); }
     .quiz-result-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:1rem; }
@@ -1732,11 +1730,11 @@
     }
     .scorecard:hover {
       transform: translateY(-8px);
-      box-shadow: var(--shadow-hover), 0 0 32px rgba(196, 146, 42, 0.12);
-      border-color: rgba(196, 146, 42, 0.35);
+      box-shadow: var(--shadow-hover), 0 0 32px rgba(22, 163, 74, 0.1);
+      border-color: rgba(22, 163, 74, 0.3);
     }
     .scorecard:hover::after {
-      box-shadow: inset 0 0 0 1px rgba(196, 146, 42, 0.2);
+      box-shadow: inset 0 0 0 1px rgba(22, 163, 74, 0.15);
     }
     .scorecard__best-for {
       font-size: 0.68rem;
@@ -1935,7 +1933,7 @@
       width: 2rem;
       height: 2rem;
       border-radius: 50%;
-      background: rgba(196, 146, 42, 0.12);
+      background: rgba(22, 163, 74, 0.1);
       color: var(--amber-dark);
       font-size: 1rem;
       margin-bottom: 0.75rem;
@@ -2042,7 +2040,7 @@
       user-select: none;
       transition: background 0.2s;
     }
-    .sortable:hover { background: rgba(196, 146, 42, 0.15); }
+    .sortable:hover { background: rgba(22, 163, 74, 0.08); }
     .sort-indicator { display: inline-block; margin-left: 0.25rem; font-size: 0.7rem; }
     .sort-asc .sort-indicator::after { content: "▲"; }
     .sort-desc .sort-indicator::after { content: "▼"; }
@@ -2082,7 +2080,7 @@
       margin-bottom: 0.5rem;
     }
     .scorecard__disclaimer--strong {
-      background: rgba(196, 146, 42, 0.08);
+      background: rgba(22, 163, 74, 0.07);
       padding: 0.35rem 0.5rem;
       border-radius: 4px;
     }
@@ -2111,7 +2109,7 @@
       position: fixed;
       inset: 0;
       z-index: 1001;
-      background: rgba(26, 24, 20, 0.5);
+      background: rgba(15, 23, 42, 0.5);
       align-items: center;
       justify-content: center;
       padding: 1rem;
@@ -2259,6 +2257,136 @@
       .hero__visual { opacity: 1; }
       .featured-match__card { animation: none; opacity: 1; }
     }
+
+    /* ── Nav CTA + Guides dropdown ── */
+    .nav-cta {
+      display: inline-flex; align-items: center;
+      padding: 0.5rem 1.1rem;
+      background: #0a5c2e; color: #fff !important;
+      border-radius: 8px; font-size: 0.875rem; font-weight: 600;
+      text-decoration: none !important;
+      transition: background 0.15s; white-space: nowrap; flex-shrink: 0;
+    }
+    .nav-cta:hover { background: #0d6e37; color: #fff !important; text-decoration: none !important; }
+    .nav-dropdown { position: relative; }
+    .nav-dropdown > a { display: flex; align-items: center; gap: 0.2rem; }
+    .nav-dropdown-menu {
+      display: none; position: absolute; top: calc(100% + 0.5rem); left: -1rem;
+      background: var(--bg-card); border: 0.5px solid var(--border);
+      border-radius: var(--radius-sm); padding: 0.4rem 0;
+      min-width: 200px; box-shadow: var(--shadow-lg); z-index: 200;
+    }
+    .nav-dropdown:hover .nav-dropdown-menu,
+    .nav-dropdown:focus-within .nav-dropdown-menu { display: block; }
+    .nav-dropdown-menu a {
+      display: block; padding: 0.45rem 1rem;
+      font-size: 0.83rem; color: var(--ink-muted);
+      text-decoration: none; white-space: nowrap;
+    }
+    .nav-dropdown-menu a:hover { color: var(--accent-green); background: var(--bg-elevated); text-decoration: none; }
+    .site-header__inner { gap: 1.5rem; }
+
+    /* ── Hero trust pills ── */
+    .hero__trust-pills {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      justify-content: center; margin-bottom: 1.25rem;
+    }
+    @media (min-width: 900px) { .hero__trust-pills { justify-content: flex-start; } }
+    .hero__trust-pill {
+      display: inline-flex; align-items: center; gap: 0.3rem;
+      font-size: 0.78rem; font-weight: 500; color: var(--text-secondary);
+      background: var(--bg-elevated); border: 0.5px solid var(--border);
+      padding: 0.3rem 0.75rem; border-radius: 999px;
+    }
+    .hero__note {
+      font-size: 0.78rem; color: var(--text-muted);
+      margin: 0; text-align: center;
+    }
+    @media (min-width: 900px) { .hero__note { text-align: left; } }
+
+    /* ── Hero right card ── */
+    .hero-card {
+      background: var(--bg-card);
+      border: 0.5px solid var(--border);
+      border-radius: 20px;
+      padding: 1.5rem 1.5rem 1.25rem;
+      position: relative; overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      max-width: 380px; width: 100%;
+    }
+    .hero-card__chip {
+      display: inline-block; font-size: 0.72rem; font-weight: 600;
+      padding: 0.22rem 0.75rem; border-radius: 999px;
+      background: rgba(22,163,74,0.1); color: #0a5c2e;
+      border: 0.5px solid rgba(22,163,74,0.25);
+      margin-bottom: 1rem;
+    }
+    .hero-card__header {
+      display: flex; align-items: flex-start;
+      justify-content: space-between; gap: 1rem;
+      margin-bottom: 0.25rem;
+    }
+    .hero-card__brand { display: flex; align-items: center; gap: 0.6rem; flex: 1; }
+    .hero-card__icon { font-size: 1.5rem; line-height: 1; flex-shrink: 0; }
+    .hero-card__name { font-size: 1.1rem; font-weight: 700; color: var(--text-primary); }
+    .hero-card__img {
+      width: 90px; height: 90px;
+      object-fit: cover; object-position: top center;
+      border-radius: 12px; flex-shrink: 0;
+    }
+    .hero-card__score { margin-bottom: 1rem; }
+    .hero-card__score-num { font-size: 2.25rem; font-weight: 700; color: var(--accent-green); line-height: 1; }
+    .hero-card__score-denom { font-size: 1rem; font-weight: 500; color: var(--text-muted); }
+    .hero-card__score-label { font-size: 0.72rem; color: var(--text-muted); margin: 0.1rem 0 0; }
+    .hero-card__pros {
+      list-style: none; padding: 0; margin: 0 0 1.25rem;
+      display: flex; flex-direction: column; gap: 0.4rem;
+    }
+    .hero-card__pros li {
+      font-size: 0.83rem; color: var(--text-secondary);
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .hero-card__pros li::before {
+      content: ""; width: 16px; height: 16px; flex-shrink: 0;
+      background: rgba(22,163,74,0.12); border-radius: 50%;
+      display: inline-flex; align-items: center; justify-content: center;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none' stroke='%230a5c2e' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 6l3 3 5-5'/%3E%3C/svg%3E");
+      background-size: 10px; background-repeat: no-repeat; background-position: center;
+    }
+    .hero-card__btn {
+      display: block; text-align: center;
+      padding: 0.6rem 1rem; background: var(--bg-elevated);
+      border: 0.5px solid var(--border); border-radius: 8px;
+      font-size: 0.85rem; font-weight: 600; color: var(--text-primary);
+      text-decoration: none; transition: border-color 0.15s, background 0.15s;
+    }
+    .hero-card__btn:hover { border-color: var(--accent-green); background: rgba(22,163,74,0.06); text-decoration: none; color: var(--text-primary); }
+
+    /* ── Intent tiles — 6 tiles with subtitle ── */
+    .intent-tiles { grid-template-columns: repeat(3, 1fr); max-width: 720px; }
+    @media (min-width: 640px) { .intent-tiles { grid-template-columns: repeat(6, 1fr); max-width: 900px; } }
+    .intent-tile__label { font-size: 0.83rem; font-weight: 600; line-height: 1.2; }
+    .intent-tile__sub { font-size: 0.68rem; font-weight: 400; color: var(--text-muted); margin-top: 2px; }
+    .intent-section {
+      background: var(--bg-card);
+      border-top: 0.5px solid var(--border);
+      border-bottom: 0.5px solid var(--border);
+      padding: 2.5rem 0;
+    }
+    .intent-section__heading {
+      text-align: center;
+      font-size: 1.35rem; font-weight: 700;
+      color: var(--text-primary); margin: 0 0 0.4rem;
+    }
+    .intent-section__sub {
+      text-align: center; font-size: 0.9rem;
+      color: var(--text-muted); margin: 0 0 1.5rem;
+    }
+    .intent-show-all {
+      display: block; text-align: center; margin-top: 1.25rem;
+      font-size: 0.83rem; color: var(--accent-green); text-decoration: none; font-weight: 500;
+    }
+    .intent-show-all:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
@@ -2281,23 +2409,36 @@
         </a>
         <nav aria-label="Main">
           <ul class="nav-links">
-            <li><a href="#featured">Top Picks</a></li>
-            <li><a href="#compare">Compare All</a></li>
-            <li><a href="/best-vpn-for-netflix">Streaming</a></li>
-            <li><a href="/best-vpn-for-gaming">Gaming</a></li>
-            <li><a href="/best-vpn-for-ai-tools">AI Tools</a></li>
-            <li><a href="#disclosure">Disclosure</a></li>
+            <li><a href="#compare">Compare</a></li>
+            <li class="nav-dropdown">
+              <a href="/reviews" aria-haspopup="true">Guides ▾</a>
+              <ul class="nav-dropdown-menu" role="menu">
+                <li><a href="/best-vpn-for-netflix">Best for Netflix</a></li>
+                <li><a href="/best-vpn-for-gaming">Best for Gaming</a></li>
+                <li><a href="/best-vpn-for-privacy">Best for Privacy</a></li>
+                <li><a href="/best-vpn-for-travel">Best for Travel</a></li>
+                <li><a href="/best-vpn-for-china">Best for China</a></li>
+                <li><a href="/best-vpn-for-torrenting">Torrenting</a></li>
+                <li><a href="/best-vpn-for-remote-work">Remote Work</a></li>
+                <li><a href="/best-vpn-for-students">Students</a></li>
+                <li><a href="/best-free-vpn">Free VPNs</a></li>
+              </ul>
+            </li>
+            <li><a href="/reviews">Reviews</a></li>
+            <li><a href="/methodology">Methodology</a></li>
+            <li><a href="/about">About</a></li>
           </ul>
         </nav>
         <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark / light mode">🌙</button>
+        <a href="#match-quiz" class="nav-cta">Start matching</a>
         <button type="button" class="mobile-menu-toggle" aria-label="Menu" aria-expanded="false">☰</button>
       </div>
       <nav class="mobile-nav" aria-label="Mobile menu">
-        <a href="#featured">Featured</a>
+        <a href="#compare">Compare</a>
         <a href="#scorecards">Top Picks</a>
-        <a href="#categories">Categories</a>
-        <a href="#compare">Full data</a>
-        <a href="#disclosure">Disclosure</a>
+        <a href="#match-quiz">Start matching</a>
+        <a href="/methodology">Methodology</a>
+        <a href="/about">About</a>
       </nav>
     </header>
 
@@ -2326,12 +2467,12 @@
 
         <div class="trust-marquee" aria-label="Trust indicators">
       <div class="trust-marquee__track">
-        <span class="trust-item">✅ <strong>16</strong> VPNs compared</span>
+        <span class="trust-item">✅ <strong>15</strong> VPNs compared</span>
         <span class="trust-item">📋 <strong>15+</strong> audit reports reviewed</span>
         <span class="trust-item">📐 <strong>8-factor</strong> weighted scoring</span>
         <span class="trust-item">🔗 Links to <strong>official</strong> provider sites</span>
         <span class="trust-item">🌐 Independent · No paid placement</span>
-        <span class="trust-item">✅ <strong>16</strong> VPNs compared</span>
+        <span class="trust-item">✅ <strong>15</strong> VPNs compared</span>
         <span class="trust-item">📋 <strong>15+</strong> audit reports reviewed</span>
         <span class="trust-item">📐 <strong>8-factor</strong> weighted scoring</span>
         <span class="trust-item">🔗 Links to <strong>official</strong> provider sites</span>
@@ -2350,24 +2491,20 @@
       <section class="hero">
         <div class="container hero__grid">
           <div class="hero__copy">
-            <p class="hero__eyebrow">⚡ Best VPN Match · Editorial Scores · Public Data</p>
-            <h1 class="hero__title">Find Your Best VPN Match</h1>
-            <p class="hero__tagline">Match yourself to the right VPN using editorial scores from public audits, features, and pricing. No paid placement.</p>
-            <ul class="hero__stats">
-              <li>📊 Eight-factor weighted scoring</li>
-              <li>🔒 Public audit & jurisdiction data</li>
-              <li>⚖️ KAPE ethics framework</li>
-              <li>💰 Published pricing verified regularly</li>
-              <li>🌍 15 VPNs compared</li>
-            </ul>
-            <div class="hero__search-wrap" style="position:relative">
-              <label for="search" class="sr-only">Search VPNs</label>
-              <span class="hero__search-icon" aria-hidden="true">⌕</span>
+            <h1 class="hero__title">Find your best VPN<br><span class="accent">Match.</span></h1>
+            <div class="hero__trust-pills">
+              <span class="hero__trust-pill">📊 15 VPNs analysed</span>
+              <span class="hero__trust-pill">🚫 No paid rankings</span>
+              <span class="hero__trust-pill">✓ 100% independent</span>
+            </div>
+            <p class="hero__tagline">We score VPNs using public audits, real features and published pricing across 8 key categories.</p>
+            <div class="hero__search-wrap">
+              <span class="hero__search-icon" aria-hidden="true">🔍</span>
               <input
                 type="search"
                 id="search"
                 class="hero__search"
-                placeholder="Search by VPN name, feature, or use case (Netflix, China, Torrenting)…"
+                placeholder="Search by VPN name, feature, or use case…"
                 autocomplete="off"
                 aria-autocomplete="list"
                 aria-controls="search-suggestions"
@@ -2376,37 +2513,77 @@
               <ul id="search-suggestions" class="search-suggestions" role="listbox" aria-label="Search suggestions"></ul>
             </div>
             <div class="hero__ctas">
-              <a href="#scorecards" class="btn btn--primary btn--lg">See Top Rated VPNs</a>
-              <a href="#compare" class="btn btn--ghost btn--lg">Full Comparison Table</a>
+              <a href="#match-quiz" class="btn btn--primary btn--lg">Start matching →</a>
+              <a href="#compare" class="btn btn--ghost btn--lg">Compare all</a>
             </div>
+            <p class="hero__note">No sign up. No email. Just honest data.</p>
           </div>
-          <div class="hero__visual" aria-hidden="true">
-            <div class="shield-stack" id="hero-visual-stack">
-              <div class="orbit-ring"></div>
-              <div class="shield-icon" id="hero-shield">🛡️</div>
-              <div class="speed-meter">
+          <div class="hero__visual">
+            <div class="hero-card" id="hero-visual-stack">
+              <span class="hero-card__chip">Top Pick Overall</span>
+              <div class="hero-card__header">
+                <div class="hero-card__brand">
+                  <span class="hero-card__icon" id="hero-shield">🔵</span>
+                  <span class="hero-card__name" id="hero-top-name">ExpressVPN</span>
+                </div>
+                <img src="VPN%20Design%20Example.png" alt="" class="hero-card__img" aria-hidden="true" loading="eager">
+              </div>
+              <div class="hero-card__score">
+                <span class="hero-card__score-num" id="hero-top-score">91</span><span class="hero-card__score-denom">/100</span>
+                <p class="hero-card__score-label">Editorial Score</p>
+              </div>
+              <ul class="hero-card__pros" id="hero-top-pros">
+                <li>Best for streaming</li>
+                <li>Ultra-fast worldwide</li>
+                <li>Proven no-logs policy</li>
+              </ul>
+              <a href="#featured" class="hero-card__btn">See why it's #1</a>
+              <div class="speed-meter" style="margin-top:1rem">
                 <div class="speed-meter__label"><span>Top speed score</span><span id="hero-speed-val">—</span></div>
                 <div class="speed-bar"><div class="speed-bar__fill" id="hero-speed-bar" style="width:89%"></div></div>
               </div>
-              <div class="privacy-badge">🔒 No-logs audited</div>
             </div>
           </div>
         </div>
       </section>
 
-      <div class="scroll-bridge" aria-hidden="true">
-        <span class="scroll-bridge__label">↓ Find your match</span>
-      </div>
-
-      <section class="intent-section">
+      <section class="intent-section" id="match-quiz">
         <div class="container">
-          <p class="intent-section__q"><strong>What do you need a VPN for?</strong> — get your answer in one click</p>
+          <p class="intent-section__heading">What matters most to you?</p>
+          <p class="intent-section__sub">We'll find your best match in seconds.</p>
           <div class="intent-tiles" id="intent-tiles">
-            <button class="intent-tile" data-intent="streaming"><span class="intent-tile__icon">📺</span>Streaming &amp; Netflix</button>
-            <button class="intent-tile" data-intent="privacy"><span class="intent-tile__icon">🔒</span>Privacy &amp; No-Logs</button>
-            <button class="intent-tile" data-intent="budget"><span class="intent-tile__icon">💰</span>Budget Under $3</button>
-            <button class="intent-tile" data-intent="china"><span class="intent-tile__icon">🌏</span>China / Travel</button>
+            <button class="intent-tile" data-intent="privacy">
+              <span class="intent-tile__icon">🔒</span>
+              <span class="intent-tile__label">Privacy</span>
+              <span class="intent-tile__sub">Maximum anonymity</span>
+            </button>
+            <button class="intent-tile" data-intent="streaming">
+              <span class="intent-tile__icon">📺</span>
+              <span class="intent-tile__label">Streaming</span>
+              <span class="intent-tile__sub">Unblock content</span>
+            </button>
+            <button class="intent-tile" data-intent="gaming">
+              <span class="intent-tile__icon">🎮</span>
+              <span class="intent-tile__label">Gaming</span>
+              <span class="intent-tile__sub">Low ping, no lag</span>
+            </button>
+            <button class="intent-tile" data-intent="travel">
+              <span class="intent-tile__icon">✈️</span>
+              <span class="intent-tile__label">Travel</span>
+              <span class="intent-tile__sub">Safe on any Wi-Fi</span>
+            </button>
+            <button class="intent-tile" data-intent="students">
+              <span class="intent-tile__icon">🎓</span>
+              <span class="intent-tile__label">Students</span>
+              <span class="intent-tile__sub">Best on a budget</span>
+            </button>
+            <button class="intent-tile" data-intent="value">
+              <span class="intent-tile__icon">💰</span>
+              <span class="intent-tile__label">Value</span>
+              <span class="intent-tile__sub">Best price to value</span>
+            </button>
           </div>
+          <a href="#categories" class="intent-show-all">Show all use cases →</a>
           <div id="intent-result" class="intent-result"></div>
         </div>
       </section>
@@ -2434,7 +2611,7 @@
       </section>
 
       <!-- 3-Question Match Flow -->
-      <section id="match-quiz" class="section section--alt" style="padding:3rem 0">
+      <section id="quiz-section" class="section section--alt" style="padding:3rem 0">
         <div class="container">
           <header class="section__header" style="margin-bottom:1.5rem">
             <h2 class="section__title">Find Your Best VPN Match</h2>
@@ -2543,7 +2720,7 @@
               <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem;flex-wrap:wrap;gap:0.5rem">
                 <p style="margin:0;font-size:0.75rem;color:var(--text-muted)">Drag sliders to reweight the 8 scoring categories. Scores and ranking update live. Total must equal 100%.</p>
                 <div style="display:flex;align-items:center;gap:0.75rem">
-                  <span id="weights-total-badge" style="font-size:0.75rem;font-weight:700;padding:0.15rem 0.55rem;border-radius:999px;background:rgba(0,210,106,0.15);color:var(--accent-green)">Total: 100%</span>
+                  <span id="weights-total-badge" style="font-size:0.75rem;font-weight:700;padding:0.15rem 0.55rem;border-radius:999px;background:rgba(22,163,74,0.12);color:var(--accent-green)">Total: 100%</span>
                   <button type="button" id="weights-reset" class="btn btn--secondary btn--sm" style="font-size:0.72rem">Reset to defaults</button>
                 </div>
               </div>
@@ -2841,7 +3018,7 @@
                        : v.weightedScore >= 78 ? "score-pill--excellent"
                        : "score-pill--good";
       const rankBadge = v.ranking <= 3
-        ? `<span style="font-size:0.62rem;font-weight:800;padding:0.1rem 0.4rem;border-radius:999px;background:${v.ranking===1?"rgba(0,210,106,0.15)":v.ranking===2?"rgba(43,127,255,0.12)":"rgba(139,92,246,0.12)"};color:${v.ranking===1?"var(--accent-green)":v.ranking===2?"var(--accent-blue)":"var(--accent-purple)"};margin-left:0.3rem">#${v.ranking}</span>` : "";
+        ? `<span style="font-size:0.62rem;font-weight:800;padding:0.1rem 0.4rem;border-radius:999px;background:${v.ranking===1?"rgba(10,92,46,0.15)":v.ranking===2?"rgba(22,163,74,0.12)":"rgba(22,163,74,0.08)"};color:${v.ranking===1?"#0a5c2e":v.ranking===2?"var(--accent-green)":"var(--accent-green)"};margin-left:0.3rem">#${v.ranking}</span>` : "";
       const priceHtml = (v.savingsPct > 0 && SITE_CONFIG.affiliateActive)
         ? `<span class="price-was">${formatPrice(v.regularPrice)}</span> <span class="price-now">${formatPrice(v.monthlyPrice)}</span><br><span class="savings-badge">-${v.savingsPct}%</span>`
         : `<span class="price-now">${formatPrice(v.monthlyPrice)}</span>`;
@@ -3120,9 +3297,17 @@
       const bar = document.getElementById("hero-speed-bar");
       const val = document.getElementById("hero-speed-val");
       const shield = document.getElementById("hero-shield");
+      const name = document.getElementById("hero-top-name");
+      const score = document.getElementById("hero-top-score");
+      const pros = document.getElementById("hero-top-pros");
       if (bar) bar.style.width = top.speedScore + "%";
       if (val) val.textContent = top.speedScore + "/100";
       if (shield) shield.textContent = top.logoIcon;
+      if (name) name.textContent = top.name;
+      if (score) score.textContent = Math.round(top.weightedScore);
+      if (pros && top.pros && top.pros.length) {
+        pros.innerHTML = top.pros.slice(0, 3).map(p => `<li>${p}</li>`).join("");
+      }
     }
 
     function renderCategoryTiles() {
@@ -3228,7 +3413,7 @@
         if (!badge) return;
         const ok = total === 100;
         badge.textContent = `Total: ${total}%`;
-        badge.style.background = ok ? "rgba(0,210,106,0.15)" : "rgba(239,68,68,0.15)";
+        badge.style.background = ok ? "rgba(22,163,74,0.12)" : "rgba(239,68,68,0.15)";
         badge.style.color = ok ? "var(--accent-green)" : "var(--danger)";
       }
 
@@ -3561,6 +3746,28 @@
         sortFn: vpns => [...vpns].filter(v => v.tags.includes("china")).sort((a,b) => b.weightedScore - a.weightedScore)[0],
         label: "Best for China & Restricted Networks",
         why: "Obfuscation protocols tested to work through deep packet inspection in China and similar networks."
+      },
+      gaming: {
+        sortFn: vpns => [...vpns].sort((a,b) => b.speedScore - a.speedScore)[0],
+        label: "Best VPN for Gaming",
+        why: "Highest speed score from published benchmarks and WireGuard/NordLynx support — lowest latency for competitive play."
+      },
+      travel: {
+        sortFn: vpns => [...vpns].filter(v => v.tags.includes("china")).sort((a,b) => b.weightedScore - a.weightedScore)[0]
+          || [...vpns].sort((a,b) => b.weightedScore - a.weightedScore)[0],
+        label: "Best VPN for Travel",
+        why: "Obfuscation and strong privacy for public Wi-Fi — works in restrictive regions including China and the UAE."
+      },
+      students: {
+        sortFn: vpns => [...vpns].filter(v => v.tags.includes("under-3")).sort((a,b) => a.monthlyPrice - b.monthlyPrice)[0]
+          || [...vpns].sort((a,b) => a.monthlyPrice - b.monthlyPrice)[0],
+        label: "Best VPN for Students",
+        why: "Unlimited devices on a low monthly budget — covers every gadget in your room without breaking the bank."
+      },
+      value: {
+        sortFn: vpns => [...vpns].sort((a,b) => b.valueScore - a.valueScore)[0],
+        label: "Best Value VPN",
+        why: "Highest value score based on features-per-pound — strong security and privacy at a price that makes sense."
       }
     };
 
