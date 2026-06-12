@@ -841,13 +841,13 @@
 
     /* Hero — split layout */
     .hero {
-      padding: 2.5rem 0 3.5rem;
+      padding: 1.75rem 0 2.25rem;
       position: relative;
       overflow: hidden;
     }
     .hero__grid {
       display: grid;
-      gap: 2.5rem;
+      gap: 2rem;
       align-items: center;
     }
     @media (min-width: 900px) {
@@ -1108,7 +1108,7 @@
 
     /* Featured match */
     .featured-match {
-      padding: 2.5rem 0;
+      padding: 1.5rem 0;
       background: linear-gradient(180deg, var(--cream) 0%, var(--white) 40%, var(--cream) 100%);
     }
     .featured-match__card {
@@ -1278,10 +1278,10 @@
 
     /* Section */
     .section {
-      padding: 3.5rem 0;
+      padding: 2rem 0;
     }
     .section--alt { background: var(--cream-dark); }
-    .section__header { margin-bottom: 2rem; }
+    .section__header { margin-bottom: 1.25rem; }
     .section__title {
       font-family: var(--font-display);
       font-size: clamp(1.75rem, 4vw, 2.25rem);
@@ -1744,6 +1744,10 @@
       color: var(--ink-soft);
       margin: 0;
     }
+    .scorecard__header { display: flex; align-items: center; gap: 0.6rem; }
+    .scorecard__icon { font-size: 1.4rem; flex-shrink: 0; }
+    .scorecard__name { font-size: 1rem; font-weight: 700; color: var(--text-primary); margin: 0; flex: 1; }
+    .scorecard__badge { font-size: 0.68rem; font-weight: 600; padding: 0.18rem 0.5rem; border-radius: 999px; background: rgba(22,163,74,0.1); color: var(--accent-green); border: 1px solid rgba(22,163,74,0.25); white-space: nowrap; }
     .scorecard__badges-row {
       display: flex;
       flex-wrap: wrap;
