@@ -3658,6 +3658,7 @@
       }
       const scoreRows = [
         { label: "Overall",     cat: null,        fn: v => `${v.weightedScore}/100<a href="/methodology" target="_blank" style="font-size:0.65rem;color:var(--accent-blue);text-decoration:none;vertical-align:super" title="How composite score is calculated">ⓘ</a>` },
+        { label: "Price / mo",  cat: null,        fn: v => `<strong style="color:var(--accent-green)">$${v.monthlyPrice.toFixed(2)}</strong>${srcLink(v.sources?.value, "Provider pricing")}` },
         { label: "Privacy 25%", cat: "privacy",   fn: v => `${v.privacyScore}/100${srcLink(v.sources?.privacy, "Privacy source")}` },
         { label: "Speed 20%",   cat: "speed",     fn: v => `${v.speedScore}/100${srcLink(v.sources?.speed, "Speed source")}` },
         { label: "Security 15%",cat: "security",  fn: v => `${v.securityScore}/100${srcLink(v.sources?.security, "Security features")}` },
@@ -3670,23 +3671,22 @@
       const metaRows = [
         { label: "Jurisdiction",fn: v => v.jurisdiction },
         { label: "Audit",       fn: v => v.auditType === "independent" ? `${v.auditFirm || "Independent"}${srcLink(v.sources?.privacy, "Audit report")}` : v.auditType === "self-published" ? "Self-published" : `<span style="color:var(--danger)">None</span>` },
-        { label: "Price / mo",  fn: v => `$${v.monthlyPrice.toFixed(2)}${srcLink(v.sources?.value, "Provider pricing")}` },
         { label: "Money-back",  fn: v => v.moneyBackGuarantee || "—" },
         { label: "Affiliate?",  fn: v => v.affiliatePartnered ? `<span style="color:var(--accent-green)">Yes — disclosed</span>` : `<span style="color:var(--text-muted)">No</span>` },
       ];
       const rows = [...scoreRows, ...metaRows];
 
       list.innerHTML = `
-        <li style="display:grid;grid-template-columns:5.5rem repeat(${selected.length},1fr);gap:0.5rem;padding:0.4rem 0;border-bottom:2px solid var(--border);font-weight:700;font-size:0.75rem;color:var(--text-secondary);text-transform:uppercase;letter-spacing:0.04em">
+        <li style="display:grid;grid-template-columns:7rem repeat(${selected.length},1fr);gap:0.5rem;padding:0.4rem 0;border-bottom:2px solid var(--border);font-weight:700;font-size:0.75rem;color:var(--text-secondary);text-transform:uppercase;letter-spacing:0.04em">
           <span></span>
           ${selected.map(v => `<span style="text-align:center">${v.logoIcon} ${v.name}${v.monthlyPrice === cheapestPrice ? ' <span title="Best value" style="color:var(--accent-green)">🏆</span>' : ''}</span>`).join("")}
         </li>
         ${rows.map(row => `
-          <li style="display:grid;grid-template-columns:5.5rem repeat(${selected.length},1fr);gap:0.5rem;padding:0.4rem 0;border-bottom:1px solid var(--border);font-size:0.82rem;align-items:center">
+          <li style="display:grid;grid-template-columns:7rem repeat(${selected.length},1fr);gap:0.5rem;padding:0.4rem 0;border-bottom:1px solid var(--border);font-size:0.82rem;align-items:center">
             <span style="color:var(--text-muted);font-weight:600">${row.label}</span>
             ${selected.map(v => `<span style="text-align:center">${row.fn(v)}</span>`).join("")}
           </li>`).join("")}
-        <li style="display:grid;grid-template-columns:5.5rem repeat(${selected.length},1fr);gap:0.5rem;padding:0.75rem 0 0.25rem">
+        <li style="display:grid;grid-template-columns:7rem repeat(${selected.length},1fr);gap:0.5rem;padding:0.75rem 0 0.25rem">
           <span></span>
           ${selected.map(v => `<a href="${v.affiliateLink}" class="btn btn--primary btn--sm btn--deal-full" target="_blank" rel="${outboundRel()}" style="text-align:center;justify-content:center">${SITE_CONFIG.affiliateActive ? (v.savingsPct > 0 ? `Save ${v.savingsPct}%` : "Get Deal") : "Visit site"} →</a>`).join("")}
         </li>
