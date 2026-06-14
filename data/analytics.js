@@ -2,8 +2,8 @@
 (function () {
   "use strict";
 
-  var trackerBase = "https://cyan-herring-490718.hostingersite.com/matomo/";
-  var siteId = "1";
+  var trackerBase = "https://stats.bestmatchgroup.com/";
+  var siteId = "2";
   var consentKey = "bestvpnmatch-analytics-cookie-consent";
   var accepted = "accepted";
   var essential = "essential";
