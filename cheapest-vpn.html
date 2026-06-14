@@ -478,7 +478,7 @@ footer{
     <li><a href="/ai-tools">AI Tools</a></li>
   </ul>
   <div class="nav-right">
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">🌙</button>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">Dark</button>
   </div>
 </nav>
 
@@ -491,7 +491,7 @@ footer{
       <span class="current">Cheapest VPN 2026</span>
     </nav>
     <div class="mt-16">
-      <span class="hero-eyebrow">💰 Prices verified June 2026 · 2-year plans</span>
+      <span class="hero-eyebrow">Prices verified June 2026 · 2-year plans</span>
     </div>
     <h1>Cheapest VPN in 2026 — Ranked by Value, Not Just Price</h1>
     <p class="hero-intro">
@@ -537,7 +537,7 @@ footer{
           </tr>
           <tr class="highlight">
             <td><span class="rank-badge">2</span></td>
-            <td><span class="vpn-name" style="color:var(--accent-blue);">Surfshark ⭐</span></td>
+            <td><span class="vpn-name" style="color:var(--accent-blue);">Surfshark</span></td>
             <td><span class="price-strong">$2.19/mo</span></td>
             <td>2-year</td>
             <td>Unlimited</td>
@@ -698,7 +698,7 @@ footer{
 
     <div class="avoid-list">
       <div class="avoid-card">
-        <div class="avoid-icon">🚨</div>
+        <div class="avoid-icon">!</div>
         <div>
           <h3>Hola VPN (Peer-to-peer routing)</h3>
           <p>Hola VPN is not a traditional VPN — it routes your traffic through other users' devices and sells their bandwidth in a botnet-style network. This means a stranger's criminal activity could be attributed to your IP address, and vice versa. Multiple security researchers have documented this behaviour. Do not use Hola VPN under any circumstances.</p>
@@ -706,7 +706,7 @@ footer{
       </div>
 
       <div class="avoid-card">
-        <div class="avoid-icon">⚠️</div>
+        <div class="avoid-icon">!</div>
         <div>
           <h3>TouchVPN and Betternet (Ad-supported data collection)</h3>
           <p>Both TouchVPN and Betternet are ad-supported VPNs with documented records of collecting and sharing user data with advertising networks. Security researchers have identified fingerprinting SDKs in their Android apps. The free tier is funded by building an advertising profile of your behaviour — the exact opposite of what a VPN should do.</p>
@@ -714,7 +714,7 @@ footer{
       </div>
 
       <div class="avoid-card">
-        <div class="avoid-icon">❓</div>
+        <div class="avoid-icon">?</div>
         <div>
           <h3>VPNs with No Privacy Policy or Anonymous Ownership</h3>
           <p>Any VPN registered in Panama, Seychelles, or the British Virgin Islands with anonymous ownership and no verifiable team should be treated with extreme caution. These jurisdictions are popular for two reasons: legitimate privacy protection, and as a place to operate without legal accountability. Without knowing who runs a VPN, you can't evaluate whether their no-logs claim is credible. NordVPN (Lithuania-registered, Nord Security team publicly known) and Proton VPN (Swiss AG, public team) are the gold standard for corporate transparency.</p>
@@ -831,7 +831,7 @@ footer{
       </div>
 
       <div class="mbg-warning">
-        ⚠️ <strong>A note on abuse:</strong> The 30-day MBG exists so customers can genuinely evaluate a product. Using it repeatedly across different email addresses to cycle through free months is against the terms of service and ultimately harms the affordable pricing that makes these VPNs accessible. Use it as intended — to trial a service before committing.
+        <strong>A note on abuse:</strong> The 30-day MBG exists so customers can genuinely evaluate a product. Using it repeatedly across different email addresses to cycle through free months is against the terms of service and ultimately harms the affordable pricing that makes these VPNs accessible. Use it as intended — to trial a service before committing.
       </div>
     </div>
   </div>
@@ -938,7 +938,7 @@ footer{
 <section class="network-banner" aria-label="BestMatch Group">
   <div class="network-banner__inner">
     <div class="network-banner__card">
-      <span aria-hidden="true">🔗</span>
+      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto"><path d="M12 3 21 12 12 21 3 12 12 3z"/><circle cx="12" cy="12" r="2.2"/></svg>
       <span>Part of <strong>BestMatch Group</strong> — building your own setup? Compare
         <a href="https://www.besthostingmatch.com" target="_blank" rel="noopener noreferrer">Hosting</a> and
         <a href="https://www.bestvpsmatch.com" target="_blank" rel="noopener noreferrer">VPS</a> providers too.</span>
@@ -988,13 +988,13 @@ footer{
 const themeToggle = document.getElementById('themeToggle');
 function applyTheme(isDark) {
   document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
-  themeToggle.textContent = isDark ? '☀️' : '🌙';
+  themeToggle.textContent = isDark ? 'Light' : 'Dark';
   localStorage.setItem('vpn-theme', isDark ? 'dark' : 'light');
 }
 
 // Set initial toggle icon
 const currentTheme = document.documentElement.getAttribute('data-theme');
-themeToggle.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
+themeToggle.textContent = currentTheme === 'dark' ? 'Light' : 'Dark';
 
 themeToggle.addEventListener('click', () => {
   const isDark = document.documentElement.getAttribute('data-theme') !== 'dark';

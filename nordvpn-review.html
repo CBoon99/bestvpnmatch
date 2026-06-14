@@ -823,7 +823,7 @@
       <li><a href="/cheapest-vpn.html">Deals</a></li>
     </ul>
     <button class="theme-toggle" id="theme-btn" aria-label="Toggle dark mode">
-      <span id="theme-icon">🌙</span> Dark
+      <span id="theme-icon">Dark</span>
     </button>
   </nav>
 </header>
@@ -1503,7 +1503,7 @@
 <section class="network-banner" aria-label="BestMatch Group">
   <div class="network-banner__inner">
     <div class="network-banner__card">
-      <span aria-hidden="true">🔗</span>
+      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto"><path d="M12 3 21 12 12 21 3 12 12 3z"/><circle cx="12" cy="12" r="2.2"/></svg>
       <span>Part of <strong>BestMatch Group</strong> — building your own setup? Compare
         <a href="https://www.besthostingmatch.com" target="_blank" rel="noopener noreferrer">Hosting</a> and
         <a href="https://www.bestvpsmatch.com" target="_blank" rel="noopener noreferrer">VPS</a> providers too.</span>
@@ -1566,11 +1566,11 @@
       document.documentElement.setAttribute('data-theme', t);
       localStorage.setItem('vpn-theme', t);
       if (t === 'dark') {
-        icon.textContent = '☀️';
-        btn.innerHTML = '<span id="theme-icon">☀️</span> Light';
+        icon.textContent = 'Light';
+        btn.innerHTML = '<span id="theme-icon">Light</span>';
       } else {
-        icon.textContent = '🌙';
-        btn.innerHTML = '<span id="theme-icon">🌙</span> Dark';
+        icon.textContent = 'Dark';
+        btn.innerHTML = '<span id="theme-icon">Dark</span>';
       }
       icon = document.getElementById('theme-icon');
     }

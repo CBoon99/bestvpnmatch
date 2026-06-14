@@ -9,7 +9,7 @@
  */
 const VPN_RECORDS = [
   {
-    id:"nordvpn", name:"NordVPN", logoIcon:"🛡️", tagline:"The all-around security suite",
+    id:"nordvpn", name:"NordVPN", logoIcon:"NV", tagline:"The all-around security suite",
     advertisedSpeedMbps:1000, realSpeedMbps:892, speedScore:89,
     jurisdiction:"Panama", auditType:"independent", auditFirm:"Deloitte",
     warrantCanary:true, ramServers:true, acceptsCrypto:true,
@@ -38,7 +38,7 @@ const VPN_RECORDS = [
     tags:["streaming","torrenting","china","gaming","no-logs-audited","ram-servers","wireguard","linux","router","independent-audit","panama-jurisdiction","netflix","under-5"]
   },
   {
-    id:"expressvpn", name:"ExpressVPN", logoIcon:"<svg viewBox='0 0 24 24' width='1em' height='1em' style='vertical-align:-0.12em' aria-hidden='true'><path d='M13 2 L4.8 13.4 H10.4 L9.2 22 L19.2 10.2 H13.4 Z' fill='#da3940' stroke='#da3940' stroke-width='1.5' stroke-linejoin='round'/></svg>", tagline:"Speed and simplicity",
+    id:"expressvpn", name:"ExpressVPN", logoIcon:"EX", tagline:"Speed and simplicity",
     realSpeedMbps:932, speedScore:93,
     jurisdiction:"British Virgin Islands", auditType:"independent", auditFirm:"KPMG",
     privacyScore:96, securityScore:90, streamingScore:98,
@@ -63,7 +63,7 @@ const VPN_RECORDS = [
     tags:["streaming","china","gaming","no-logs-audited","ram-servers","wireguard","linux","router","independent-audit","netflix","under-5"]
   },
   {
-    id:"surfshark", name:"Surfshark", logoIcon:"🦈", tagline:"Unlimited devices, premium features",
+    id:"surfshark", name:"Surfshark", logoIcon:"SS", tagline:"Unlimited devices, premium features",
     realSpeedMbps:876, speedScore:88,
     jurisdiction:"Netherlands", auditType:"independent",
     privacyScore:89, securityScore:88, streamingScore:92,
@@ -88,7 +88,7 @@ const VPN_RECORDS = [
     tags:["streaming","torrenting","no-logs-audited","ram-servers","wireguard","unlimited-devices","linux","router","independent-audit","netflix","under-3","under-5"]
   },
   {
-    id:"protonvpn", name:"Proton VPN", logoIcon:"🧅", tagline:"Privacy by default",
+    id:"protonvpn", name:"Proton VPN", logoIcon:"PV", tagline:"Privacy by default",
     advertisedSpeedMbps:500, realSpeedMbps:412, speedScore:82,
     jurisdiction:"Switzerland", auditType:"independent", auditFirm:"Securitum",
     privacyScore:98, securityScore:91, streamingScore:75,
@@ -113,7 +113,7 @@ const VPN_RECORDS = [
     tags:["torrenting","no-logs-audited","open-source","free-tier","wireguard","linux","router","independent-audit","switzerland-jurisdiction","under-5"]
   },
   {
-    id:"mullvad", name:"Mullvad", logoIcon:"🦡", tagline:"Anonymous signup",
+    id:"mullvad", name:"Mullvad", logoIcon:"MV", tagline:"Anonymous signup",
     realSpeedMbps:845, speedScore:85,
     jurisdiction:"Sweden", auditType:"independent", auditFirm:"Cure53",
     privacyScore:95, securityScore:94, streamingScore:60,
@@ -138,7 +138,7 @@ const VPN_RECORDS = [
     tags:["torrenting","no-logs-audited","open-source","wireguard","linux","router","independent-audit","under-5"]
   },
   {
-    id:"ivacy", name:"Ivacy", logoIcon:"🔒", tagline:"Budget streaming specialist",
+    id:"ivacy", name:"Ivacy", logoIcon:"IV", tagline:"Budget streaming specialist",
     advertisedSpeedMbps:500, realSpeedMbps:398, speedScore:80,
     jurisdiction:"Singapore", auditType:"none",
     privacyScore:65, securityScore:72, streamingScore:88,
@@ -163,7 +163,7 @@ const VPN_RECORDS = [
     tags:["streaming","torrenting","linux","router","netflix","under-3","under-5"]
   },
   {
-    id:"cyberghost", name:"CyberGhost", logoIcon:"👻", tagline:"Streaming-optimized servers",
+    id:"cyberghost", name:"CyberGhost", logoIcon:"CG", tagline:"Streaming-optimized servers",
     jurisdiction:"Romania", auditType:"self-published",
     privacyScore:75, speedScore:83, securityScore:80, streamingScore:94,
     valueScore:86, ethicsScore:70, appsScore:88,
@@ -187,7 +187,7 @@ const VPN_RECORDS = [
     tags:["streaming","wireguard","linux","router","netflix","under-3","under-5"]
   },
   {
-    id:"pia", name:"Private Internet Access", logoIcon:"🔐", tagline:"Open source, proven no-logs",
+    id:"pia", name:"Private Internet Access", logoIcon:"PIA", tagline:"Open source, proven no-logs",
     jurisdiction:"USA", auditType:"independent",
     privacyScore:82, speedScore:87, securityScore:91, streamingScore:78,
     valueScore:89, ethicsScore:75, appsScore:90,
@@ -211,7 +211,7 @@ const VPN_RECORDS = [
     tags:["streaming","torrenting","no-logs-audited","open-source","wireguard","unlimited-devices","linux","router","independent-audit","under-3","under-5"]
   },
   {
-    id:"windscribe", name:"Windscribe", logoIcon:"💨", tagline:"Generous free tier",
+    id:"windscribe", name:"Windscribe", logoIcon:"WS", tagline:"Generous free tier",
     jurisdiction:"Canada", auditType:"independent",
     privacyScore:85, speedScore:79, securityScore:83, streamingScore:72,
     valueScore:90, ethicsScore:80, appsScore:85,
@@ -235,7 +235,7 @@ const VPN_RECORDS = [
     tags:["torrenting","no-logs-audited","open-source","free-tier","wireguard","unlimited-devices","linux","router","independent-audit","under-5"]
   },
   {
-    id:"hide_me", name:"hide.me", logoIcon:"🙈", tagline:"Free tier with no logs",
+    id:"hide_me", name:"hide.me", logoIcon:"HM", tagline:"Free tier with no logs",
     jurisdiction:"Malaysia", auditType:"independent",
     privacyScore:92, speedScore:76, securityScore:85, streamingScore:65,
     valueScore:84, ethicsScore:85, appsScore:82,
@@ -259,7 +259,7 @@ const VPN_RECORDS = [
     tags:["no-logs-audited","free-tier","wireguard","linux","router","independent-audit","under-5"]
   },
   {
-    id:"ipvanish", name:"IPVanish", logoIcon:"🗂️", tagline:"Owns its server network",
+    id:"ipvanish", name:"IPVanish", logoIcon:"IP", tagline:"Owns its server network",
     jurisdiction:"USA", auditType:"none",
     privacyScore:65, speedScore:86, securityScore:84, streamingScore:76,
     valueScore:80, ethicsScore:65, appsScore:82,
@@ -283,7 +283,7 @@ const VPN_RECORDS = [
     tags:["streaming","torrenting","wireguard","unlimited-devices","linux","router","under-5"]
   },
   {
-    id:"vyprvpn", name:"VyprVPN", logoIcon:"🐉", tagline:"Chameleon for restrictive networks",
+    id:"vyprvpn", name:"VyprVPN", logoIcon:"VY", tagline:"Chameleon for restrictive networks",
     jurisdiction:"Switzerland", auditType:"self-published",
     privacyScore:88, speedScore:82, securityScore:88, streamingScore:70,
     valueScore:75, ethicsScore:78, appsScore:78,
@@ -307,7 +307,7 @@ const VPN_RECORDS = [
     tags:["china","wireguard","linux","router","switzerland-jurisdiction","under-5"]
   },
   {
-    id:"privatevpn", name:"PrivateVPN", logoIcon:"🔐", tagline:"Small but mighty",
+    id:"privatevpn", name:"PrivateVPN", logoIcon:"PVT", tagline:"Small but mighty",
     jurisdiction:"Sweden", auditType:"none",
     privacyScore:72, speedScore:78, securityScore:80, streamingScore:88,
     valueScore:88, ethicsScore:70, appsScore:75,
@@ -331,7 +331,7 @@ const VPN_RECORDS = [
     tags:["streaming","linux","router","netflix","under-3","under-5"]
   },
   {
-    id:"tunnelbear", name:"TunnelBear", logoIcon:"🐻", tagline:"Simple and audited",
+    id:"tunnelbear", name:"TunnelBear", logoIcon:"TB", tagline:"Simple and audited",
     jurisdiction:"Canada", auditType:"independent",
     privacyScore:85, speedScore:70, securityScore:82, streamingScore:55,
     valueScore:70, ethicsScore:82, appsScore:80,
@@ -355,7 +355,7 @@ const VPN_RECORDS = [
     tags:["no-logs-audited","free-tier","linux","independent-audit","under-5"]
   },
   {
-    id:"hotspotshield", name:"Hotspot Shield", logoIcon:"🔥", tagline:"Catapult Hydra speed",
+    id:"hotspotshield", name:"Hotspot Shield", logoIcon:"HS", tagline:"Catapult Hydra speed",
     jurisdiction:"USA", auditType:"self-published",
     privacyScore:68, speedScore:91, securityScore:78, streamingScore:82,
     valueScore:75, ethicsScore:60, appsScore:75,

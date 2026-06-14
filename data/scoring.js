@@ -8,7 +8,7 @@ function buildVPN(p) {
     name: p.name,
     savingsPct,
     regularPrice,
-    logoIcon: p.logoIcon || "🛡️",
+    logoIcon: p.logoIcon || "VPN",
     tagline: p.tagline || "",
     speedScore: p.speedScore || 80,
     jurisdiction: p.jurisdiction || "USA",

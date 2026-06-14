@@ -55,21 +55,21 @@
 
   <!-- Card 2: NordVPN -->
   <rect x="306" y="230" width="210" height="110" rx="12" fill="url(#cardgrad)" stroke="#2a2d3e" stroke-width="1"/>
-  <text x="326" y="268" font-family="system-ui, sans-serif" font-size="13" fill="#8892b0">🛡️ NordVPN</text>
+  <text x="326" y="268" font-family="system-ui, sans-serif" font-size="13" fill="#8892b0">NordVPN</text>
   <text x="326" y="308" font-family="system-ui, sans-serif" font-weight="800" font-size="42" fill="#00d26a">91</text>
   <text x="381" y="308" font-family="system-ui, sans-serif" font-size="18" fill="#8892b0">/100</text>
   <text x="326" y="330" font-family="system-ui, sans-serif" font-size="11" fill="#6b7280">892 Mbps · Panama</text>
 
   <!-- Card 3: Surfshark -->
   <rect x="532" y="230" width="210" height="110" rx="12" fill="url(#cardgrad)" stroke="#2a2d3e" stroke-width="1"/>
-  <text x="552" y="268" font-family="system-ui, sans-serif" font-size="13" fill="#8892b0">🦈 Surfshark</text>
+  <text x="552" y="268" font-family="system-ui, sans-serif" font-size="13" fill="#8892b0">Surfshark</text>
   <text x="552" y="308" font-family="system-ui, sans-serif" font-weight="800" font-size="42" fill="#2b7fff">90</text>
   <text x="607" y="308" font-family="system-ui, sans-serif" font-size="18" fill="#8892b0">/100</text>
   <text x="552" y="330" font-family="system-ui, sans-serif" font-size="11" fill="#6b7280">$2.19/mo · Unlimited</text>
 
   <!-- Card 4: Proton VPN -->
   <rect x="758" y="230" width="210" height="110" rx="12" fill="url(#cardgrad)" stroke="#2a2d3e" stroke-width="1"/>
-  <text x="778" y="268" font-family="system-ui, sans-serif" font-size="13" fill="#8892b0">🧅 Proton VPN</text>
+  <text x="778" y="268" font-family="system-ui, sans-serif" font-size="13" fill="#8892b0">Proton VPN</text>
   <text x="778" y="308" font-family="system-ui, sans-serif" font-weight="800" font-size="42" fill="#2b7fff">89</text>
   <text x="833" y="308" font-family="system-ui, sans-serif" font-size="18" fill="#8892b0">/100</text>
   <text x="778" y="330" font-family="system-ui, sans-serif" font-size="11" fill="#6b7280">Privacy 98/100 · CH</text>
@@ -77,23 +77,23 @@
   <!-- Category pills -->
   <g font-family="system-ui, sans-serif" font-size="13" font-weight="500">
     <rect x="80" y="370" width="106" height="30" rx="15" fill="#1a1d2b" stroke="#2a2d3e" stroke-width="1"/>
-    <text x="133" y="390" text-anchor="middle" fill="#8892b0">🔒 Privacy</text>
+    <text x="133" y="390" text-anchor="middle" fill="#8892b0">Privacy</text>
 
     <rect x="198" y="370" width="92" height="30" rx="15" fill="#1a1d2b" stroke="#2a2d3e" stroke-width="1"/>
     <path transform="translate(212,377) scale(0.5)" d="M13 2 L4.8 13.4 H10.4 L9.2 22 L19.2 10.2 H13.4 Z" fill="#da3940" stroke="#da3940" stroke-width="1.5" stroke-linejoin="round"/>
     <text x="251" y="390" text-anchor="middle" fill="#8892b0">Speed</text>
 
     <rect x="302" y="370" width="114" height="30" rx="15" fill="#1a1d2b" stroke="#2a2d3e" stroke-width="1"/>
-    <text x="359" y="390" text-anchor="middle" fill="#8892b0">📺 Streaming</text>
+    <text x="359" y="390" text-anchor="middle" fill="#8892b0">Streaming</text>
 
     <rect x="428" y="370" width="92" height="30" rx="15" fill="#1a1d2b" stroke="#2a2d3e" stroke-width="1"/>
-    <text x="474" y="390" text-anchor="middle" fill="#8892b0">💰 Value</text>
+    <text x="474" y="390" text-anchor="middle" fill="#8892b0">Value</text>
 
     <rect x="532" y="370" width="96" height="30" rx="15" fill="#1a1d2b" stroke="#2a2d3e" stroke-width="1"/>
-    <text x="580" y="390" text-anchor="middle" fill="#8892b0">⚖️ Ethics</text>
+    <text x="580" y="390" text-anchor="middle" fill="#8892b0">Ethics</text>
 
     <rect x="640" y="370" width="108" height="30" rx="15" fill="#1a1d2b" stroke="#2a2d3e" stroke-width="1"/>
-    <text x="694" y="390" text-anchor="middle" fill="#8892b0">🔐 Security</text>
+    <text x="694" y="390" text-anchor="middle" fill="#8892b0">Security</text>
   </g>
 
   <!-- Bottom bar -->

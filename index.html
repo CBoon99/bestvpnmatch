@@ -601,7 +601,7 @@
     .intent-tiles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; max-width: 620px; margin: 0 auto; }
     @media (min-width: 560px) { .intent-tiles { grid-template-columns: repeat(4, 1fr); } }
     .intent-tile { display: flex; flex-direction: column; align-items: center; gap: 0.45rem; padding: 1.1rem 0.65rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg-elevated); color: var(--text-primary); cursor: pointer; font-family: var(--font-body); font-size: 0.8rem; font-weight: 600; transition: all var(--dur-fast) var(--ease-out); text-align: center; line-height: 1.3; }
-    .intent-tile__icon { font-size: 1.65rem; }
+    .intent-tile__icon { font-size: 0.78rem; font-weight: 800; letter-spacing: 0.04em; }
     .intent-tile:hover, .intent-tile.is-active { border-color: var(--accent-green); background: rgba(22,163,74,0.07); transform: translateY(-3px); box-shadow: 0 6px 20px rgba(22,163,74,0.1); }
     .intent-tile.is-active .intent-tile__icon { filter: drop-shadow(0 0 6px var(--accent-green)); }
     .intent-result { max-width: 620px; margin: 1.25rem auto 0; min-height: 0; }
@@ -1289,6 +1289,9 @@
       place-items: center;
       background: linear-gradient(135deg, rgba(22, 163, 74, 0.15), rgba(22, 163, 74, 0.05));
       color: var(--amber-dark);
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.03em;
     }
     .category-tile__icon svg {
       width: 1.15rem;
@@ -1670,7 +1673,7 @@
     /* Affiliate link tooltip — shown once real IDs are configured (unused until then) */
     a[data-pending="true"] { position: relative; }
     a[data-pending="true"]::after {
-      content: "Affiliate link coming soon";
+      content: "Official provider link";
       position: absolute;
       bottom: calc(100% + 8px);
       left: 50%;
@@ -2492,7 +2495,7 @@
             <li><a href="/about">About</a></li>
           </ul>
         </nav>
-        <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark / light mode">🌙</button>
+        <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark / light mode">Dark</button>
         <a href="#match-quiz" class="nav-cta">Compare needs</a>
         <button type="button" class="mobile-menu-toggle" aria-label="Menu" aria-expanded="false">☰</button>
       </div>
@@ -2530,16 +2533,16 @@
 
         <div class="trust-marquee" aria-label="Trust indicators">
       <div class="trust-marquee__track">
-        <span class="trust-item">✅ <strong>15</strong> VPNs compared</span>
-        <span class="trust-item">📋 <strong>15+</strong> audit reports reviewed</span>
-        <span class="trust-item">📐 <strong>8-factor</strong> weighted scoring</span>
-        <span class="trust-item">🔗 Links to <strong>official</strong> provider sites</span>
-        <span class="trust-item">🌐 Independent · No paid placement</span>
-        <span class="trust-item">✅ <strong>15</strong> VPNs compared</span>
-        <span class="trust-item">📋 <strong>15+</strong> audit reports reviewed</span>
-        <span class="trust-item">📐 <strong>8-factor</strong> weighted scoring</span>
-        <span class="trust-item">🔗 Links to <strong>official</strong> provider sites</span>
-        <span class="trust-item">🌐 Independent · No paid placement</span>
+        <span class="trust-item"><strong>15</strong> VPNs compared</span>
+        <span class="trust-item"><strong>15+</strong> audit reports reviewed</span>
+        <span class="trust-item"><strong>8-factor</strong> weighted scoring</span>
+        <span class="trust-item">Links to <strong>official</strong> provider sites</span>
+        <span class="trust-item">Independent · No paid placement</span>
+        <span class="trust-item"><strong>15</strong> VPNs compared</span>
+        <span class="trust-item"><strong>15+</strong> audit reports reviewed</span>
+        <span class="trust-item"><strong>8-factor</strong> weighted scoring</span>
+        <span class="trust-item">Links to <strong>official</strong> provider sites</span>
+        <span class="trust-item">Independent · No paid placement</span>
       </div>
     </div>
 
@@ -2556,13 +2559,13 @@
           <div class="hero__copy">
             <h1 class="hero__title">Compare VPNs.<br><span class="accent">Find your Match.</span></h1>
             <div class="hero__trust-pills">
-              <span class="hero__trust-pill">📊 15 VPNs analysed</span>
-              <span class="hero__trust-pill">🚫 No paid rankings</span>
+              <span class="hero__trust-pill">15 VPNs analysed</span>
+              <span class="hero__trust-pill">No paid rankings</span>
               <span class="hero__trust-pill">✓ 100% independent</span>
             </div>
             <p class="hero__tagline">We score VPNs using public audits, real features and published pricing across 8 key categories.</p>
             <div class="hero__search-wrap">
-              <span class="hero__search-icon" aria-hidden="true">🔍</span>
+              <svg class="hero__search-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m16 16 4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
               <input
                 type="search"
                 id="search"
@@ -2587,7 +2590,7 @@
               <div class="hero-card__header">
                 <div class="hero-card__main">
                   <div class="hero-card__brand">
-                    <span class="hero-card__icon" id="hero-shield">🔵</span>
+                    <span class="hero-card__icon" id="hero-shield">VPN</span>
                     <span class="hero-card__name" id="hero-top-name">ExpressVPN</span>
                   </div>
                   <div class="hero-card__score">
@@ -2646,32 +2649,32 @@
           <p class="intent-section__sub">Compare what matters, then see your best match.</p>
           <div class="intent-tiles" id="intent-tiles">
             <button class="intent-tile" data-intent="privacy">
-              <span class="intent-tile__icon">🔒</span>
+              <span class="intent-tile__icon">PR</span>
               <span class="intent-tile__label">Privacy</span>
               <span class="intent-tile__sub">Maximum anonymity</span>
             </button>
             <button class="intent-tile" data-intent="streaming">
-              <span class="intent-tile__icon">📺</span>
+              <span class="intent-tile__icon">ST</span>
               <span class="intent-tile__label">Streaming</span>
               <span class="intent-tile__sub">Unblock content</span>
             </button>
             <button class="intent-tile" data-intent="gaming">
-              <span class="intent-tile__icon">🎮</span>
+              <span class="intent-tile__icon">GM</span>
               <span class="intent-tile__label">Gaming</span>
               <span class="intent-tile__sub">Low ping, no lag</span>
             </button>
             <button class="intent-tile" data-intent="travel">
-              <span class="intent-tile__icon">✈️</span>
+              <span class="intent-tile__icon">TR</span>
               <span class="intent-tile__label">Travel</span>
               <span class="intent-tile__sub">Safe on any Wi-Fi</span>
             </button>
             <button class="intent-tile" data-intent="students">
-              <span class="intent-tile__icon">🎓</span>
+              <span class="intent-tile__icon">ED</span>
               <span class="intent-tile__label">Students</span>
               <span class="intent-tile__sub">Best on a budget</span>
             </button>
             <button class="intent-tile" data-intent="value">
-              <span class="intent-tile__icon">💰</span>
+              <span class="intent-tile__icon">VL</span>
               <span class="intent-tile__label">Value</span>
               <span class="intent-tile__sub">Best price to value</span>
             </button>
@@ -2745,15 +2748,15 @@
             <p class="section__lead">Long-tail topics competitors often skip — students, audited no-logs, router setup, UAE travel, and more. All scores from our public-data methodology.</p>
           </header>
           <div class="category-tiles">
-            <a class="category-tile" href="/best-vpn-for-students" style="text-decoration:none;color:inherit"><span class="category-tile__icon">🎓</span><span class="category-tile__title">Students</span><span class="category-tile__hint">Budget + unlimited devices</span></a>
-            <a class="category-tile" href="/best-vpn-no-logs-audited" style="text-decoration:none;color:inherit"><span class="category-tile__icon">🔍</span><span class="category-tile__title">Audited no-logs</span><span class="category-tile__hint">Deloitte, KPMG, Cure53</span></a>
-            <a class="category-tile" href="/best-vpn-for-router" style="text-decoration:none;color:inherit"><span class="category-tile__icon">📡</span><span class="category-tile__title">Router VPN</span><span class="category-tile__hint">Whole-home protection</span></a>
-            <a class="category-tile" href="/best-vpn-for-uae" style="text-decoration:none;color:inherit"><span class="category-tile__icon">🇦🇪</span><span class="category-tile__title">UAE &amp; Dubai</span><span class="category-tile__hint">Restrictive networks</span></a>
-            <a class="category-tile" href="/best-vpn-for-netflix" style="text-decoration:none;color:inherit"><span class="category-tile__icon">📺</span><span class="category-tile__title">Streaming</span><span class="category-tile__hint">Netflix &amp; BBC iPlayer</span></a>
-            <a class="category-tile" href="/best-vpn-for-privacy" style="text-decoration:none;color:inherit"><span class="category-tile__icon">🛡️</span><span class="category-tile__title">Privacy</span><span class="category-tile__hint">Swiss &amp; Panama jurisdiction</span></a>
-            <a class="category-tile" href="/cheapest-vpn" style="text-decoration:none;color:inherit"><span class="category-tile__icon">💰</span><span class="category-tile__title">Cheapest VPN</span><span class="category-tile__hint">Under $3/mo picks</span></a>
-            <a class="category-tile" href="/best-vpn-for-ai-tools" style="text-decoration:none;color:inherit"><span class="category-tile__icon">🤖</span><span class="category-tile__title">AI tools</span><span class="category-tile__hint">ChatGPT &amp; API access</span></a>
-            <a class="category-tile" href="/reviews" style="text-decoration:none;color:inherit"><span class="category-tile__icon">⭐</span><span class="category-tile__title">Scorecards</span><span class="category-tile__hint">NordVPN vs ExpressVPN</span></a>
+            <a class="category-tile" href="/best-vpn-for-students" style="text-decoration:none;color:inherit"><span class="category-tile__icon">ED</span><span class="category-tile__title">Students</span><span class="category-tile__hint">Budget + unlimited devices</span></a>
+            <a class="category-tile" href="/best-vpn-no-logs-audited" style="text-decoration:none;color:inherit"><span class="category-tile__icon">AU</span><span class="category-tile__title">Audited no-logs</span><span class="category-tile__hint">Deloitte, KPMG, Cure53</span></a>
+            <a class="category-tile" href="/best-vpn-for-router" style="text-decoration:none;color:inherit"><span class="category-tile__icon">RT</span><span class="category-tile__title">Router VPN</span><span class="category-tile__hint">Whole-home protection</span></a>
+            <a class="category-tile" href="/best-vpn-for-uae" style="text-decoration:none;color:inherit"><span class="category-tile__icon">UAE</span><span class="category-tile__title">UAE &amp; Dubai</span><span class="category-tile__hint">Restrictive networks</span></a>
+            <a class="category-tile" href="/best-vpn-for-netflix" style="text-decoration:none;color:inherit"><span class="category-tile__icon">ST</span><span class="category-tile__title">Streaming</span><span class="category-tile__hint">Netflix &amp; BBC iPlayer</span></a>
+            <a class="category-tile" href="/best-vpn-for-privacy" style="text-decoration:none;color:inherit"><span class="category-tile__icon">PR</span><span class="category-tile__title">Privacy</span><span class="category-tile__hint">Swiss &amp; Panama jurisdiction</span></a>
+            <a class="category-tile" href="/cheapest-vpn" style="text-decoration:none;color:inherit"><span class="category-tile__icon">VL</span><span class="category-tile__title">Cheapest VPN</span><span class="category-tile__hint">Under $3/mo picks</span></a>
+            <a class="category-tile" href="/best-vpn-for-ai-tools" style="text-decoration:none;color:inherit"><span class="category-tile__icon">AI</span><span class="category-tile__title">AI tools</span><span class="category-tile__hint">ChatGPT &amp; API access</span></a>
+            <a class="category-tile" href="/reviews" style="text-decoration:none;color:inherit"><span class="category-tile__icon">SC</span><span class="category-tile__title">Scorecards</span><span class="category-tile__hint">NordVPN vs ExpressVPN</span></a>
           </div>
         </div>
       </section>
@@ -2777,30 +2780,30 @@
 
           <div class="filters-toolbar">
             <div class="filters" id="filters" role="group" aria-label="Filter VPNs">
-              <button type="button" class="filter-btn" data-filter="streaming">📺 Streaming</button>
-              <button type="button" class="filter-btn" data-filter="torrenting">🏴‍☠️ Torrenting</button>
-              <button type="button" class="filter-btn" data-filter="china">🇨🇳 China</button>
-              <button type="button" class="filter-btn" data-filter="gaming">🎮 Gaming</button>
-              <button type="button" class="filter-btn" data-filter="no-logs-audited">🔒 Audited no-logs</button>
-              <button type="button" class="filter-btn" data-filter="ram-servers">💾 RAM servers</button>
-              <button type="button" class="filter-btn" data-filter="open-source">📖 Open source</button>
-              <button type="button" class="filter-btn" data-filter="free-tier">🆓 Free tier</button>
-              <button type="button" class="filter-btn" data-filter="under-3">💰 Under $3/mo</button>
-              <button type="button" class="filter-btn" data-filter="under-5">💰 Under $5/mo</button>
-              <button type="button" class="filter-btn" data-filter="wireguard">🔧 WireGuard</button>
-              <button type="button" class="filter-btn" data-filter="unlimited-devices">📱 Unlimited devices</button>
-              <button type="button" class="filter-btn" data-filter="linux">🐧 Linux</button>
-              <button type="button" class="filter-btn" data-filter="router">📡 Router</button>
-              <button type="button" class="filter-btn" data-filter="independent-audit">📋 Independent audit</button>
-              <button type="button" class="filter-btn" data-filter="panama-jurisdiction">🌎 Panama</button>
-              <button type="button" class="filter-btn" data-filter="switzerland-jurisdiction">🇨🇭 Switzerland</button>
+              <button type="button" class="filter-btn" data-filter="streaming">Streaming</button>
+              <button type="button" class="filter-btn" data-filter="torrenting">Torrenting</button>
+              <button type="button" class="filter-btn" data-filter="china">China</button>
+              <button type="button" class="filter-btn" data-filter="gaming">Gaming</button>
+              <button type="button" class="filter-btn" data-filter="no-logs-audited">Audited no-logs</button>
+              <button type="button" class="filter-btn" data-filter="ram-servers">RAM servers</button>
+              <button type="button" class="filter-btn" data-filter="open-source">Open source</button>
+              <button type="button" class="filter-btn" data-filter="free-tier">Free tier</button>
+              <button type="button" class="filter-btn" data-filter="under-3">Under $3/mo</button>
+              <button type="button" class="filter-btn" data-filter="under-5">Under $5/mo</button>
+              <button type="button" class="filter-btn" data-filter="wireguard">WireGuard</button>
+              <button type="button" class="filter-btn" data-filter="unlimited-devices">Unlimited devices</button>
+              <button type="button" class="filter-btn" data-filter="linux">Linux</button>
+              <button type="button" class="filter-btn" data-filter="router">Router</button>
+              <button type="button" class="filter-btn" data-filter="independent-audit">Independent audit</button>
+              <button type="button" class="filter-btn" data-filter="panama-jurisdiction">Panama</button>
+              <button type="button" class="filter-btn" data-filter="switzerland-jurisdiction">Switzerland</button>
             </div>
             <button type="button" id="sort-by-score" class="btn btn--secondary btn--sm" aria-pressed="false">Sort by Score ↓</button>
             <button type="button" id="clear-filters" class="btn btn--secondary btn--sm" style="display:none;color:var(--danger);border-color:rgba(239,68,68,0.3)">✕ Clear filters</button>
           </div>
 
           <p id="result-count">Showing <span id="visible-count">0</span> of <span id="total-count">0</span> VPNs</p>
-          <p class="last-updated"><time datetime="2026-06-01">📅 Data verified June 2026.</time> Prices and deals updated monthly.</p>
+          <p class="last-updated"><time datetime="2026-06-01">Data verified June 2026.</time> Prices and deals updated monthly.</p>
 
           <p class="empty-state" id="empty-state">No VPNs match your filters. Try clearing filters or another search.</p>
 
@@ -3010,7 +3013,7 @@
 <section class="network-banner" aria-label="BestMatch Group">
   <div class="network-banner__inner">
     <div class="network-banner__card">
-      <span aria-hidden="true">🔗</span>
+      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto"><path d="M12 3 21 12 12 21 3 12 12 3z"/><circle cx="12" cy="12" r="2.2"/></svg>
       <span>Part of <strong>BestMatch Group</strong> — building your own setup? Compare
         <a href="https://www.besthostingmatch.com" target="_blank" rel="noopener noreferrer">Hosting</a> and
         <a href="https://www.bestvpsmatch.com" target="_blank" rel="noopener noreferrer">VPS</a> providers too.</span>
@@ -3159,7 +3162,7 @@
           ${isDiscontinued
             ? `<span style="font-size:0.75rem;color:var(--text-muted)">Service ended</span>`
             : `<a href="${v.affiliateLink}" class="btn btn--primary btn--sm btn--deal-full" target="_blank" rel="${outboundRel()}" style="white-space:nowrap">${SITE_CONFIG.affiliateActive ? (v.savingsPct > 0 ? `Save ${v.savingsPct}%` : "Get Deal") : "Visit site"} →</a>
-               ${v.moneyBackGuarantee ? `<div style="font-size:0.6rem;color:var(--text-muted);margin-top:0.2rem">✅ ${v.moneyBackGuarantee} MBG</div>` : ""}`}
+               ${v.moneyBackGuarantee ? `<div style="font-size:0.6rem;color:var(--text-muted);margin-top:0.2rem">${v.moneyBackGuarantee} MBG</div>` : ""}`}
         </td>
         <td style="white-space:nowrap">
           <button class="score-expand-btn" data-target="${v.id}-breakdown" aria-expanded="false" aria-label="Show score breakdown for ${v.name}" title="Show score breakdown">▶</button>
@@ -3404,7 +3407,7 @@
           <div class="featured-match__cta">
             <p class="featured-match__why">${FEATURED_WHY}</p>
             <a href="${v.affiliateLink}" class="btn btn--primary btn--deal-full" target="_blank" rel="${outboundRel()}">Get ${v.name}${(v.savingsPct > 0 && SITE_CONFIG.affiliateActive) ? ` — Save ${v.savingsPct}%` : ""} →</a>
-            <p class="deal-sub">✅ <strong>${v.moneyBackGuarantee}</strong> money-back guarantee · Links to official provider site</p>
+            <p class="deal-sub"><strong>${v.moneyBackGuarantee}</strong> money-back guarantee · Links to official provider site</p>
           </div>
         </article>`;
     }
@@ -3475,10 +3478,10 @@
           <div class="metric"><span class="metric__label">Price</span><span class="metric__value">${priceHtml}</span></div>
         </div>
         <ul class="scorecard__pros-cons" style="list-style:none;padding:0;margin:0 0 1rem;font-size:0.82rem;color:var(--text-secondary)">
-          <li>✅ ${v.pros[0]}</li><li>⚠️ ${v.cons[0]}</li>
+          <li>${v.pros[0]}</li><li>${v.cons[0]}</li>
         </ul>
         <a href="${v.affiliateLink}" class="btn btn--primary btn--deal-full" target="_blank" rel="${outboundRel()}">Get ${v.name}${(v.savingsPct > 0 && SITE_CONFIG.affiliateActive) ? ` — Save ${v.savingsPct}%` : ""} →</a>
-        <p class="deal-sub">✅ <strong>${v.moneyBackGuarantee}</strong> money-back guarantee · Official provider link</p>
+        <p class="deal-sub"><strong>${v.moneyBackGuarantee}</strong> money-back guarantee · Official provider link</p>
       </article>`;
     }
 
@@ -3788,7 +3791,7 @@
       list.innerHTML = `
         <li style="display:grid;grid-template-columns:7rem repeat(${selected.length},1fr);gap:0.5rem;padding:0.4rem 0;border-bottom:2px solid var(--border);font-weight:700;font-size:0.75rem;color:var(--text-secondary);text-transform:uppercase;letter-spacing:0.04em">
           <span></span>
-          ${selected.map(v => `<span style="text-align:center">${v.logoIcon} ${v.name}${v.monthlyPrice === cheapestPrice ? ' <span title="Best value" style="color:var(--accent-green)">🏆</span>' : ''}</span>`).join("")}
+          ${selected.map(v => `<span style="text-align:center">${v.logoIcon} ${v.name}${v.monthlyPrice === cheapestPrice ? ' <span title="Best value" style="color:var(--accent-green)">Best value</span>' : ''}</span>`).join("")}
         </li>
         ${rows.map(row => `
           <li style="display:grid;grid-template-columns:7rem repeat(${selected.length},1fr);gap:0.5rem;padding:0.4rem 0;border-bottom:1px solid var(--border);font-size:0.82rem;align-items:center">
@@ -3818,7 +3821,7 @@
           if (e.target.checked && selectedComparisons.size >= 4) {
             e.preventDefault();
             e.target.checked = false;
-            showToast("⚠️ You can compare up to 4 VPNs at once. Deselect one first.");
+            showToast("You can compare up to 4 VPNs at once. Deselect one first.");
             return;
           }
           e.target.checked ? selectedComparisons.add(e.target.dataset.id) : selectedComparisons.delete(e.target.dataset.id);
@@ -3920,14 +3923,14 @@
         document.getElementById("intent-result").innerHTML = `
           <div class="intent-answer">
             <div>
-              <p class="intent-answer__label">✅ ${config.label}</p>
+              <p class="intent-answer__label">${config.label}</p>
               <p class="intent-answer__name">${v.logoIcon} ${v.name} ${savingsHtml}</p>
               <p class="intent-answer__why">${config.why}</p>
               <p style="font-size:0.75rem;color:var(--text-muted);margin:0.4rem 0 0">${priceHtml} · Score ${v.weightedScore}/100</p>
             </div>
             <div class="intent-answer__cta">
               <a href="${v.affiliateLink}" class="btn btn--primary btn--deal-full" target="_blank" rel="${outboundRel()}">Get ${v.name} →</a>
-              <p class="deal-sub">✅ <strong>${v.moneyBackGuarantee}</strong> money-back</p>
+              <p class="deal-sub"><strong>${v.moneyBackGuarantee}</strong> money-back</p>
               <a href="#scorecards" style="font-size:0.75rem;color:var(--text-muted);text-align:center;text-decoration:underline;margin-top:0.1rem">or see all top picks →</a>
             </div>
           </div>`;
@@ -3953,7 +3956,7 @@
           <p class="shortlist-card__name">${v.logoIcon} ${v.name} ${savingsHtml}</p>
           <p class="shortlist-card__why">${v.pros[0]}</p>
           <p class="shortlist-card__price">
-            ${(v.savingsPct > 0 && SITE_CONFIG.affiliateActive) ? `<span class="price-was">${formatPrice(v.regularPrice)}</span> ` : ""}<span class="price-now">${formatPrice(v.monthlyPrice)}/mo</span> · ✅ ${v.moneyBackGuarantee} MBG
+            ${(v.savingsPct > 0 && SITE_CONFIG.affiliateActive) ? `<span class="price-was">${formatPrice(v.regularPrice)}</span> ` : ""}<span class="price-now">${formatPrice(v.monthlyPrice)}/mo</span> · ${v.moneyBackGuarantee} MBG
           </p>
           <a href="${v.affiliateLink}" class="btn btn--primary btn--sm btn--deal-full" target="_blank" rel="${outboundRel()}">Get ${v.name} →</a>
         </div>`;
@@ -4114,7 +4117,7 @@
 
       function applyTheme(dark) {
         document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
-        btn.textContent = dark ? "☀️" : "🌙";
+        btn.textContent = dark ? "Light" : "Dark";
         btn.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
       }
 
