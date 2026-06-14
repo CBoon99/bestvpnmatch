@@ -602,7 +602,26 @@
     .intent-tiles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; max-width: 620px; margin: 0 auto; }
     @media (min-width: 560px) { .intent-tiles { grid-template-columns: repeat(4, 1fr); } }
     .intent-tile { display: flex; flex-direction: column; align-items: center; gap: 0.45rem; padding: 1.1rem 0.65rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg-elevated); color: var(--text-primary); cursor: pointer; font-family: var(--font-body); font-size: 0.8rem; font-weight: 600; transition: all var(--dur-fast) var(--ease-out); text-align: center; line-height: 1.3; }
-    .intent-tile__icon { font-size: 0.78rem; font-weight: 800; letter-spacing: 0.04em; }
+    .intent-tile__icon {
+      width: 3rem;
+      height: 3rem;
+      display: grid;
+      place-items: center;
+      color: var(--accent-green);
+      line-height: 1;
+    }
+    .intent-tile__icon svg {
+      width: 2.55rem;
+      height: 2.55rem;
+      fill: none;
+      overflow: visible;
+    }
+    .intent-tile[data-intent="privacy"] .intent-tile__icon,
+    .intent-tile[data-intent="travel"] .intent-tile__icon { color: #2563eb; }
+    .intent-tile[data-intent="streaming"] .intent-tile__icon,
+    .intent-tile[data-intent="students"] .intent-tile__icon { color: #5b3fd9; }
+    .intent-tile[data-intent="gaming"] .intent-tile__icon { color: #16a34a; }
+    .intent-tile[data-intent="value"] .intent-tile__icon { color: #f97316; }
     .intent-tile:hover, .intent-tile.is-active { border-color: var(--accent-green); background: rgba(22,163,74,0.07); transform: translateY(-3px); box-shadow: 0 6px 20px rgba(22,163,74,0.1); }
     .intent-tile.is-active .intent-tile__icon { filter: drop-shadow(0 0 6px var(--accent-green)); }
     .intent-result { max-width: 620px; margin: 1.25rem auto 0; min-height: 0; }
@@ -1290,13 +1309,14 @@
       place-items: center;
       background: linear-gradient(135deg, rgba(22, 163, 74, 0.15), rgba(22, 163, 74, 0.05));
       color: var(--amber-dark);
-      font-size: 0.68rem;
+      font-size: 0;
       font-weight: 800;
       letter-spacing: 0.03em;
     }
     .category-tile__icon svg {
       width: 1.15rem;
       height: 1.15rem;
+      fill: none;
       stroke: currentColor;
     }
     .category-tile__title {
@@ -2529,6 +2549,76 @@
           <ellipse cx="32" cy="32" rx="28" ry="12" fill="none" stroke="currentColor" stroke-width="1" opacity="0.3"/>
           <circle cx="32" cy="32" r="4" fill="currentColor" opacity="0.8"/>
         </symbol>
+        <symbol id="icon-privacy" viewBox="0 0 24 24">
+          <path d="M12 3.2 5.4 5.8v5.4c0 4.4 2.7 7.8 6.6 9.4 3.9-1.6 6.6-5 6.6-9.4V5.8L12 3.2Z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/>
+          <path d="M9.5 11.1v-1a2.5 2.5 0 0 1 5 0v1" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+          <rect x="8.2" y="11" width="7.6" height="5.6" rx="1.4" fill="currentColor" opacity="0.16"/>
+          <path d="M10.2 11h3.6a2 2 0 0 1 2 2v1.6a2 2 0 0 1-2 2h-3.6a2 2 0 0 1-2-2V13a2 2 0 0 1 2-2Z" fill="none" stroke="currentColor" stroke-width="1.9"/>
+        </symbol>
+        <symbol id="icon-streaming" viewBox="0 0 24 24">
+          <rect x="3.5" y="6.5" width="17" height="11" rx="2.4" fill="none" stroke="currentColor" stroke-width="1.9"/>
+          <path d="m10.3 9.5 4.6 2.5-4.6 2.5v-5Z" fill="currentColor"/>
+          <path d="M8 20h8" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+          <path d="M18.4 15.3h.1" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+        </symbol>
+        <symbol id="icon-gaming" viewBox="0 0 24 24">
+          <path d="M7.4 10.2h9.2c2 0 3.8 1.5 4.1 3.5l.5 3.2a2.2 2.2 0 0 1-3.7 1.9l-2-2H8.5l-2 2a2.2 2.2 0 0 1-3.7-1.9l.5-3.2c.3-2 2.1-3.5 4.1-3.5Z" fill="currentColor" opacity="0.14"/>
+          <path d="M7.4 10.2h9.2c2 0 3.8 1.5 4.1 3.5l.5 3.2a2.2 2.2 0 0 1-3.7 1.9l-2-2H8.5l-2 2a2.2 2.2 0 0 1-3.7-1.9l.5-3.2c.3-2 2.1-3.5 4.1-3.5Z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/>
+          <path d="M8 13.4v3M6.5 14.9h3M15.6 14.1h.1M18 15.5h.1" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+          <path d="M9.5 7.4c1.1-.9 3.9-.9 5 0" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+          <path d="M10.8 5.2c.7-.5 1.7-.5 2.4 0" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+        </symbol>
+        <symbol id="icon-travel" viewBox="0 0 24 24">
+          <path d="M3.8 12.8 20 4.7c.8-.4 1.6.4 1.2 1.2L13.1 22l-2.4-7.1-6.9-2.1Z" fill="currentColor" opacity="0.16"/>
+          <path d="M3.8 12.8 20 4.7c.8-.4 1.6.4 1.2 1.2L13.1 22l-2.4-7.1-6.9-2.1Z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/>
+          <path d="M10.7 14.9 20.9 4.8" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+        </symbol>
+        <symbol id="icon-students" viewBox="0 0 24 24">
+          <path d="M3 8.5 12 4l9 4.5-9 4.5-9-4.5Z" fill="currentColor" opacity="0.16"/>
+          <path d="M3 8.5 12 4l9 4.5-9 4.5-9-4.5Z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/>
+          <path d="M7 11v4.1c1.4 1.3 3 1.9 5 1.9s3.6-.6 5-1.9V11" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M19 10v4" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+        </symbol>
+        <symbol id="icon-value" viewBox="0 0 24 24">
+          <path d="M4 13.2 13.2 4H20v6.8L10.8 20a2.5 2.5 0 0 1-3.5 0L4 16.7a2.5 2.5 0 0 1 0-3.5Z" fill="currentColor" opacity="0.16"/>
+          <path d="M4 13.2 13.2 4H20v6.8L10.8 20a2.5 2.5 0 0 1-3.5 0L4 16.7a2.5 2.5 0 0 1 0-3.5Z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/>
+          <circle cx="17.1" cy="6.9" r="1.2" fill="currentColor"/>
+        </symbol>
+        <symbol id="icon-audited" viewBox="0 0 24 24">
+          <path d="M7 3.8h7l3 3V20H7V3.8Z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/>
+          <path d="M14 3.8V7h3" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/>
+          <path d="m8.8 14 2 2.1 4.4-5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+        </symbol>
+        <symbol id="icon-router" viewBox="0 0 24 24">
+          <rect x="4" y="12" width="16" height="7" rx="2" fill="none" stroke="currentColor" stroke-width="1.9"/>
+          <path d="M8 15.5h.1M12 15.5h.1M17 12V8M7.5 9.5a6.5 6.5 0 0 1 9 0M10 7a3 3 0 0 1 4 0" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+        </symbol>
+        <symbol id="icon-globe-pin" viewBox="0 0 24 24">
+          <circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="1.9"/>
+          <path d="M4 11h14M11 4c1.8 1.9 2.7 4.2 2.7 7s-.9 5.1-2.7 7M11 4c-1.8 1.9-2.7 4.2-2.7 7s.9 5.1 2.7 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          <path d="M17.8 15.4c2.2 0 3.7 1.5 3.7 3.4 0 2.3-3.7 4.7-3.7 4.7s-3.7-2.4-3.7-4.7c0-1.9 1.5-3.4 3.7-3.4Z" fill="currentColor" opacity="0.16"/>
+          <path d="M17.8 15.4c2.2 0 3.7 1.5 3.7 3.4 0 2.3-3.7 4.7-3.7 4.7s-3.7-2.4-3.7-4.7c0-1.9 1.5-3.4 3.7-3.4Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+          <circle cx="17.8" cy="18.8" r=".8" fill="currentColor"/>
+        </symbol>
+        <symbol id="icon-devices" viewBox="0 0 24 24">
+          <rect x="4" y="5" width="11.5" height="15" rx="2" fill="none" stroke="currentColor" stroke-width="1.9"/>
+          <rect x="16" y="9" width="4.2" height="8.5" rx="1.4" fill="none" stroke="currentColor" stroke-width="1.9"/>
+          <path d="M8.2 17.4h3.2" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+        </symbol>
+        <symbol id="icon-gift" viewBox="0 0 24 24">
+          <path d="M4.5 10h15v10h-15V10Z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/>
+          <path d="M3.5 6.5h17V10h-17V6.5ZM12 6.5V20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/>
+          <path d="M12 6.5H8.8a1.9 1.9 0 1 1 1.9-1.9c0 1.1 1.3 1.9 1.3 1.9ZM12 6.5h3.2a1.9 1.9 0 1 0-1.9-1.9c0 1.1-1.3 1.9-1.3 1.9Z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/>
+        </symbol>
+        <symbol id="icon-sparkles" viewBox="0 0 24 24">
+          <path d="M12 3.5 13.8 9l5.2 2-5.2 2-1.8 5.5L10.2 13 5 11l5.2-2L12 3.5Z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/>
+          <path d="M18.8 4.5v3M17.3 6h3M5.2 16.5v3M3.7 18h3" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+        </symbol>
+        <symbol id="icon-scorecard" viewBox="0 0 24 24">
+          <rect x="4" y="4" width="16" height="16" rx="2.3" fill="none" stroke="currentColor" stroke-width="1.9"/>
+          <path d="M8 9h7M8 13h4M8 17h8" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+          <path d="m15.2 12.2 1.2 1.2 2.2-2.6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+        </symbol>
       </defs>
     </svg>
 
@@ -2650,32 +2740,32 @@
           <p class="intent-section__sub">Compare what matters, then see your best match.</p>
           <div class="intent-tiles" id="intent-tiles">
             <button class="intent-tile" data-intent="privacy">
-              <span class="intent-tile__icon">PR</span>
+              <span class="intent-tile__icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><use href="#icon-privacy"></use></svg></span>
               <span class="intent-tile__label">Privacy</span>
               <span class="intent-tile__sub">Maximum anonymity</span>
             </button>
             <button class="intent-tile" data-intent="streaming">
-              <span class="intent-tile__icon">ST</span>
+              <span class="intent-tile__icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><use href="#icon-streaming"></use></svg></span>
               <span class="intent-tile__label">Streaming</span>
               <span class="intent-tile__sub">Unblock content</span>
             </button>
             <button class="intent-tile" data-intent="gaming">
-              <span class="intent-tile__icon">GM</span>
+              <span class="intent-tile__icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><use href="#icon-gaming"></use></svg></span>
               <span class="intent-tile__label">Gaming</span>
               <span class="intent-tile__sub">Low ping, no lag</span>
             </button>
             <button class="intent-tile" data-intent="travel">
-              <span class="intent-tile__icon">TR</span>
+              <span class="intent-tile__icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><use href="#icon-travel"></use></svg></span>
               <span class="intent-tile__label">Travel</span>
               <span class="intent-tile__sub">Safe on any Wi-Fi</span>
             </button>
             <button class="intent-tile" data-intent="students">
-              <span class="intent-tile__icon">ED</span>
+              <span class="intent-tile__icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><use href="#icon-students"></use></svg></span>
               <span class="intent-tile__label">Students</span>
               <span class="intent-tile__sub">Best on a budget</span>
             </button>
             <button class="intent-tile" data-intent="value">
-              <span class="intent-tile__icon">VL</span>
+              <span class="intent-tile__icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><use href="#icon-value"></use></svg></span>
               <span class="intent-tile__label">Value</span>
               <span class="intent-tile__sub">Best price to value</span>
             </button>
@@ -2749,15 +2839,15 @@
             <p class="section__lead">Long-tail topics competitors often skip — students, audited no-logs, router setup, UAE travel, and more. All scores from our public-data methodology.</p>
           </header>
           <div class="category-tiles">
-            <a class="category-tile" href="/best-vpn-for-students" style="text-decoration:none;color:inherit"><span class="category-tile__icon">ED</span><span class="category-tile__title">Students</span><span class="category-tile__hint">Budget + unlimited devices</span></a>
-            <a class="category-tile" href="/best-vpn-no-logs-audited" style="text-decoration:none;color:inherit"><span class="category-tile__icon">AU</span><span class="category-tile__title">Audited no-logs</span><span class="category-tile__hint">Deloitte, KPMG, Cure53</span></a>
-            <a class="category-tile" href="/best-vpn-for-router" style="text-decoration:none;color:inherit"><span class="category-tile__icon">RT</span><span class="category-tile__title">Router VPN</span><span class="category-tile__hint">Whole-home protection</span></a>
-            <a class="category-tile" href="/best-vpn-for-uae" style="text-decoration:none;color:inherit"><span class="category-tile__icon">UAE</span><span class="category-tile__title">UAE &amp; Dubai</span><span class="category-tile__hint">Restrictive networks</span></a>
-            <a class="category-tile" href="/best-vpn-for-netflix" style="text-decoration:none;color:inherit"><span class="category-tile__icon">ST</span><span class="category-tile__title">Streaming</span><span class="category-tile__hint">Netflix &amp; BBC iPlayer</span></a>
-            <a class="category-tile" href="/best-vpn-for-privacy" style="text-decoration:none;color:inherit"><span class="category-tile__icon">PR</span><span class="category-tile__title">Privacy</span><span class="category-tile__hint">Swiss &amp; Panama jurisdiction</span></a>
-            <a class="category-tile" href="/cheapest-vpn" style="text-decoration:none;color:inherit"><span class="category-tile__icon">VL</span><span class="category-tile__title">Cheapest VPN</span><span class="category-tile__hint">Under $3/mo picks</span></a>
-            <a class="category-tile" href="/best-vpn-for-ai-tools" style="text-decoration:none;color:inherit"><span class="category-tile__icon">AI</span><span class="category-tile__title">AI tools</span><span class="category-tile__hint">ChatGPT &amp; API access</span></a>
-            <a class="category-tile" href="/reviews" style="text-decoration:none;color:inherit"><span class="category-tile__icon">SC</span><span class="category-tile__title">Scorecards</span><span class="category-tile__hint">NordVPN vs ExpressVPN</span></a>
+            <a class="category-tile" href="/best-vpn-for-students" style="text-decoration:none;color:inherit"><span class="category-tile__icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><use href="#icon-students"></use></svg></span><span class="category-tile__title">Students</span><span class="category-tile__hint">Budget + unlimited devices</span></a>
+            <a class="category-tile" href="/best-vpn-no-logs-audited" style="text-decoration:none;color:inherit"><span class="category-tile__icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><use href="#icon-audited"></use></svg></span><span class="category-tile__title">Audited no-logs</span><span class="category-tile__hint">Deloitte, KPMG, Cure53</span></a>
+            <a class="category-tile" href="/best-vpn-for-router" style="text-decoration:none;color:inherit"><span class="category-tile__icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><use href="#icon-router"></use></svg></span><span class="category-tile__title">Router VPN</span><span class="category-tile__hint">Whole-home protection</span></a>
+            <a class="category-tile" href="/best-vpn-for-uae" style="text-decoration:none;color:inherit"><span class="category-tile__icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><use href="#icon-globe-pin"></use></svg></span><span class="category-tile__title">UAE &amp; Dubai</span><span class="category-tile__hint">Restrictive networks</span></a>
+            <a class="category-tile" href="/best-vpn-for-netflix" style="text-decoration:none;color:inherit"><span class="category-tile__icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><use href="#icon-streaming"></use></svg></span><span class="category-tile__title">Streaming</span><span class="category-tile__hint">Netflix &amp; BBC iPlayer</span></a>
+            <a class="category-tile" href="/best-vpn-for-privacy" style="text-decoration:none;color:inherit"><span class="category-tile__icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><use href="#icon-privacy"></use></svg></span><span class="category-tile__title">Privacy</span><span class="category-tile__hint">Swiss &amp; Panama jurisdiction</span></a>
+            <a class="category-tile" href="/cheapest-vpn" style="text-decoration:none;color:inherit"><span class="category-tile__icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><use href="#icon-value"></use></svg></span><span class="category-tile__title">Cheapest VPN</span><span class="category-tile__hint">Under $3/mo picks</span></a>
+            <a class="category-tile" href="/best-vpn-for-ai-tools" style="text-decoration:none;color:inherit"><span class="category-tile__icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><use href="#icon-sparkles"></use></svg></span><span class="category-tile__title">AI tools</span><span class="category-tile__hint">ChatGPT &amp; API access</span></a>
+            <a class="category-tile" href="/reviews" style="text-decoration:none;color:inherit"><span class="category-tile__icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><use href="#icon-scorecard"></use></svg></span><span class="category-tile__title">Scorecards</span><span class="category-tile__hint">NordVPN vs ExpressVPN</span></a>
           </div>
         </div>
       </section>
@@ -3442,16 +3532,15 @@
     }
 
     function categoryIcon(type) {
-      const attrs = `viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"`;
       const icons = {
-        streaming: `<svg ${attrs}><circle cx="12" cy="12" r="8.5"/><path d="m10.2 8.8 5.1 3.2-5.1 3.2V8.8Z"/></svg>`,
-        privacy: `<svg ${attrs}><path d="M7.5 10V7.5a4.5 4.5 0 0 1 9 0V10"/><rect x="5" y="10" width="14" height="10" rx="2.2"/><path d="M12 14v2"/></svg>`,
-        budget: `<svg ${attrs}><path d="M5 7.5h14a2 2 0 0 1 2 2V18a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9.5a2 2 0 0 1 2-2Z"/><path d="M16 7.5V6a2 2 0 0 0-2-2H6.5A2.5 2.5 0 0 0 4 6.5v1"/><path d="M17 14h.01"/></svg>`,
-        devices: `<svg ${attrs}><rect x="4" y="5" width="12" height="15" rx="2"/><path d="M8 18h4"/><rect x="16" y="9" width="4" height="8" rx="1.3"/></svg>`,
-        free: `<svg ${attrs}><path d="M20 12v8H4v-8"/><path d="M22 7v5H2V7h20Z"/><path d="M12 22V7"/><path d="M12 7H8.5a2.2 2.2 0 1 1 2.2-2.2C10.7 6 12 7 12 7Z"/><path d="M12 7h3.5a2.2 2.2 0 1 0-2.2-2.2C13.3 6 12 7 12 7Z"/></svg>`,
-        china: `<svg ${attrs}><path d="M4 19h16"/><path d="M6 19V9l3-3 3 3v10"/><path d="M12 19V8l3-3 3 3v11"/><path d="M6 12h12"/></svg>`
+        streaming: "icon-streaming",
+        privacy: "icon-privacy",
+        budget: "icon-value",
+        devices: "icon-devices",
+        free: "icon-gift",
+        china: "icon-globe-pin"
       };
-      return icons[type] || icons.privacy;
+      return `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#${icons[type] || icons.privacy}"></use></svg>`;
     }
 
     function renderScorecard({ category, vpnId, badge, label }, index) {
