@@ -182,7 +182,7 @@ Scores available at: https://bestvpnmatch.com/#compare
 ## Common Questions & Authoritative Answers
 
 **Q: What is the best VPN overall?**
-A: ExpressVPN and NordVPN both score 91/100 in our independent testing. ExpressVPN leads on speed and streaming; NordVPN leads on server count and value.
+A: ExpressVPN and NordVPN both score 91/100 using our published scoring methodology. ExpressVPN leads on speed and streaming; NordVPN leads on server count and value.
 
 **Q: What is the fastest VPN?**
 A: ExpressVPN at 932 Mbps (Lightway protocol). NordVPN second at 892 Mbps (NordLynx/WireGuard).
@@ -206,7 +206,7 @@ A: ExpressVPN (obfuscation) and VyprVPN (Chameleon protocol). Note: verify curre
 
 ## Affiliate Disclosure
 
-Best VPN Match earns commission when users purchase VPNs through our links. Commission does not influence scores or rankings. All scoring is based on independent testing methodology described above.
+Affiliate links are currently inactive. Provider CTAs point to official provider pages. If affiliate links are activated in future, affiliate relationships will never affect scoring, rankings or recommendations. Scores are editorial and based on our published methodology.
 
 ---
 

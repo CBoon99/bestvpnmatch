@@ -1,14 +1,14 @@
 # Best VPN Match — bestvpnmatch.com
 
-Independent VPN comparison site. Real speed tests, privacy audits, streaming checks across 16+ VPNs. No paid placement. Affiliate revenue only.
+Independent VPN comparison site. Editorial scores use public, verifiable data across 15 VPNs: published specifications, privacy audits, provider documentation, pricing, and compatibility reports. No paid placement. Affiliate links are currently inactive.
 
 ---
 
 ## What this site is
 
-A single-domain, multi-page static HTML affiliate site. Every page is self-contained — no framework, no build step, no database. Drop the files on any static host and it works.
+A single-domain, multi-page static HTML comparison site. Every page is self-contained — no framework, no build step, no database. Drop the files on any static host and it works.
 
-Revenue model: affiliate commissions when users click through and purchase a VPN subscription. Commission rates average 30–40% of first-year subscription value.
+Revenue model: affiliate links are currently inactive. Provider CTAs point to official provider pages. If affiliate links are activated in future, affiliate relationships will never affect scoring, rankings or recommendations.
 
 ---
 
@@ -358,9 +358,9 @@ Once you replace `YOUR_ID` with a real tracking ID, step 1 succeeds and commissi
 
 ## Legal
 
-All VPN names and logos are trademarks of their respective owners. Score comparisons are editorial and based on independent testing methodology. Affiliate disclosure is present on every page (visible footer + `#disclosure` section on homepage).
+All VPN names and logos are trademarks of their respective owners. Score comparisons are editorial and based on our published methodology. Affiliate disclosure is present on every page (visible footer + `#disclosure` section on homepage).
 
-This site complies with FTC guidelines on affiliate disclosure. The `rel="sponsored"` attribute is present on all affiliate links.
+This site is prepared for FTC-style affiliate disclosure. While `affiliateActive: false`, outbound provider links point to official homepages and use non-sponsored relationship attributes.
 
 ---
 

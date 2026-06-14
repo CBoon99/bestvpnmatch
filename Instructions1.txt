@@ -53,11 +53,11 @@ css
 SECTION 2: WEIGHTED SCORE FORMULA (THE SECRET SAUCE)
 2.1 Weights Table
 Category	Weight	Data Source	Why
-Speed (avg. % of advertised)	20%	Speed tests (local + international)	#1 reason people hate VPNs
+Speed (published performance data)	20%	Published benchmarks and provider documentation	#1 reason people hate VPNs
 Privacy (logging policy)	25%	Audit reports, jurisdiction, transparency	Core VPN promise
 Security (encryption + protocols)	15%	AES-256, WireGuard, OpenVPN, RAM servers	Protection from threats
-Streaming (unblocks Netflix, BBC, etc.)	10%	Tested platforms	Top use case
-Value (price + features + devices)	10%	Cost per month, free trial, refund	Affiliate conversion driver
+Streaming (unblocks Netflix, BBC, etc.)	10%	Published platform compatibility data	Top use case
+Value (price + features + devices)	10%	Cost per month, free trial, refund	Decision relevance
 Ethics & Ownership	10%	KAPE framework, transparency reports, founder history	Trust signal
 Apps & Multi-platform	5%	iOS, Android, Windows, Mac, Linux, routers	Coverage
 Simultaneous connections	5%	Device limit	Family/team usability
@@ -620,16 +620,16 @@ html
 <section class="hero">
   <div class="hero__grid">
     <div class="hero__copy">
-      <p class="hero__eyebrow">⚡ Independent VPN Testing · Real Speeds · Real Privacy</p>
+      <p class="hero__eyebrow">Editorial VPN Comparison · Published Data · Transparent Scoring</p>
       <h1 class="hero__title">VPN Comparison</h1>
       <p class="hero__tagline">Find the fastest, most private VPN for your needs — no marketing fluff.</p>
-      <p class="hero__sub">We test speed, privacy, streaming, and ethics. Our weighted score cuts through the hype.</p>
+      <p class="hero__sub">We compare published speed data, privacy, streaming, and ethics. Our weighted score cuts through the hype.</p>
       <ul class="hero__stats">
-        <li>📊 Real speed tests (not advertised)</li>
+        <li>Published performance data</li>
         <li>🔒 Independent audit verification</li>
         <li>⚖️ KAPE ethics framework</li>
         <li>💰 Best value for your budget</li>
-        <li>🌍 20+ VPNs compared</li>
+        <li>15 VPNs compared</li>
       </ul>
       <div class="hero__search-wrap">
         <input type="search" id="search" placeholder="Search by VPN name, feature, or use case (Netflix, China, Torrenting)...">
@@ -643,7 +643,7 @@ html
       <div class="shield-stack">
         <div class="shield-icon">🛡️</div>
         <div class="speed-meter">
-          <span>Speed test: 892 Mbps</span>
+          <span>Published speed figure: 892 Mbps</span>
           <div class="speed-bar" style="width: 89%"></div>
         </div>
         <div class="privacy-badge">🔒 No-logs audited</div>
@@ -654,10 +654,10 @@ html
 4.2 Trust Indicators (Critical for VPN conversions)
 html
 <div class="trust-row">
-  <div class="trust-item">✅ 20+ VPNs tested</div>
+  <div class="trust-item">15 VPNs compared</div>
   <div class="trust-item">📋 15+ audit reports reviewed</div>
-  <div class="trust-item">⚡ 10,000+ speed tests conducted</div>
-  <div class="trust-item">🔓 30+ streaming platforms verified</div>
+  <div class="trust-item">Published performance data reviewed</div>
+  <div class="trust-item">Streaming compatibility data reviewed</div>
   <div class="trust-item">🌐 Independent · No paid placement</div>
 </div>
 4.3 Scorecard (VPN-specific metrics)

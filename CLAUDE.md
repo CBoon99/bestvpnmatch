@@ -11,7 +11,7 @@
 
 - Scores 15 VPN providers across 8 categories using **public, verifiable data only** (no first-person lab tests)
 - Links users to official VPN provider homepages — **no affiliate income yet**
-- Run by Carl Boon (solo, no company entity)
+- Part of BestMatch Group — independent comparison and decision platform
 - Deployed on Netlify from `github.com:CBoon99/bestvpnmatch.git`
 
 **Current business state:** `affiliateActive: false` in `data/site-config.js`. All CTAs say "Visit site →" and link to official homepages. No deals, no email list, no paid placement. The site earns nothing right now — the architecture is ready for affiliate links when programs are approved.
@@ -349,13 +349,13 @@ function srcLink(url, label) {
 }
 ```
 
-### Editorial framing (never say "we tested")
-❌ "in our tests", "our speed tests", "we tested", "we ran", "our lab"
+### Editorial framing (avoid first-person testing claims)
+❌ first-person test claims, owned speed-test claims, owned benchmark claims, lab-run claims
 ✅ "based on published benchmarks", "per editorial research", "per independent audit reports", "based on provider documentation"
 
 ### Score wording
 - Scores are "editorial scores" — never "our scores" in a way implying first-person measurement
-- "We evaluated" is fine. "We tested" is not.
+- "We evaluated" is fine. Do not say the site personally tested providers.
 
 ### CTA text
 - `affiliateActive: false` → "Visit site →"
@@ -416,8 +416,8 @@ When scores or pricing change:
 - Do not add email capture, newsletter signup, or any form that collects user data
 - Do not add fake urgency ("Only 3 spots left", countdown timers, "Today only")
 - Do not add "Save X%" badges or deal pricing without `affiliateActive: true`
-- Do not claim first-person testing ("we tested 16 VPNs over 30 days")
+- Do not claim first-person testing of specific VPN counts or durations
 - Do not change scoring weights without updating `ethics.html` version log
 - Do not remove the anti-flash theme script from `<head>` or make it async/defer
-- Do not add company contact info, address, or entity claims (no legal entity exists yet)
+- Do not add incorporated status, office, team, or legal-registration claims unless documented
 - Do not remove `DATA-SOURCES.md` — it's referenced from footer and methodology page
