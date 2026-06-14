@@ -79,7 +79,7 @@ Score = (Speed × 0.20) + (Privacy × 0.25) + (Security × 0.15) + (Streaming ×
 - - **Speed Score:** 93/100
 - **Privacy Score:** 96/100
 - **Security Score:** 90/100
-- **Streaming Score:** 98/100 — best streaming VPN tested
+- **Streaming Score:** 98/100 — best streaming score in the comparison
 - **Value Score:** 82/100
 - **Ethics Score:** 88/100
 - **Apps Score:** 95/100

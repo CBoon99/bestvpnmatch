@@ -1,6 +1,6 @@
 # Best VPN Match
 
-> Editorial VPN comparison site. Weighted scores from public audits, jurisdiction, features and published pricing across 15 VPN services. No paid placement. Updated June 2026.
+> Independent VPN comparison and decision-engine platform. Weighted scores from public audits, jurisdiction, features and published pricing across 15 VPN services. No paid placement. Updated June 2026.
 
 ## What this site does
 
@@ -61,7 +61,7 @@ Best VPN Match scores VPN services across 8 weighted categories using **public, 
 - [FAQ (15 questions, FAQPage schema)](https://bestvpnmatch.com/#faq)
 - [Methodology](https://bestvpnmatch.com/#methodology)
 - [Niche guides hub](https://bestvpnmatch.com/#guides)
-- [Reviews index](https://bestvpnmatch.com/reviews)
+- [Scores index](https://bestvpnmatch.com/reviews)
 - [Data sources](https://bestvpnmatch.com/DATA-SOURCES.md)
 - [Methodology / full scoring rubric](https://bestvpnmatch.com/methodology)
 - [About / maintainer](https://bestvpnmatch.com/about)
@@ -88,9 +88,9 @@ Best VPN Match scores VPN services across 8 weighted categories using **public, 
 - [Router VPN](https://bestvpnmatch.com/best-vpn-for-router)
 - [UAE & Dubai](https://bestvpnmatch.com/best-vpn-for-uae)
 
-### Reviews
-- [NordVPN review](https://bestvpnmatch.com/nordvpn-review)
-- [ExpressVPN review](https://bestvpnmatch.com/expressvpn-review)
+### Scorecards
+- [NordVPN scorecard](https://bestvpnmatch.com/nordvpn-review)
+- [ExpressVPN scorecard](https://bestvpnmatch.com/expressvpn-review)
 - [NordVPN vs ExpressVPN](https://bestvpnmatch.com/nordvpn-vs-expressvpn)
 
 Full data: /llms-full.txt
