@@ -1004,10 +1004,28 @@
       gap: 0.5rem;
     }
     .hero__stats li::before {
-      content: "✓";
-      color: var(--amber);
-      font-weight: 700;
-      font-size: 0.75rem;
+      content: "";
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      margin-right: 0.25rem;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23FBBF24'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      vertical-align: -0.125em;
+    }
+    .inline-check,
+    .inline-arrow {
+      display: inline-block;
+      vertical-align: -0.125em;
+      margin: 0 0.25rem;
+    }
+    .inline-check {
+      color: currentColor;
+    }
+    .inline-arrow {
+      color: currentColor;
     }
     .hero__search-wrap {
       max-width: 32rem;
@@ -2641,7 +2659,7 @@
     <div class="promo-bar" id="promo-bar" role="banner">
       <span class="promo-bar__text"><svg class="promo-bar__icon" viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M7.5 10V7.5a4.5 4.5 0 0 1 9 0V10" fill="none" stroke="#22c55e" stroke-width="2.2" stroke-linecap="round"/><rect x="5" y="10" width="14" height="9.5" rx="2.5" fill="#22c55e"/></svg> <strong>Top Rated:</strong> <span id="promo-name">NordVPN</span></span>
       <span class="promo-bar__deal" id="promo-savings">Editorial pick</span>
-      <a href="#scorecards" class="promo-bar__cta" id="promo-cta">See top picks →</a>
+      <a href="#scorecards" class="promo-bar__cta" id="promo-cta">See top picks <svg class="inline-arrow" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       <button class="promo-bar__close" id="promo-close" aria-label="Close">✕</button>
     </div>
 
@@ -2653,7 +2671,7 @@
             <div class="hero__trust-pills">
               <span class="hero__trust-pill">15 VPNs analysed</span>
               <span class="hero__trust-pill">No paid rankings</span>
-              <span class="hero__trust-pill">✓ 100% independent</span>
+              <span class="hero__trust-pill"><svg class="inline-check" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" fill="currentColor"/></svg> 100% independent</span>
             </div>
             <p class="hero__tagline">We score VPNs using public audits, real features and published pricing across 8 key categories.</p>
             <div class="hero__search-wrap">
@@ -2671,7 +2689,7 @@
               <ul id="search-suggestions" class="search-suggestions" role="listbox" aria-label="Search suggestions"></ul>
             </div>
             <div class="hero__ctas">
-              <a href="#match-quiz" class="btn btn--primary btn--lg">Compare your needs →</a>
+              <a href="#match-quiz" class="btn btn--primary btn--lg">Compare your needs <svg class="inline-arrow" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
               <a href="#compare" class="btn btn--ghost btn--lg">Compare all</a>
             </div>
             <p class="hero__note">No sign up. No email. Just honest data.</p>
@@ -2771,7 +2789,7 @@
               <span class="intent-tile__sub">Best price to value</span>
             </button>
           </div>
-          <a href="#categories" class="intent-show-all">Show all use cases →</a>
+          <a href="#categories" class="intent-show-all">Show all use cases <svg class="inline-arrow" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           <div id="intent-result" class="intent-result"></div>
         </div>
       </section>
@@ -2859,7 +2877,7 @@
             <h2 class="section__title">Compare Every VPN Side by Side</h2>
             <p class="section__lead">All 15 VPNs compared across speed, score, and price. Use filters to narrow by use case, or checkboxes to compare up to 4 VPNs side by side.</p>
           </header>
-          <p class="table-intro"><strong>Want the full data?</strong> Compare every metric below. Use filters and search to narrow results. <span style="color:var(--accent-green)">✓ Tip: select up to 4 VPNs with the checkboxes to compare side by side.</span></p>
+          <p class="table-intro"><strong>Want the full data?</strong> Compare every metric below. Use filters and search to narrow results. <span style="color:var(--accent-green)"><svg class="inline-check" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" focusable="false"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" fill="currentColor"/></svg> Tip: select up to 4 VPNs with the checkboxes to compare side by side.</span></p>
 
           <div class="featured-chips" role="group" aria-label="Quick search">
             <button type="button" class="featured-chip" data-search="Netflix">Best for Netflix</button>
@@ -2933,7 +2951,7 @@
               <tbody id="table-body"></tbody>
             </table>
           </div>
-          <p class="table-scroll-hint">← Swipe to see all columns →</p>
+          <p class="table-scroll-hint"><svg class="inline-arrow" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" focusable="false"><path d="M15 19l-7-7 7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Swipe to see all columns <svg class="inline-arrow" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></p>
         </div>
       </section>
 
@@ -3067,7 +3085,7 @@
         <p style="font-size:2rem;margin:0 0 0.5rem;text-align:center">⏳</p>
         <h3 id="exit-modal-title" style="margin:0 0 0.5rem;font-size:1.2rem;text-align:center">Wait — prices change daily</h3>
         <p style="font-size:0.88rem;color:var(--ink-muted,#666);text-align:center;margin:0 0 1.25rem">Today's best deal: <strong id="exit-vpn-name"></strong> at <strong id="exit-vpn-price"></strong>/mo — <strong id="exit-vpn-saving"></strong></p>
-        <a id="exit-cta" href="#" class="btn btn--primary" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;width:100%;margin-bottom:0.6rem">Visit official site →</a>
+        <a id="exit-cta" href="#" class="btn btn--primary" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;width:100%;margin-bottom:0.6rem">Visit official site <svg class="inline-arrow" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <button type="button" id="exit-dismiss" style="display:block;width:100%;background:none;border:none;font-size:0.78rem;color:var(--ink-muted,#999);cursor:pointer;text-align:center">No thanks, I'll pay full price</button>
       </div>
     </div>
