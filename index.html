@@ -3890,6 +3890,7 @@
 
         const rows = table.querySelectorAll("tr");
         rows.forEach(row => {
+          // Hide/show Speed column and breakdown rows
           const cells = row.querySelectorAll("th, td");
           cells.forEach((cell, idx) => {
             if (HIDDEN_IN_SIMPLE.includes(idx) && mode === "simple") {
@@ -3898,6 +3899,11 @@
               cell.style.display = "";
             }
           });
+
+          // In Advanced mode, auto-expand breakdown rows (8-category details)
+          if (row.classList.contains("score-breakdown-row")) {
+            row.hidden = mode === "simple";
+          }
         });
 
         // Save preference if "Remember" is checked
