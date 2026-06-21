@@ -3059,7 +3059,7 @@
             <div style="display:flex;align-items:baseline;justify-content:space-between">
               <div>
                 <h3 style="margin:0;font-size:1rem;font-weight:700;color:var(--text-primary)">Choose Your Comparison Style</h3>
-                <p style="margin:0.25rem 0 0;font-size:0.875rem;color:var(--text-secondary);line-height:1.4"><strong>Simple:</strong> Essentials (Name, Score, Price). <strong>Advanced:</strong> Add Speed column. Click ▶ any row to expand all 8 category scores (Privacy, Speed, Security, Streaming, Value, Ethics, Apps, Connections). Same rankings — just different detail levels.</p>
+                <p style="margin:0.25rem 0 0;font-size:0.875rem;color:var(--text-secondary);line-height:1.4"><strong>Simple:</strong> Essentials only (Name, Overall Score, Price). <strong>Advanced:</strong> Full breakdown with all 8 categories (Speed, Privacy, Security, Streaming, Value, Ethics, Apps, Connections). Same rankings — just different detail levels. Scroll horizontally on mobile.</p>
               </div>
             </div>
 
@@ -3129,11 +3129,18 @@
               <thead>
                 <tr>
                   <th scope="col" style="width:44px;text-align:center">Compare</th>
-                  <th scope="col" data-sort="original" class="sortable">VPN <span class="sort-indicator"></span></th>
+                  <th scope="col" data-sort="original" class="sortable" style="position:sticky;left:44px;background:var(--bg-elevated);z-index:2">VPN <span class="sort-indicator"></span></th>
                   <th scope="col">Visit</th>
                   <th scope="col" data-sort="score" class="sortable">Score <span class="score-tooltip" tabindex="0">ⓘ<span class="tooltip-text">20% Speed · 25% Privacy · 15% Security · 10% Streaming · 10% Value · 10% Ethics · 5% Apps · 5% Connections</span></span> <span class="sort-indicator"></span></th>
-                  <th scope="col" data-sort="similarity" class="sortable">Speed <span class="sort-indicator"></span></th>
-                  <th scope="col" data-sort="price" class="sortable">Price / mo <span class="sort-indicator"></span></th>
+                  <th scope="col" data-sort="speed" class="sortable" style="text-align:center">Speed <span class="sort-indicator"></span></th>
+                  <th scope="col" data-sort="privacy" class="sortable" style="text-align:center">Privacy <span class="sort-indicator"></span></th>
+                  <th scope="col" style="text-align:center">Security</th>
+                  <th scope="col" style="text-align:center">Streaming</th>
+                  <th scope="col" style="text-align:center">Value</th>
+                  <th scope="col" style="text-align:center">Ethics</th>
+                  <th scope="col" style="text-align:center">Apps</th>
+                  <th scope="col" style="text-align:center">Connections</th>
+                  <th scope="col" data-sort="price" class="sortable" style="position:sticky;right:0;background:var(--bg-elevated);z-index:2">Price / mo <span class="sort-indicator"></span></th>
                 </tr>
               </thead>
               <tbody id="table-body"></tbody>
@@ -3474,60 +3481,46 @@
         : `<span class="price-now">${formatPrice(v.monthlyPrice)}</span>`;
 
       const isDiscontinued = v.status === "discontinued";
+
+      // Helper to render score cell with bar + source link
+      const scoreCell = (score, source, label) => `
+        <td style="text-align:center;font-size:0.8rem">
+          <div style="margin-bottom:0.2rem">${renderMiniBar(score)}</div>
+          <span style="font-family:var(--font-mono);font-size:0.72rem;color:var(--text-secondary)">${score}/100</span>${source ? `<a href="${source}" target="_blank" rel="noopener noreferrer" title="${label} source" style="font-size:0.6rem;color:var(--accent-blue);text-decoration:none;margin-left:2px;vertical-align:super">ⓘ</a>` : ""}
+        </td>`;
+
       tr.innerHTML = `
         <td style="text-align:center;width:44px">
           <input type="checkbox" class="compare-checkbox" data-id="${v.id}" aria-label="Select ${v.name} for comparison" style="width:1rem;height:1rem;cursor:pointer;accent-color:var(--accent-blue)"${isDiscontinued ? " disabled" : ""}>
         </td>
-        <td>
+        <td style="min-width:200px;position:sticky;left:44px;background:var(--bg-card);z-index:1">
           <div style="display:flex;align-items:center;gap:0.55rem">
             <div style="flex-shrink:0;${isDiscontinued ? "filter:grayscale(1);opacity:0.6" : ""}">${v.logoIcon}</div>
             <div>
               <div style="font-weight:700;color:var(--text-primary);display:flex;align-items:center;gap:0.3rem">${v.name}${rankBadge}${isDiscontinued ? `<span style="font-size:0.6rem;font-weight:700;padding:0.1rem 0.4rem;border-radius:999px;background:rgba(120,120,120,0.15);color:var(--text-muted);border:1px solid var(--border)">Discontinued</span>` : ""}</div>
-              <div class="bestfor-label">${isDiscontinued ? "Service ended 2024 — links may be offline" : v.bestFor}</div>
+              <div class="bestfor-label">${isDiscontinued ? "Service ended 2024" : v.bestFor}</div>
             </div>
           </div>
         </td>
         <td style="white-space:nowrap">
           ${isDiscontinued
             ? `<span style="font-size:0.75rem;color:var(--text-muted)">Service ended</span>`
-            : `<a href="${v.affiliateLink}" class="btn btn--primary btn--sm btn--deal-full" target="_blank" rel="${outboundRel()}" style="white-space:nowrap">${SITE_CONFIG.affiliateActive ? (v.savingsPct > 0 ? `Save ${v.savingsPct}%` : "Get Deal") : "Visit site"} →</a>
-               ${v.moneyBackGuarantee ? `<div style="font-size:0.6rem;color:var(--text-muted);margin-top:0.2rem">${v.moneyBackGuarantee} MBG</div>` : ""}`}
+            : `<a href="${v.affiliateLink}" class="btn btn--primary btn--sm btn--deal-full" target="_blank" rel="${outboundRel()}" style="white-space:nowrap">${SITE_CONFIG.affiliateActive ? (v.savingsPct > 0 ? `Save ${v.savingsPct}%` : "Get Deal") : "Visit site"} →</a>`}
         </td>
-        <td style="white-space:nowrap">
-          <button class="score-expand-btn" data-target="${v.id}-breakdown" aria-expanded="false" aria-label="Show score breakdown for ${v.name}" title="Show score breakdown">▶</button>
-          <span class="score-pill ${scoreClass}">${v.weightedScore}<span style="font-size:0.7em;opacity:0.65">/100</span></span><a href="/methodology" title="How this score is calculated" style="font-size:0.6rem;color:var(--accent-blue);text-decoration:none;margin-left:2px;vertical-align:super">ⓘ</a>${auditDot(v)}</td>
-        <td>
-          ${renderMiniBar(v.speedScore)}
-          <span style="font-family:var(--font-mono);font-size:0.72rem;color:var(--text-secondary)">${v.speedScore}/100</span>${v.sources?.speed ? `<a href="${v.sources.speed}" target="_blank" rel="noopener noreferrer" title="Speed score source: protocol docs" style="font-size:0.6rem;color:var(--accent-blue);text-decoration:none;margin-left:2px;vertical-align:super">ⓘ</a>` : ""}
+        <td style="white-space:nowrap;text-align:center">
+          <span class="score-pill ${scoreClass}">${v.weightedScore}<span style="font-size:0.7em;opacity:0.65">/100</span></span><a href="/methodology" title="How this score is calculated" style="font-size:0.6rem;color:var(--accent-blue);text-decoration:none;margin-left:2px;vertical-align:super">ⓘ</a>${auditDot(v)}
         </td>
-        <td>${priceHtml}</td>`;
+        ${scoreCell(v.speedScore, v.sources?.speed, "Speed")}
+        ${scoreCell(v.privacyScore, v.sources?.privacy, "Privacy")}
+        ${scoreCell(v.securityScore, v.sources?.security, "Security")}
+        ${scoreCell(v.streamingScore, v.sources?.streaming, "Streaming")}
+        ${scoreCell(v.valueScore, v.sources?.value, "Value")}
+        ${scoreCell(v.ethicsScore, v.sources?.ethics, "Ethics")}
+        ${scoreCell(v.appsScore, v.sources?.apps, "Apps")}
+        ${scoreCell(v.connectionsScore, v.sources?.connections, "Connections")}
+        <td style="white-space:nowrap;text-align:right;position:sticky;right:0;background:var(--bg-card);z-index:1">${priceHtml}</td>`;
 
-      const breakdown = document.createElement("tr");
-      breakdown.id = `${v.id}-breakdown`;
-      breakdown.className = "score-breakdown-row";
-      breakdown.hidden = true;
-      const cats = [
-        { key: "privacy",     label: "Privacy",     score: v.privacyScore,    wt: "25%", src: v.sources?.privacy },
-        { key: "speed",       label: "Speed",       score: v.speedScore,      wt: "20%", src: v.sources?.speed },
-        { key: "security",    label: "Security",    score: v.securityScore,   wt: "15%", src: v.sources?.security },
-        { key: "streaming",   label: "Streaming",   score: v.streamingScore,  wt: "10%", src: v.sources?.streaming },
-        { key: "value",       label: "Value",       score: v.valueScore,      wt: "10%", src: v.sources?.value },
-        { key: "ethics",      label: "Ethics",      score: v.ethicsScore,     wt: "10%", src: v.sources?.ethics },
-        { key: "apps",        label: "Apps",        score: v.appsScore,       wt: "5%",  src: v.sources?.apps },
-        { key: "connections", label: "Connections", score: v.connectionsScore,wt: "5%",  src: v.sources?.connections }
-      ];
-      breakdown.innerHTML = `<td colspan="6"><div class="score-breakdown-grid">${cats.map(c => `
-        <div class="score-breakdown-item">
-          <span class="sb-label">${c.label} <span style="color:var(--text-muted);font-size:0.65em">(${c.wt})</span></span>
-          <span class="sb-val">${c.score ?? "—"}</span>
-          <span class="sb-bar"><span class="sb-bar-fill" style="width:${c.score ?? 0}%"></span></span>
-          ${c.src ? `<a href="${c.src}" target="_blank" rel="noopener noreferrer" title="Source for ${c.label} score" style="font-size:0.65rem;color:var(--accent-blue);text-decoration:none;flex-shrink:0">ⓘ</a>` : ""}
-        </div>`).join("")}</div></td>`;
-
-      const frag = document.createDocumentFragment();
-      frag.appendChild(tr);
-      frag.appendChild(breakdown);
-      return frag;
+      return tr;
     }
 
     /* =====================================================================
@@ -3817,15 +3810,6 @@
       const tbody = document.getElementById("table-body");
       tbody.innerHTML = "";
       VPNS.forEach(v => tbody.appendChild(renderTableRow(v)));
-      tbody.addEventListener("click", e => {
-        const btn = e.target.closest(".score-expand-btn");
-        if (!btn) return;
-        const row = document.getElementById(btn.dataset.target);
-        if (!row) return;
-        const open = btn.getAttribute("aria-expanded") === "true";
-        btn.setAttribute("aria-expanded", String(!open));
-        row.hidden = open;
-      });
     }
 
     /* =====================================================================
@@ -3835,10 +3819,13 @@
       const STORAGE_KEY = "vpn-comparison-mode";
       const REMEMBER_KEY = "vpn-remember-mode";
 
-      // Table columns: 0=checkbox, 1=provider, 2=visit, 3=score, 4=speed, 5=price
-      // Simple mode hides column 4 (speed)
+      // Table columns:
+      // 0=checkbox, 1=provider (sticky), 2=visit, 3=score
+      // 4=speed, 5=privacy, 6=security, 7=streaming, 8=value, 9=ethics, 10=apps, 11=connections
+      // 12=price (sticky)
+      // Simple mode hides columns 4-11 (all 8 category scores)
       // Advanced mode shows all columns
-      const HIDDEN_IN_SIMPLE = [4];  // Speed column
+      const HIDDEN_IN_SIMPLE = [4, 5, 6, 7, 8, 9, 10, 11];  // All 8 category score columns
 
       let currentMode = "simple";
 
