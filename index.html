@@ -3,7 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <!-- Favicons — Layered Shield Symbol (VPN Green #16A34A) -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <!-- Primary SEO -->
   <meta name="google-site-verification" content="cKVnAnsJU0stbd_gbNzvAx8xI73dokp6L9EP5xMkpRw" />
   <title>Best VPN Match — Compare 15 VPNs by Editorial Score (2026)</title>
@@ -508,7 +513,7 @@
       animation: rotateSlow 18s linear infinite;
     }
     .scorecard { background: var(--bg-card) !important; border-color: var(--border) !important; }
-    .scorecard__rank { background: linear-gradient(135deg, #0a5c2e, #16a34a) !important; }
+    .scorecard__rank { background: #E8F5E9 !important; color: #16a34a !important; font-weight: 600 !important; border-radius: 999px !important; }
     .featured-match { background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-card) 50%, var(--bg-dark) 100%) !important; }
     .featured-match__card { background: var(--bg-elevated) !important; border-color: var(--border) !important; }
     .featured-match__card::before { background: linear-gradient(90deg, #0a5c2e, #16a34a, #22c55e) !important; }
@@ -521,10 +526,14 @@
     .comparison-table tbody tr:hover { background: rgba(22,163,74,0.04) !important; }
     .filter-btn.is-active { background: rgba(22,163,74,0.1) !important; border-color: var(--accent-green) !important; color: var(--accent-green) !important; }
     #sort-by-score.is-active { background: rgba(22,163,74,0.1) !important; border-color: var(--accent-green) !important; color: var(--accent-green) !important; }
-    .vpn-icon { font-size: 1.5rem; line-height: 1; }
+    .vpn-icon { font-size: 1.5rem; line-height: 1; display: inline-flex; align-items: center; }
+    .vpn-icon img { height: 32px; width: 32px; object-fit: contain; border-radius: 4px; }
+    .provider-logo { height: 32px; width: 32px; max-width: 100%; object-fit: contain; border-radius: 4px; display: inline-block; }
+    .vpn-name-cell .provider-logo { height: 28px; width: 28px; }
     .vpn-name-cell { display: flex; align-items: center; gap: 0.65rem; }
-    .vpn-name-cell__text strong { display: block; color: var(--text-primary); }
-    .vpn-name-cell__text span { font-size: 0.75rem; color: var(--text-muted); }
+    .vpn-name-cell__text { display: flex; flex-direction: column; gap: 0.15rem; }
+    .vpn-name-cell__text strong { display: block; color: var(--text-primary); font-size: 0.95rem; font-weight: 700; line-height: 1.2; }
+    .vpn-name-cell__text span { font-size: 0.8125rem; color: var(--text-muted); font-weight: 400; line-height: 1.4; }
     .metric__bar { height: 6px; background: rgba(139,147,175,0.15); border-radius: 999px; overflow: hidden; margin: 0.35rem 0; }
     .metric__bar span { display: block; height: 100%; background: var(--accent-green); border-radius: 999px; }
     .site-footer { background: var(--bg-card) !important; border-top: 1px solid var(--border); }
@@ -1832,9 +1841,10 @@
       color: var(--ink-soft);
       margin: 0;
     }
-    .scorecard__header { display: flex; align-items: center; gap: 0.6rem; }
-    .scorecard__icon { font-size: 1.4rem; flex-shrink: 0; }
-    .scorecard__name { font-size: 1rem; font-weight: 700; color: var(--text-primary); margin: 0; flex: 1; }
+    .scorecard__header { display: flex; align-items: center; gap: 0.75rem; }
+    .scorecard__icon { font-size: 1.4rem; flex-shrink: 0; display: flex; align-items: center; }
+    .scorecard__icon img { height: 36px; width: 36px; border-radius: 4px; }
+    .scorecard__name { font-size: 1.125rem; font-weight: 700; color: var(--text-primary); margin: 0; flex: 1; line-height: 1.3; }
     .scorecard__badge { font-size: 0.68rem; font-weight: 600; padding: 0.18rem 0.5rem; border-radius: 999px; background: rgba(22,163,74,0.1); color: var(--accent-green); border: 1px solid rgba(22,163,74,0.25); white-space: nowrap; }
     .scorecard__metrics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem 1rem; }
     .metric { display: flex; flex-direction: column; gap: 0.15rem; }
@@ -2269,6 +2279,60 @@
       color: var(--accent-blue);
       transform: rotate(20deg);
     }
+    .theme-icon {
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      color: currentColor;
+      transition: display 0.2s;
+    }
+
+    /* Provider logo image rendering - comprehensive */
+    img.provider-logo {
+      height: 32px;
+      width: 32px;
+      max-width: 100%;
+      object-fit: contain;
+      border-radius: 4px;
+      display: inline-block;
+      vertical-align: middle;
+      flex-shrink: 0;
+    }
+    .vpn-icon img.provider-logo { height: 24px; width: 24px; }
+    .scorecard__icon img.provider-logo { height: 28px; width: 28px; }
+    .vpn-name-cell img.provider-logo { height: 24px; width: 24px; }
+    .featured-match__scent { display: flex; align-items: center; gap: 1rem; }
+    .featured-match__scent > div:first-child { flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+    .featured-match__scent img.provider-logo { height: 40px; width: 40px; }
+    .featured-match__scent strong { font-size: 1.25rem; font-weight: 700; color: var(--text-primary); line-height: 1.2; display: block; }
+    .featured-match__scent span { font-size: 0.875rem; color: var(--text-secondary); line-height: 1.4; }
+
+    /* Typography system - BestMatch brand alignment */
+    .label-eyebrow {
+      font-size: 0.8125rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-green);
+      margin: 0 0 0.5rem;
+    }
+    .card-title {
+      font-size: 1.375rem;
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--text-primary);
+    }
+    .card-descriptor {
+      font-size: 0.9375rem;
+      font-weight: 400;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+    .table-text {
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
     /* Smooth colour transitions site-wide when theme switches */
     *, *::before, *::after {
       transition-property: background-color, border-color, color, box-shadow;
@@ -2535,7 +2599,7 @@
             <li><a href="/about">About</a></li>
           </ul>
         </nav>
-        <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark / light mode">Dark</button>
+        <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark / light mode"><svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="2"/><line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         <a href="#match-quiz" class="nav-cta">Compare needs</a>
         <button type="button" class="mobile-menu-toggle" aria-label="Menu" aria-expanded="false">☰</button>
       </div>
@@ -2886,6 +2950,29 @@
             <button type="button" class="featured-chip" data-search="unlimited">Unlimited Devices</button>
             <button type="button" class="featured-chip" data-search="free">Free Tier VPNs</button>
             <button type="button" class="featured-chip" data-search="China">Works in China</button>
+          </div>
+
+          <!-- Simple / Advanced Comparison Toggle — PROMINENT CTA -->
+          <div style="background:linear-gradient(135deg, rgba(22,163,74,0.08) 0%, rgba(22,163,74,0.04) 100%);border:2px solid var(--accent-green);border-radius:calc(var(--radius) + 4px);padding:1.25rem;margin:2rem 0 1.5rem;display:flex;flex-direction:column;gap:0.75rem">
+            <!-- Header -->
+            <div style="display:flex;align-items:baseline;justify-content:space-between">
+              <div>
+                <h3 style="margin:0;font-size:1rem;font-weight:700;color:var(--text-primary)">Comparison View</h3>
+                <p style="margin:0.25rem 0 0;font-size:0.875rem;color:var(--text-secondary);line-height:1.4">Switch between quick overview and full data — same scores, same rankings, just different detail levels.</p>
+              </div>
+            </div>
+
+            <!-- Toggle Buttons -->
+            <div style="display:flex;align-items:center;gap:1rem">
+              <div role="group" aria-label="Comparison mode" style="display:flex;gap:0.3rem;border:1px solid var(--border);border-radius:calc(var(--radius) - 2px);padding:0.3rem;background:var(--bg-card)">
+                <button type="button" id="mode-simple-btn" style="font-size:0.9rem;font-weight:600;padding:0.5rem 1rem;margin:0;border:none;border-radius:4px;background:var(--accent-green);color:white;cursor:pointer;transition:all 0.2s;box-shadow:0 2px 4px rgba(22,163,74,0.2)" aria-pressed="true">Simple</button>
+                <button type="button" id="mode-advanced-btn" style="font-size:0.9rem;font-weight:600;padding:0.5rem 1rem;margin:0;border:none;border-radius:4px;background:transparent;color:var(--text-secondary);cursor:pointer;transition:all 0.2s" aria-pressed="false">Advanced</button>
+              </div>
+              <label style="font-size:0.8rem;color:var(--text-secondary);display:flex;align-items:center;gap:0.4rem;cursor:pointer;white-space:nowrap">
+                <input type="checkbox" id="remember-mode" style="cursor:pointer;width:1rem;height:1rem;accent-color:var(--accent-green)">
+                Remember preference
+              </label>
+            </div>
           </div>
 
           <div class="filters-toolbar">
@@ -3249,7 +3336,7 @@
                        : v.weightedScore >= 78 ? "score-pill--excellent"
                        : "score-pill--good";
       const rankBadge = v.ranking <= 3
-        ? `<span style="font-size:0.62rem;font-weight:800;padding:0.1rem 0.4rem;border-radius:999px;background:${v.ranking===1?"rgba(10,92,46,0.15)":v.ranking===2?"rgba(22,163,74,0.12)":"rgba(22,163,74,0.08)"};color:${v.ranking===1?"#0a5c2e":v.ranking===2?"var(--accent-green)":"var(--accent-green)"};margin-left:0.3rem">#${v.ranking}</span>` : "";
+        ? `<span style="font-size:0.62rem;font-weight:800;padding:0.1rem 0.4rem;border-radius:999px;background:#E8F5E9;color:#16a34a;margin-left:0.3rem">Rank #${v.ranking}</span>` : "";
       const priceHtml = (v.savingsPct > 0 && SITE_CONFIG.affiliateActive)
         ? `<span class="price-was">${formatPrice(v.regularPrice)}</span> <span class="price-now">${formatPrice(v.monthlyPrice)}</span><br><span class="savings-badge">-${v.savingsPct}%</span>`
         : `<span class="price-now">${formatPrice(v.monthlyPrice)}</span>`;
@@ -3261,7 +3348,7 @@
         </td>
         <td>
           <div style="display:flex;align-items:center;gap:0.55rem">
-            <span style="font-size:1.4rem;${isDiscontinued ? "filter:grayscale(1);opacity:0.6" : ""}">${v.logoIcon}</span>
+            <div style="flex-shrink:0;${isDiscontinued ? "filter:grayscale(1);opacity:0.6" : ""}">${v.logoIcon}</div>
             <div>
               <div style="font-weight:700;color:var(--text-primary);display:flex;align-items:center;gap:0.3rem">${v.name}${rankBadge}${isDiscontinued ? `<span style="font-size:0.6rem;font-weight:700;padding:0.1rem 0.4rem;border-radius:999px;background:rgba(120,120,120,0.15);color:var(--text-muted);border:1px solid var(--border)">Discontinued</span>` : ""}</div>
               <div class="bestfor-label">${isDiscontinued ? "Service ended 2024 — links may be offline" : v.bestFor}</div>
@@ -3505,7 +3592,7 @@
           <div>
             <p class="featured-match__badge">#${v.ranking} · ${scoreGrade(v.weightedScore)} · Editor's Pick ${savingsHtml}</p>
             <div class="featured-match__pair">
-              <div class="featured-match__scent"><span class="vpn-icon" style="font-size:2rem">${v.logoIcon}</span><div><strong>${v.name}</strong><span>${v.tagline}</span></div></div>
+              <div class="featured-match__scent"><div style="width:48px;height:48px;display:flex;align-items:center;justify-content:center;flex-shrink:0">${v.logoIcon}</div><div><strong>${v.name}</strong><span>${v.tagline}</span></div></div>
             </div>
           </div>
           <div class="featured-match__metrics">
@@ -3608,6 +3695,114 @@
         row.hidden = open;
       });
     }
+
+    /* =====================================================================
+       SIMPLE / ADVANCED COMPARISON MODE
+       ===================================================================== */
+    (function initComparisonMode() {
+      const STORAGE_KEY = "vpn-comparison-mode";
+      const REMEMBER_KEY = "vpn-remember-mode";
+
+      // Table columns: 0=checkbox, 1=provider, 2=visit, 3=score, 4=speed, 5=price
+      // Simple mode hides column 4 (speed)
+      // Advanced mode shows all columns
+      const HIDDEN_IN_SIMPLE = [4];  // Speed column
+
+      let currentMode = "simple";
+
+      function getInitialMode() {
+        // Priority: URL param > localStorage > default
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has("mode")) {
+          const mode = urlParams.get("mode");
+          if (["simple", "advanced"].includes(mode)) return mode;
+        }
+
+        try {
+          const remember = localStorage.getItem(REMEMBER_KEY);
+          if (remember === "true") {
+            const saved = localStorage.getItem(STORAGE_KEY);
+            if (saved && ["simple", "advanced"].includes(saved)) return saved;
+          }
+        } catch(e) {}
+
+        return "simple";
+      }
+
+      function setMode(mode) {
+        currentMode = mode;
+
+        // Update button styles
+        const simpleBtn = document.getElementById("mode-simple-btn");
+        const advBtn = document.getElementById("mode-advanced-btn");
+
+        if (mode === "simple") {
+          simpleBtn.style.background = "var(--bg-card)";
+          simpleBtn.style.color = "var(--text-primary)";
+          simpleBtn.setAttribute("aria-pressed", "true");
+          advBtn.style.background = "transparent";
+          advBtn.style.color = "var(--text-secondary)";
+          advBtn.setAttribute("aria-pressed", "false");
+        } else {
+          simpleBtn.style.background = "transparent";
+          simpleBtn.style.color = "var(--text-secondary)";
+          simpleBtn.setAttribute("aria-pressed", "false");
+          advBtn.style.background = "var(--bg-card)";
+          advBtn.style.color = "var(--text-primary)";
+          advBtn.setAttribute("aria-pressed", "true");
+        }
+
+        // Show/hide columns based on mode
+        const table = document.getElementById("comparison-table");
+        if (!table) return;
+
+        const rows = table.querySelectorAll("tr");
+        rows.forEach(row => {
+          const cells = row.querySelectorAll("th, td");
+          cells.forEach((cell, idx) => {
+            if (HIDDEN_IN_SIMPLE.includes(idx) && mode === "simple") {
+              cell.style.display = "none";
+            } else {
+              cell.style.display = "";
+            }
+          });
+        });
+
+        // Save preference if "Remember" is checked
+        try {
+          const remember = document.getElementById("remember-mode");
+          if (remember && remember.checked) {
+            localStorage.setItem(STORAGE_KEY, mode);
+            localStorage.setItem(REMEMBER_KEY, "true");
+          }
+        } catch(e) {}
+      }
+
+      // Initialize on page load
+      const initialMode = getInitialMode();
+
+      // Set initial mode after table is rendered
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", () => setMode(initialMode));
+      } else {
+        // Table already exists
+        setTimeout(() => setMode(initialMode), 100);
+      }
+
+      // Event listeners
+      const simpleBtn = document.getElementById("mode-simple-btn");
+      const advBtn = document.getElementById("mode-advanced-btn");
+      if (simpleBtn) simpleBtn.addEventListener("click", () => setMode("simple"));
+      if (advBtn) advBtn.addEventListener("click", () => setMode("advanced"));
+
+      // Restore "Remember" checkbox state
+      try {
+        const remember = document.getElementById("remember-mode");
+        if (remember && localStorage.getItem(REMEMBER_KEY) === "true") {
+          remember.checked = true;
+        }
+      } catch(e) {}
+    })();
 
     function initScorecards() {
       document.getElementById("scorecards").innerHTML = SCORECARDS.map(renderScorecard).join("");
@@ -4226,7 +4421,15 @@
 
       function applyTheme(dark) {
         document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
-        btn.textContent = dark ? "Light" : "Dark";
+        const sunIcon = btn.querySelector(".theme-icon-sun");
+        const moonIcon = btn.querySelector(".theme-icon-moon");
+        if (dark) {
+          sunIcon.style.display = "none";
+          moonIcon.style.display = "inline-block";
+        } else {
+          sunIcon.style.display = "inline-block";
+          moonIcon.style.display = "none";
+        }
         btn.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
       }
 
