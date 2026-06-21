@@ -3059,7 +3059,7 @@
             <div style="display:flex;align-items:baseline;justify-content:space-between">
               <div>
                 <h3 style="margin:0;font-size:1rem;font-weight:700;color:var(--text-primary)">Choose Your Comparison Style</h3>
-                <p style="margin:0.25rem 0 0;font-size:0.875rem;color:var(--text-secondary);line-height:1.4"><strong>Simple:</strong> Name, score, price only. <strong>Advanced:</strong> Full 8-category breakdown (speed, privacy, security, streaming, value, ethics, apps, connections). Same rankings — just different detail levels.</p>
+                <p style="margin:0.25rem 0 0;font-size:0.875rem;color:var(--text-secondary);line-height:1.4"><strong>Simple:</strong> Essentials (Name, Score, Price). <strong>Advanced:</strong> Add Speed column. Click ▶ any row to expand all 8 category scores (Privacy, Speed, Security, Streaming, Value, Ethics, Apps, Connections). Same rankings — just different detail levels.</p>
               </div>
             </div>
 
@@ -3890,7 +3890,7 @@
 
         const rows = table.querySelectorAll("tr");
         rows.forEach(row => {
-          // Hide/show Speed column and breakdown rows
+          // Hide/show Speed column
           const cells = row.querySelectorAll("th, td");
           cells.forEach((cell, idx) => {
             if (HIDDEN_IN_SIMPLE.includes(idx) && mode === "simple") {
@@ -3899,12 +3899,11 @@
               cell.style.display = "";
             }
           });
-
-          // In Advanced mode, auto-expand breakdown rows (8-category details)
-          if (row.classList.contains("score-breakdown-row")) {
-            row.hidden = mode === "simple";
-          }
         });
+
+        // Breakdown rows stay collapsed by default in both modes
+        // Users click ▶ expand button to reveal 8 detailed metrics
+        // No auto-expansion (clean table, better mobile UX)
 
         // Save preference if "Remember" is checked
         try {
