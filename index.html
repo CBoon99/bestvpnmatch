@@ -3868,23 +3868,29 @@
       function setMode(mode) {
         currentMode = mode;
 
+        // Get computed color values from CSS variables
+        const root = document.documentElement;
+        const bgCard = getComputedStyle(root).getPropertyValue('--bg-card').trim() || '#f8fafc';
+        const textPrimary = getComputedStyle(root).getPropertyValue('--text-primary').trim() || '#0f172a';
+        const textSecondary = getComputedStyle(root).getPropertyValue('--text-secondary').trim() || '#475569';
+
         // Update button styles
         const simpleBtn = document.getElementById("mode-simple-btn");
         const advBtn = document.getElementById("mode-advanced-btn");
 
         if (mode === "simple") {
-          simpleBtn.style.background = "var(--bg-card)";
-          simpleBtn.style.color = "var(--text-primary)";
+          simpleBtn.style.background = bgCard;
+          simpleBtn.style.color = textPrimary;
           simpleBtn.setAttribute("aria-pressed", "true");
           advBtn.style.background = "transparent";
-          advBtn.style.color = "var(--text-secondary)";
+          advBtn.style.color = textSecondary;
           advBtn.setAttribute("aria-pressed", "false");
         } else {
           simpleBtn.style.background = "transparent";
-          simpleBtn.style.color = "var(--text-secondary)";
+          simpleBtn.style.color = textSecondary;
           simpleBtn.setAttribute("aria-pressed", "false");
-          advBtn.style.background = "var(--bg-card)";
-          advBtn.style.color = "var(--text-primary)";
+          advBtn.style.background = bgCard;
+          advBtn.style.color = textPrimary;
           advBtn.setAttribute("aria-pressed", "true");
         }
 
