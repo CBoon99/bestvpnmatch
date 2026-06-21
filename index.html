@@ -3065,9 +3065,9 @@
 
             <!-- Toggle Buttons -->
             <div style="display:flex;align-items:center;gap:1rem">
-              <div role="group" aria-label="Comparison mode" style="display:flex;gap:0.3rem;border:1px solid var(--border);border-radius:calc(var(--radius) - 2px);padding:0.3rem;background:var(--bg-card)">
-                <button type="button" id="mode-simple-btn" style="font-size:0.9rem;font-weight:600;padding:0.5rem 1rem;margin:0;border:none;border-radius:4px;cursor:pointer;transition:all 0.2s;background:var(--text-primary);color:white" aria-pressed="true">Simple</button>
-                <button type="button" id="mode-advanced-btn" style="font-size:0.9rem;font-weight:600;padding:0.5rem 1rem;margin:0;border:none;border-radius:4px;cursor:pointer;transition:all 0.2s;background:transparent;color:var(--text-secondary)" aria-pressed="false">Advanced</button>
+              <div role="group" aria-label="Comparison mode" style="display:flex;gap:0.3rem;border:1px solid #e2e8f0;border-radius:8px;padding:4px;background:#f8fafc">
+                <button type="button" id="mode-simple-btn" style="font-size:0.9rem;font-weight:600;padding:0.5rem 1rem;margin:0;border:none;border-radius:4px;cursor:pointer;transition:all 0.2s;background:#0f172a;color:white" aria-pressed="true">Simple</button>
+                <button type="button" id="mode-advanced-btn" style="font-size:0.9rem;font-weight:600;padding:0.5rem 1rem;margin:0;border:none;border-radius:4px;cursor:pointer;transition:all 0.2s;background:transparent;color:#64748b" aria-pressed="false">Advanced</button>
               </div>
               <label style="font-size:0.8rem;color:var(--text-secondary);display:flex;align-items:center;gap:0.4rem;cursor:pointer;white-space:nowrap">
                 <input type="checkbox" id="remember-mode" style="cursor:pointer;width:1rem;height:1rem;accent-color:var(--accent-green)">
@@ -3864,29 +3864,23 @@
       function setMode(mode) {
         currentMode = mode;
 
-        // Get computed color values from CSS variables
-        const root = document.documentElement;
-        const bgCard = getComputedStyle(root).getPropertyValue('--bg-card').trim() || '#f8fafc';
-        const textPrimary = getComputedStyle(root).getPropertyValue('--text-primary').trim() || '#0f172a';
-        const textSecondary = getComputedStyle(root).getPropertyValue('--text-secondary').trim() || '#475569';
-
         // Update button styles
         const simpleBtn = document.getElementById("mode-simple-btn");
         const advBtn = document.getElementById("mode-advanced-btn");
 
         if (mode === "simple") {
-          simpleBtn.style.background = bgCard;
-          simpleBtn.style.color = textPrimary;
+          simpleBtn.style.background = "#0f172a";
+          simpleBtn.style.color = "white";
           simpleBtn.setAttribute("aria-pressed", "true");
           advBtn.style.background = "transparent";
-          advBtn.style.color = textSecondary;
+          advBtn.style.color = "#64748b";
           advBtn.setAttribute("aria-pressed", "false");
         } else {
           simpleBtn.style.background = "transparent";
-          simpleBtn.style.color = textSecondary;
+          simpleBtn.style.color = "#64748b";
           simpleBtn.setAttribute("aria-pressed", "false");
-          advBtn.style.background = bgCard;
-          advBtn.style.color = textPrimary;
+          advBtn.style.background = "#0f172a";
+          advBtn.style.color = "white";
           advBtn.setAttribute("aria-pressed", "true");
         }
 
