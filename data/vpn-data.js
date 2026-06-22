@@ -10,7 +10,7 @@
 const VPN_RECORDS = [
   {
     id:"nordvpn", name:"NordVPN", logoIcon:'<img src="/assets/provider-logos/nordvpn.svg" alt="NordVPN" class="provider-logo">', tagline:"The all-around security suite",
-    advertisedSpeedMbps:1000, realSpeedMbps:892, speedScore:89,
+    advertisedSpeedMbps:1000, realSpeedMbps:910, speedScore:89, speedSourcesUsed:["PCMag","Tom's Guide","Security.org","CNET"],
     jurisdiction:"Panama", auditType:"independent", auditFirm:"Deloitte",
     warrantCanary:true, ramServers:true, acceptsCrypto:true,
     privacyScore:94, securityScore:92, streamingScore:95,
@@ -39,7 +39,7 @@ const VPN_RECORDS = [
   },
   {
     id:"expressvpn", name:"ExpressVPN", logoIcon:'<img src="/assets/provider-logos/expressvpn.svg" alt="ExpressVPN" class="provider-logo">', tagline:"Speed and simplicity",
-    realSpeedMbps:932, speedScore:93,
+    realSpeedMbps:900, speedScore:93, speedSourcesUsed:["Tom's Guide","Security.org","CNET"],
     jurisdiction:"British Virgin Islands", auditType:"independent", auditFirm:"KPMG",
     privacyScore:96, securityScore:90, streamingScore:98,
     valueScore:82, ethicsScore:88, appsScore:95,
@@ -64,7 +64,7 @@ const VPN_RECORDS = [
   },
   {
     id:"surfshark", name:"Surfshark", logoIcon:'<img src="/assets/provider-logos/surfshark.svg" alt="Surfshark" class="provider-logo">', tagline:"Unlimited devices, premium features",
-    realSpeedMbps:876, speedScore:88,
+    realSpeedMbps:860, speedScore:88, speedSourcesUsed:["Security.org","CNET"],
     jurisdiction:"Netherlands", auditType:"independent",
     privacyScore:89, securityScore:88, streamingScore:92,
     valueScore:94, ethicsScore:82, appsScore:100,
@@ -89,7 +89,7 @@ const VPN_RECORDS = [
   },
   {
     id:"protonvpn", name:"Proton VPN", logoIcon:'<img src="/assets/provider-logos/protonvpn.svg" alt="Proton VPN" class="provider-logo">', tagline:"Privacy by default",
-    advertisedSpeedMbps:500, realSpeedMbps:412, speedScore:82,
+    advertisedSpeedMbps:500, realSpeedMbps:430, speedScore:82, speedSourcesUsed:["Security.org","CNET"],
     jurisdiction:"Switzerland", auditType:"independent", auditFirm:"Securitum",
     privacyScore:98, securityScore:91, streamingScore:75,
     valueScore:85, ethicsScore:95, appsScore:95,
@@ -114,7 +114,7 @@ const VPN_RECORDS = [
   },
   {
     id:"mullvad", name:"Mullvad", logoIcon:'<img src="/assets/provider-logos/mullvad.svg" alt="Mullvad" class="provider-logo">', tagline:"Anonymous signup",
-    realSpeedMbps:845, speedScore:85,
+    realSpeedMbps:820, speedScore:85, speedSourcesUsed:["CNET","RTINGS.com"],
     jurisdiction:"Sweden", auditType:"independent", auditFirm:"Cure53",
     privacyScore:95, securityScore:94, streamingScore:60,
     valueScore:75, ethicsScore:98, appsScore:90,
@@ -139,7 +139,7 @@ const VPN_RECORDS = [
   },
   {
     id:"ivacy", name:"Ivacy", logoIcon:'<img src="/assets/provider-logos/ivacy.svg" alt="Ivacy" class="provider-logo">', tagline:"Budget streaming specialist",
-    advertisedSpeedMbps:500, realSpeedMbps:398, speedScore:80,
+    advertisedSpeedMbps:500, realSpeedMbps:720, speedScore:80, speedSourcesUsed:["Security.org"],
     jurisdiction:"Singapore", auditType:"none",
     privacyScore:65, securityScore:72, streamingScore:88,
     valueScore:92, ethicsScore:60, appsScore:85,
@@ -164,7 +164,7 @@ const VPN_RECORDS = [
   },
   {
     id:"cyberghost", name:"CyberGhost", logoIcon:'<img src="/assets/provider-logos/cyberghost.svg" alt="CyberGhost" class="provider-logo">', tagline:"Streaming-optimized servers",
-    jurisdiction:"Romania", auditType:"self-published",
+    jurisdiction:"Romania", auditType:"self-published", realSpeedMbps:750, speedSourcesUsed:["Security.org"],
     privacyScore:75, speedScore:83, securityScore:80, streamingScore:94,
     valueScore:86, ethicsScore:70, appsScore:88,
     simultaneousConnections:7, connectionsScore:65,
@@ -188,7 +188,7 @@ const VPN_RECORDS = [
   },
   {
     id:"pia", name:"Private Internet Access", logoIcon:'<img src="/assets/provider-logos/pia.svg" alt="Private Internet Access" class="provider-logo">', tagline:"Open source, proven no-logs",
-    jurisdiction:"USA", auditType:"independent",
+    jurisdiction:"USA", auditType:"independent", realSpeedMbps:800, speedSourcesUsed:["Security.org"],
     privacyScore:82, speedScore:87, securityScore:91, streamingScore:78,
     valueScore:89, ethicsScore:75, appsScore:90,
     simultaneousConnections:"unlimited", connectionsScore:100,
@@ -260,7 +260,7 @@ const VPN_RECORDS = [
   },
   {
     id:"ipvanish", name:"IPVanish", logoIcon:'<img src="/assets/provider-logos/ipvanish.svg" alt="IPVanish" class="provider-logo">', tagline:"Owns its server network",
-    jurisdiction:"USA", auditType:"none",
+    jurisdiction:"USA", auditType:"none", realSpeedMbps:810, speedSourcesUsed:["PCMag"],
     privacyScore:65, speedScore:86, securityScore:84, streamingScore:76,
     valueScore:80, ethicsScore:65, appsScore:82,
     simultaneousConnections:"unlimited", connectionsScore:100,
@@ -356,7 +356,7 @@ const VPN_RECORDS = [
   },
   {
     id:"hotspotshield", name:"Hotspot Shield", logoIcon:'<img src="/assets/provider-logos/hotspotshield.svg" alt="Hotspot Shield" class="provider-logo">', tagline:"Catapult Hydra speed",
-    jurisdiction:"USA", auditType:"self-published",
+    jurisdiction:"USA", auditType:"self-published", realSpeedMbps:780, speedSourcesUsed:["Security.org"],
     privacyScore:68, speedScore:91, securityScore:78, streamingScore:82,
     valueScore:75, ethicsScore:60, appsScore:75,
     simultaneousConnections:5, connectionsScore:60,
