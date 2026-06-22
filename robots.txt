@@ -29,6 +29,9 @@ Allow: /
 User-agent: Amazonbot
 Allow: /
 
+User-agent: OAI-SearchBot
+Allow: /
+
 # LLM & AI agent discovery — explicit allow
 # Structured AI context: /llms.txt
 # Full data reference: /llms-full.txt
